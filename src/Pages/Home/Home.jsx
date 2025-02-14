@@ -1,13 +1,28 @@
 import React from 'react'
+import { FaChevronRight } from "react-icons/fa";
+import HeroBg from "../../assets/Img/Rectangle1.png"
+import JoinUs from '../../section/JoinUs';
+import Services from '../../section/Services';
+
 
 function Home() {
   return (
-    <div className='flex gap-6 text-center flex-col text-black font-bold'>
-    <a href="/Register">Register page</a>
-    <a href="/Login">Login page</a>
-    <a href="/ForgotPassword">Forgot Password page</a>
-    <a href="/ResetPassword">Reset Password page</a>
+    <>
+    <div className={`py-48 bg-cover bg-no-repeat`} style={{ backgroundImage: `url(${HeroBg})` }}>
+      <div className="container m-auto">
+        <div className="flex items-center flex-col justify-center content-center">
+          <h2 className='text-white text-4xl font-bold mb-8 text-center w-1/2'>Unleash your sound, the world is tuned in</h2>
+          <button className="flex flex-row items-center gap-4 px-10 py-4 rounded-full font-bold bg-white text-black hover:bg-[#2F00AC] hover:text-white transition">
+            <span>Start Playing</span>
+            <FaChevronRight />
+          </button>
+        </div>
+      </div>
     </div>
+    <JoinUs />
+    <Services />
+
+    </>
   )
 }
 

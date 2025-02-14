@@ -1,0 +1,32 @@
+.showMenuNav {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.795);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.joinusBtn {
+    background: linear-gradient(202.14deg, #29A49F 4.3%, #6017DC 97.29%);
+    border: 2px solid #89DB7B;
+    box-shadow: 4px 4px 30px 0px #89DB7B80;
+}
+
+.joinusBtn:hover {
+    background: linear-gradient(202.14deg, #6017DC 22.42%,  #29A49F 77.58%);
+    border: 2px solid #29A49F;
+    box-shadow: 4px 4px 30px 0px #29A49F80;
+    transition: all;
+}
+
+.MainbgGradient {
+    background: linear-gradient(202.14deg, #29A49F 4.3%, #6017DC 97.29%);
+}
