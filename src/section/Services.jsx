@@ -6,11 +6,36 @@ import PlatformManagement from '../assets/Img/Platform Management.png'
 import Socialmedia from '../assets/Img/Social media.png'
 import ServicesBox from '../Components/servicesBox';
 
-import axios from 'axios';
+import { getServices } from '../actions/getServices';
 
 
 
 const Services = () => {
+
+    const getTextColor = (bgColor) => {
+        let r, g, b;
+
+        if (bgColor.startsWith("#")) {
+            const hex = bgColor.slice(1);
+            if (hex.length === 3) {
+                r = parseInt(hex[0] + hex[0], 16);
+                g = parseInt(hex[1] + hex[1], 16);
+                b = parseInt(hex[2] + hex[2], 16);
+            } else {
+                r = parseInt(hex.slice(0, 2), 16);
+                g = parseInt(hex.slice(2, 4), 16);
+                b = parseInt(hex.slice(4, 6), 16);
+            }
+        } else if (bgColor.startsWith("rgb")) {
+            const rgbValues = bgColor.match(/\d+/g);
+            if (rgbValues) {
+                [r, g, b] = rgbValues.map(Number);
+            }
+        }
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness > 128 ? "black" : "white";
+    };
+
     const ServicesD = [
         {
             "id": 1,
@@ -60,15 +85,12 @@ const Services = () => {
 
 
     useEffect(() => {
-
-        axios.get('http://localhost:8000/api/services')
-            .then(res => setServices(res.data))
-            .catch(err => console.error(err));
+        const services = getServices()
+        setServices(services)
 
         if (services.length === 0) {
             setServices(ServicesD);
         }
-
 
     }, []);
 
@@ -79,16 +101,19 @@ const Services = () => {
                 <p className='text-center font-bold text-xl text-[#29A49F] mb-4'>Satisfy Solution</p>
                 <h2 className='text-center text-4xl font-bold mb-6'>The Best Services we provide</h2>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 pt-12">
-                    {ServicesD.map((service) => (
-                        <ServicesBox
-                            key={service.id}
-                            bgColor={service.bg}
-                            title={service.title}
-                            description={service.description}
-                            link={service.link}
-                            img={service.img}
-                            comingSoon={service.comingSoon}
-                        />
+                    {/* replace ServicesD  */}
+                    {ServicesD.map((service, index) => (
+                        <div key={index}>
+                            <ServicesBox
+                                bgColor={service.bg}
+                                textColor={getTextColor(service.bg)}
+                                title={service.title}
+                                description={service.description}
+                                link={service.link}
+                                img={service.img}
+                                comingSoon={service.comingSoon}
+                            />
+                        </div>
                     ))
                     }
                 </div>

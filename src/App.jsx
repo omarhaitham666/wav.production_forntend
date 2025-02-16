@@ -19,6 +19,7 @@ function App() {
     </>
   );
 
+
   return (
 
       <Routes>
@@ -34,3 +35,5 @@ function App() {
 }
 
 export default App
+
+export const API_ENDPOINT = 'http://localhost:8000/api'

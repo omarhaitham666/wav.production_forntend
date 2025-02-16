@@ -21,7 +21,7 @@
 }
 
 .joinusBtn:hover {
-    background: linear-gradient(202.14deg, #6017DC 22.42%,  #29A49F 77.58%);
+    background: linear-gradient(202.14deg, #6017DC 22.42%, #29A49F 77.58%);
     border: 2px solid #29A49F;
     box-shadow: 4px 4px 30px 0px #29A49F80;
     transition: all;
@@ -29,4 +29,56 @@
 
 .MainbgGradient {
     background: linear-gradient(202.14deg, #29A49F 4.3%, #6017DC 97.29%);
+}
+
+.container-wrap {
+    position: absolute;
+    top: 150px;
+    bottom: 0px;
+    width: 85%;
+    height: 100%;
+}
+
+
+.slider-container {
+    max-width: 100vw;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.slick-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slick-arrow {
+    position: absolute;
+    top: 0;
+}
+
+.slick-prev,
+.slick-next {
+    background-color: #7E7E7E;
+    border-radius: 50%;
+    padding: 6px;
+    font-size: 20px;
+    color: white;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    background-color: #333333;
+}
+
+.slick-prev {
+    right: 50px;
+}
+
+.slick-next {
+    right: 0px;
 }

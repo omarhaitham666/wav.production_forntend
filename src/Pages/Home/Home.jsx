@@ -3,6 +3,7 @@ import { FaChevronRight } from "react-icons/fa";
 import HeroBg from "../../assets/Img/Rectangle1.png"
 import JoinUs from '../../section/JoinUs';
 import Services from '../../section/Services';
+import Videos from '../../section/videos';
 
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
     </div>
     <JoinUs />
     <Services />
+    <Videos />
 
     </>
   )
