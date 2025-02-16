@@ -6,7 +6,7 @@ function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <header>
-      <nav className="bg-transparent fixed top-0 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 w-full">
+      <nav className="bg-transparent z-50 fixed top-0 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 w-full">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <div className="flex items-center gap-12">
             <a href="/" className="">
