@@ -8,6 +8,7 @@ import Register from './Pages/Auth/Register';
 import Login from './Pages/Auth/Login';
 import ForgotPassword from './Pages/Auth/ForgotPassword';
 import ResetPassword from './Pages/Auth/ResetPassword';
+import JoinUs from './Pages/Join Us/JoinUs';
 
 function App() {
   const Layout = ({ children }) => (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
+        <Route path="/join us" element={<Layout ><JoinUs /></Layout>} />
 
       </Routes>
 

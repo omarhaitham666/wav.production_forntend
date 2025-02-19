@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../assets/Img/logo.png'
 import { MdMenu, MdClose } from "react-icons/md";
 
 function Header() {
+
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 600) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
   return (
     <header>
-      <nav className="bg-transparent z-50 fixed top-0 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 w-full">
+      <nav className={`${isScrolled? 'bg-black shadow-2xl' :'bg-transparent'} transition-all duration-500 z-50 fixed top-0 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 w-full`}>
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <div className="flex items-center gap-12">
             <a href="/" className="">

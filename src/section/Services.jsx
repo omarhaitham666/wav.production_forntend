@@ -12,29 +12,7 @@ import { getServices } from '../actions/getServices';
 
 const Services = () => {
 
-    const getTextColor = (bgColor) => {
-        let r, g, b;
-
-        if (bgColor.startsWith("#")) {
-            const hex = bgColor.slice(1);
-            if (hex.length === 3) {
-                r = parseInt(hex[0] + hex[0], 16);
-                g = parseInt(hex[1] + hex[1], 16);
-                b = parseInt(hex[2] + hex[2], 16);
-            } else {
-                r = parseInt(hex.slice(0, 2), 16);
-                g = parseInt(hex.slice(2, 4), 16);
-                b = parseInt(hex.slice(4, 6), 16);
-            }
-        } else if (bgColor.startsWith("rgb")) {
-            const rgbValues = bgColor.match(/\d+/g);
-            if (rgbValues) {
-                [r, g, b] = rgbValues.map(Number);
-            }
-        }
-        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-        return brightness > 128 ? "black" : "white";
-    };
+    const [services, setServices] = useState([]);
 
     const ServicesD = [
         {
@@ -80,8 +58,30 @@ const Services = () => {
 
         }
     ]
+    const getTextColor = (bgColor) => {
+        let r, g, b;
 
-    const [services, setServices] = useState([]);
+        if (bgColor.startsWith("#")) {
+            const hex = bgColor.slice(1);
+            if (hex.length === 3) {
+                r = parseInt(hex[0] + hex[0], 16);
+                g = parseInt(hex[1] + hex[1], 16);
+                b = parseInt(hex[2] + hex[2], 16);
+            } else {
+                r = parseInt(hex.slice(0, 2), 16);
+                g = parseInt(hex.slice(2, 4), 16);
+                b = parseInt(hex.slice(4, 6), 16);
+            }
+        } else if (bgColor.startsWith("rgb")) {
+            const rgbValues = bgColor.match(/\d+/g);
+            if (rgbValues) {
+                [r, g, b] = rgbValues.map(Number);
+            }
+        }
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness > 128 ? "black" : "white";
+    };
+
 
 
     useEffect(() => {

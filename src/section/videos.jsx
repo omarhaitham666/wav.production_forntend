@@ -6,8 +6,8 @@ import { getVideosOrder } from '../actions/getVideosOrder';
 import { getTop4 } from '../actions/getTop4';
 
 const Videos = () => {
-    const [videosOrder, setVideosOrder] = useState([]);
-    const [top4, setTop4] = useState([]);
+    // const [videosOrder, setVideosOrder] = useState([]);
+    // const [top4, setTop4] = useState([]);
 
 
     const settings = {
@@ -90,157 +90,157 @@ const Videos = () => {
         },
     ]
 
-    // const videosOrder = [
-    //     {
-    //         id: 1,
-    //         name: 'Star 1',
-    //         imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.8,
-    //         prise: 550
-    //     },
-    //     {
-    //         id: 2,
-    //         name: 'Star 2',
-    //         imgScr: "https://i.imgur.com/c858xO1.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.7,
-    //         prise: 650
-    //     },
-    //     {
-    //         id: 3,
-    //         name: 'Star 3',
-    //         imgScr: "https://i.imgur.com/g7Y40lO.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.9,
-    //         prise: 750
-    //     },
-    //     {
-    //         id: 4,
-    //         name: 'Star 4',
-    //         imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.5,
-    //         prise: 850
-    //     },
-    //     {
-    //         id: 5,
-    //         name: 'Star 5',
-    //         imgScr: "https://i.imgur.com/e6aYd0R.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.6,
-    //         prise: 950
-    //     },
-    //     {
-    //         id: 6,
-    //         name: 'Star 6',
-    //         imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.8,
-    //         prise: 1050
-    //     },
-    //     {
-    //         id: 7,
-    //         name: 'Star 7',
-    //         imgScr: "https://i.imgur.com/c858xO1.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.7,
-    //         prise: 1150
-    //     },
-    //     {
-    //         id: 8,
-    //         name: 'Star 8',
-    //         imgScr: "https://i.imgur.com/g7Y40lO.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.9,
-    //         prise: 1250
-    //     },
-    //     {
-    //         id: 9,
-    //         name: 'Star 9',
-    //         imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.5,
-    //         prise: 1350
-    //     },
-    //     {
-    //         id: 10,
-    //         name: 'Star 10',
-    //         imgScr: "https://i.imgur.com/e6aYd0R.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.6,
-    //         prise: 1450
-    //     }
-    // ]
+    const videosOrder = [
+        {
+            id: 1,
+            name: 'Star 1',
+            imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.8,
+            prise: 550
+        },
+        {
+            id: 2,
+            name: 'Star 2',
+            imgScr: "https://i.imgur.com/c858xO1.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.7,
+            prise: 650
+        },
+        {
+            id: 3,
+            name: 'Star 3',
+            imgScr: "https://i.imgur.com/g7Y40lO.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.9,
+            prise: 750
+        },
+        {
+            id: 4,
+            name: 'Star 4',
+            imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.5,
+            prise: 850
+        },
+        {
+            id: 5,
+            name: 'Star 5',
+            imgScr: "https://i.imgur.com/e6aYd0R.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.6,
+            prise: 950
+        },
+        {
+            id: 6,
+            name: 'Star 6',
+            imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.8,
+            prise: 1050
+        },
+        {
+            id: 7,
+            name: 'Star 7',
+            imgScr: "https://i.imgur.com/c858xO1.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.7,
+            prise: 1150
+        },
+        {
+            id: 8,
+            name: 'Star 8',
+            imgScr: "https://i.imgur.com/g7Y40lO.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.9,
+            prise: 1250
+        },
+        {
+            id: 9,
+            name: 'Star 9',
+            imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.5,
+            prise: 1350
+        },
+        {
+            id: 10,
+            name: 'Star 10',
+            imgScr: "https://i.imgur.com/e6aYd0R.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.6,
+            prise: 1450
+        }
+    ]
 
-    // const top4 = [
-    //     {
-    //         id: 1,
-    //         name: 'Star 1',
-    //         imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.8,
-    //         prise: 550,
-    //         priseDis: 400,
-    //     },
-    //     {
-    //         id: 2,
-    //         name: 'Star 2',
-    //         imgScr: "https://i.imgur.com/c858xO1.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.7,
-    //         prise: 650,
-    //         priseDis: 500,
-    //     },
-    //     {
-    //         id: 3,
-    //         name: 'Star 3',
-    //         imgScr: "https://i.imgur.com/g7Y40lO.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.9,
-    //         prise: 750,
-    //         priseDis: 600,
-    //     },
-    //     {
-    //         id: 4,
-    //         name: 'Star 4',
-    //         imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
-    //         link: "",
-    //         category: "Tiktoker",
-    //         rate: 4.5,
-    //         prise: 850,
-    //         priseDis: 700,
-    //     }
+    const top4 = [
+        {
+            id: 1,
+            name: 'Star 1',
+            imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.8,
+            prise: 550,
+            priseDis: 400,
+        },
+        {
+            id: 2,
+            name: 'Star 2',
+            imgScr: "https://i.imgur.com/c858xO1.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.7,
+            prise: 650,
+            priseDis: 500,
+        },
+        {
+            id: 3,
+            name: 'Star 3',
+            imgScr: "https://i.imgur.com/g7Y40lO.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.9,
+            prise: 750,
+            priseDis: 600,
+        },
+        {
+            id: 4,
+            name: 'Star 4',
+            imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
+            link: "",
+            category: "Tiktoker",
+            rate: 4.5,
+            prise: 850,
+            priseDis: 700,
+        }
 
-    // ]
+    ]
 
-    useEffect(() => {
-        const Top4 = getTop4()
-        setTop4(Top4)
-    }, []);
+    // useEffect(() => {
+    //     const Top4 = getTop4()
+    //     setTop4(Top4)
+    // }, []);
 
-    useEffect(() => {
-        const StarsCateg = getVideosOrder()
-        setVideosOrder(StarsCateg)
-    }, []);
+    // useEffect(() => {
+    //     const StarsCateg = getVideosOrder()
+    //     setVideosOrder(StarsCateg)
+    // }, []);
 
 
 
     return (
-        <div className={`py-20 bg-cover bg-[#30B7971A]`}>
+        <div className={`pt-20 pb-40 bg-cover bg-[#30B7971A]`}>
             <div className="container m-auto">
                 <div className="flex flex-col">
                     <h1 className='text-center text-5xl font-bold text-black mb-12'>Personalized videos from your favorite stars</h1>
