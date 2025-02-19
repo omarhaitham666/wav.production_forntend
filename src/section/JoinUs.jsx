@@ -16,7 +16,7 @@ const JoinUs = () => {
                         <h2 className="text-4xl font-bold text-black mb-4">Join Us and Take Your Music Career to the Next Level! 🎵</h2>
                         <p className="text-2xl mb-8 text-gray-600">Are you an aspiring artist or an established star looking for a platform to support your journey and expand your reach? We are here to be your trusted partner and agent for success!</p>
                         <div className='relative py-12'>
-                            <a href='/' className='cursor-pointer'>
+                            <a href='/join us' className='cursor-pointer'>
                                 <button className="relative z-10 px-10 py-4 text-xl rounded-full joinusBtn transition text-white font-bold flex -flex0-row gap-2 items-center">
                                     <span>Join Us Now</span>
                                     <FiArrowDownRight />
