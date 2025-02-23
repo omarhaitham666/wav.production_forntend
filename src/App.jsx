@@ -13,11 +13,13 @@ import Pricing from './Pages/Pricing/Pricing';
 import FAQs from './Pages/FAQs/FAQs';
 import Contact from './Pages/Contact/Contact';
 import Playing from './Pages/Playing/Playing';
+import Player from './Components/player';
 
 function App() {
   const Layout = ({ children }) => (
     <>
       <Header />
+      <Player />
       {children}
       <Footer />
 
