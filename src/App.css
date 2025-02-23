@@ -70,9 +70,12 @@
     color: white;
 }
 
-.slick-prev:hover,
-.slick-next:hover {
+.slick-prev:hover{
     background-color: #333333;
+}
+
+.slick-next:hover{
+    background-color: #1f8d73;
 }
 
 .slick-prev {
@@ -81,4 +84,11 @@
 
 .slick-next {
     right: 0px;
+    background: #30B797;
+}
+
+.ArtistsBox:hover .playbtn,
+.AlbumsBox:hover .playbtn,
+.SongsBox:hover .playbtn{
+    opacity: 1;
 }
