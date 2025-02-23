@@ -11,6 +11,8 @@ import ResetPassword from './Pages/Auth/ResetPassword';
 import JoinUs from './Pages/Join Us/JoinUs';
 import Pricing from './Pages/Pricing/Pricing';
 import FAQs from './Pages/FAQs/FAQs';
+import Contact from './Pages/Contact/Contact';
+import Playing from './Pages/Playing/Playing';
 
 function App() {
   const Layout = ({ children }) => (
@@ -31,9 +33,12 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
+        <Route path="/Playing" element={<Layout ><Playing /></Layout>} />
         <Route path="/join us" element={<Layout ><JoinUs /></Layout>} />
         <Route path="/Pricing" element={<Layout ><Pricing /></Layout>} />
         <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
+        <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
+
 
 
       </Routes>
