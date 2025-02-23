@@ -57,16 +57,32 @@ const RisingForm = () => {
     const initValues = {
         email: "",
         name: "",
-        massage: "",
+        message: "",
 
     };
 
 
     const inputValidation = Yup.object({
+
+        name: Yup.string()
+                .min(3, "cant be less than 3 letters")
+                .required("name is invalid")
+                .max(20, "cant be more than 20"),
+
+
+
         email: Yup.string()
             .min(15, "يجب أن لا يقل عن 15 حرف")
             .email("enter the correct email")
             .required("this is invalid"),
+
+
+            message: Yup.string()
+        .min(10, "يجب ألا يقل عن 10 أحرف")
+        .max(500, "يجب ألا يزيد عن 500 حرف")
+        .required("رسالة المشروع مطلوبة"),
+
+
     });
 
     const formik = useFormik({
@@ -74,11 +90,11 @@ const RisingForm = () => {
         validationSchema: inputValidation,
         onSubmit: async (values) => {
             try {
-                const response = await axios.post('http://localhost:8000/api/UserPlan', {
-                    plan: selectedPlan,
-                    Name: values.name,
-                    Email: values.email,
-                    massage: values.massage
+                const response = await axios.post('http://localhost:8000/api/', {
+                    // plan: selectedPlan,
+                    name: values.name,
+                    email: values.email,
+                    message: values.message
                 });
 
             } catch (error) {
@@ -169,11 +185,14 @@ const RisingForm = () => {
                             <input className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
                                 type="text"
                                 placeholder="Your name"
-                                on
+                                
                                 name='name'
                                 onChange={formik.handleChange} value={formik.values.name}
-                                required
+                                
                             />
+                            {formik.touched.name && formik.errors.name ? (
+                                <small className='text-red-500'>{formik.errors.name}</small>
+                            ) : null}
                             <input
                                 className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4 mt-4'
                                 type="email"
@@ -188,10 +207,14 @@ const RisingForm = () => {
                             <textarea className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
                                 rows='5'
                                 placeholder="Project details"
-                                name='massage'
-                                id='massage'
-                                onChange={formik.handleChange} value={formik.values.massage}
+                                name='message'
+                                id='message'
+                                onChange={formik.handleChange} value={formik.values.message}
                             />
+                            {formik.touched.message && formik.errors.message ? (
+                                <small className='text-red-500'>{formik.errors.message}</small>
+                            ) : null}
+                             
                             <button className='bg-[#1F1A23] text-white font-bold rounded-full p-4 mt-4 text-2xl hover:bg-[#2F00AC] transition'
                                 type='submit'
                             >Send message</button>
