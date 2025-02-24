@@ -70,11 +70,11 @@
     color: white;
 }
 
-.slick-prev:hover{
+.slick-prev:hover {
     background-color: #333333;
 }
 
-.slick-next:hover{
+.slick-next:hover {
     background-color: #1f8d73;
 }
 
@@ -89,6 +89,12 @@
 
 .ArtistsBox:hover .playbtn,
 .AlbumsBox:hover .playbtn,
-.SongsBox:hover .playbtn{
+.SongsBox:hover .playbtn {
     opacity: 1;
+}
+
+.order-popupBtn:hover span{
+
+    background-color: #4D39CF;
+    color: white;
 }

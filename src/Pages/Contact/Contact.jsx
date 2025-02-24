@@ -64,8 +64,8 @@ const Contact = () => {
     return (
         <div className='py-24'>
             <div className="container m-auto">
-                <div className="flex flex-col lg:flex-row gap-10 mt-24">
-                    <div className="w-full lg:w-1/2">
+                <div className="flex flex-col lg:flex-row gap-14 mt-24">
+                    <div className="w-full lg:w-2/5">
                         <div className='flex flex-col bg-[#4D39CF] relative p-10 rounded-2xl text-white overflow-hidden'>
                             <h2 className='text-4xl mb-4 font-bold'>Contact Information</h2>
                             <p className='text-2xl'>Say something to start a live chat!</p>
@@ -98,7 +98,7 @@ const Contact = () => {
                             <span className='absolute bg-[#48484880] w-40 h-40 bottom-0 right-0 -translate-x-[50%] -translate-y-[50%] rounded-full' />
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2">
+                    <div className="w-full lg:w-3/5">
                         <form action="" onSubmit={formik.handleSubmit}>
                             <div className="flex flex-col flex-wrap gap-10">
                                 <div className='flex gap-10 flex-col md:flex-row'>

@@ -1,40 +1,52 @@
-import React, { useEffect, useRef } from "react";
-import WaveSurfer from "wavesurfer.js";
+// import React, { useEffect, useRef, useState } from "react";
+// import WaveSurfer from "wavesurfer.js";
 
-const formWaveSurferOptions = (ref, audioElement) => ({
-    container: ref,
-    waveColor: "#C7C7C7",
-    progressColor: "#30B797",
-    cursorColor: "#EEB440",
-    barWidth: 2,
-    barGap: 4,
-    barRadius: 3,
-    minPxPerSec: 2,
-    responsive: true,
-    height: 100,
-    normalize: true,
-    partialRender: true,
-    backend: "MediaElement",
-    media: audioElement,
-});
+// const formWaveSurferOptions = (ref, audioElement) => ({
+//     container: ref,
+//     waveColor: "#C7C7C7",
+//     progressColor: "#30B797",
+//     cursorColor: "#EEB440",
+//     barWidth: 2,
+//     barGap: 4,
+//     barRadius: 3,
+//     minPxPerSec: 2,
+//     responsive: true,
+//     height: 100,
+//     normalize: true,
+//     partialRender: true,
+//     backend: "MediaElement",
+//     media: audioElement,
+// });
 
-const AudioWaveform = ({ audioElement }) => {
-    const waveformRef = useRef(null);
-    const wavesurfer = useRef(null);
+// const AudioWaveform = ({ audioElement , isPlaying }) => {
+//     const waveformRef = useRef(null);
+//     const wavesurfer = useRef(null);
+//     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        if (!audioElement || !waveformRef.current) return;
+//     useEffect(() => {
+//         if (!audioElement || !waveformRef.current || isLoaded) return;
 
-        // إعداد الموجات الصوتية وربطها بمشغل الصوت
-        const options = formWaveSurferOptions(waveformRef.current, audioElement);
-        wavesurfer.current = WaveSurfer.create(options);
+//         // انتظر حتى يتم تحميل الصوت بالكامل
+//         audioElement.oncanplaythrough = () => {
+//             if (!isLoaded) {
+//                 const options = formWaveSurferOptions(waveformRef.current, audioElement);
+//                 wavesurfer.current = WaveSurfer.create(options);
+//                 wavesurfer.current.load(audioElement);
+//                 setIsLoaded(true);
+//             }
+//         };
 
-        wavesurfer.current.load(audioElement);
+//         return () => {
+//             if (wavesurfer.current) {
+//                 wavesurfer.current.destroy();
+//                 wavesurfer.current = null;
+//             }
+//         };
+//     }, [isPlaying]);
 
-        return () => wavesurfer.current.destroy();
-    }, [audioElement]);
+//     return <div ref={waveformRef} style={{height: "80px" }}>
+//         {isLoaded && <div className="waveform" />}
+//     </div>;
+// };
 
-    return <div ref={waveformRef} style={{height: "80px" }}></div>;
-};
-
-export default AudioWaveform;
+// export default AudioWaveform;

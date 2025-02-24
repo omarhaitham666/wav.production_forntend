@@ -21,8 +21,8 @@ function Home() {
       </div>
     </div>
     <JoinUs />
-    {/* <Services />
-    <Videos /> */}
+    <Services />
+    <Videos />
 
     </>
   )

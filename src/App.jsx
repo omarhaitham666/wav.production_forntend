@@ -13,13 +13,14 @@ import Pricing from './Pages/Pricing/Pricing';
 import FAQs from './Pages/FAQs/FAQs';
 import Contact from './Pages/Contact/Contact';
 import Playing from './Pages/Playing/Playing';
-import Player from './Components/player';
+import OrderVideo from './Pages/OrderVideo/OrderVideo';
+// import Player from './Components/player';
 
 function App() {
   const Layout = ({ children }) => (
     <>
       <Header />
-      <Player />
+      {/* <Player /> */}
       {children}
       <Footer />
 
@@ -40,6 +41,8 @@ function App() {
         <Route path="/Pricing" element={<Layout ><Pricing /></Layout>} />
         <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
         <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
+        <Route path="/OrderVideo" element={<Layout ><OrderVideo /></Layout>} />
+
 
 
 

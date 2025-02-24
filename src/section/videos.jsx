@@ -244,7 +244,7 @@ const Videos = () => {
             <div className="container m-auto">
                 <div className="flex flex-col">
                     <h1 className='text-center text-5xl font-bold text-black mb-12'>Personalized videos from your favorite stars</h1>
-                    <a href="/OrderVideo">
+                    <a href="/OrderVideo" className='flex flex-row justify-center' >
                         <button className="flex flex-row items-center text-2xl gap-4 px-10 py-4 rounded-full font-bold bg-white text-black hover:bg-[#30B797] hover:text-white transition">
                             Order now
                             <FaChevronRight />
