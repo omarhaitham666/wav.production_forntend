@@ -3,6 +3,7 @@ import OrderVideoBox from '../../Components/OrderVideoBox';
 import { FcNext, FcPrevious } from 'react-icons/fc';
 import { FaSearch } from 'react-icons/fa';
 import { getVideosOrder } from '../../actions/getVideosOrder';
+import OrderVideoModal from './OrderVideoModal';
 
 const ITEMS_PER_PAGE = 12;
 const OrderVideo = () => {
@@ -11,6 +12,8 @@ const OrderVideo = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [openModel, setOpenModel] = useState(false);
+    const [orderInfo, setOrderInfo] = useState();
+
 
 
     const orders = [
@@ -151,14 +154,15 @@ const OrderVideo = () => {
     const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
     const handleVideoClick = (orderd) => {
-        console.log(orderd)
+        setOrderInfo(orderd)
         setOpenModel(true);
+        console.log(orderd)
     }
 
 
 
     return (
-        <div className={`py-40 bg-white`}>
+        <div className={`py-40 bg-white relative`}>
             <div className="container mx-auto">
                 <div className='w-full px-4 py-3 rounded-sm mb-4 bg-[#F4F5F7] flex flex-row gap-2 items-center text-gray-500 '>
                     <FaSearch />
@@ -170,14 +174,14 @@ const OrderVideo = () => {
                     />
                 </div>
                 {displayedorders.length > 0 ?
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-8">
                         {displayedorders.map(order => (
                             <OrderVideoBox key={order.id}
-                            artistName={order.artist}
-                            position={order.position}
-                            price={order.price}
-                            image={order.image}
-                            handleVideoClick={handleVideoClick}
+                                artistName={order.artist}
+                                position={order.position}
+                                price={order.price}
+                                image={order.image}
+                                handleVideoClick={handleVideoClick}
                             />
                         ))}
                     </div>
@@ -197,6 +201,14 @@ const OrderVideo = () => {
                     </button>
                 </div>
             </div>
+            {
+                openModel && (
+                    <OrderVideoModal
+                        handleClose={() => setOpenModel(false)}
+                        orderInfo={orderInfo}
+                    />
+                )
+            }
         </div>
     );
 }
