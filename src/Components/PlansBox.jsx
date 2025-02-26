@@ -17,7 +17,7 @@ const PlansBox = (prop) => {
             <span className='w-full border border-gray-600 mb-6' />
             <ul>
                 {prop.Features?.map((Feature ,index) => (
-                    <li id={index} className='flex flex-row items-center text-lg mb-4'>
+                    <li key={index} className='flex flex-row items-center text-lg mb-4'>
                         <FaCheck className='text-[#2F00Ac] mr-2' />
                         {Feature}
                     </li>

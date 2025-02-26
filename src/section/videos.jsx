@@ -254,22 +254,22 @@ const Videos = () => {
                         {
                             StarsCateg.map((i, index) => {
                                 return (
-                                    <a href={`/OrderVideo/${i.name}`} key={index} className='flex flex-col items-center'>
+                                    <div key={index} className='flex flex-col items-center'>
                                         <img className='w-48 h-48 rounded-full' src={i.imgScr} />
                                         <a href={
                                             `/OrderVideo/${i.name}`
                                         } className='text-black font-bold my-2 text-2xl underline text-center'>{i.name}</a>
-                                    </a>
+                                    </div>
                                 )
                             }
                             )
                         }
-                        <a href={`/join-us`} className='flex flex-col items-center'>
+                        <div className='flex flex-col items-center'>
                             <div className='w-48 h-48 rounded-full hover:bg-[#30B797] transition bg-[#484848] text-white flex items-center justify-center text-8xl'>
                                 <FiPlus />
                             </div>
                             <a href="/join-us" className='text-black font-bold my-2 text-2xl underline text-center'>join us</a>
-                        </a>
+                        </div>
                     </div>
                     <div className='slider-container relative mt-16'>
                         <h2 className='text-start text-3xl font-bold mb-12'>Most Ordered</h2>

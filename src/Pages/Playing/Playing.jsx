@@ -8,6 +8,7 @@ import logo from '../../assets/Img/logo.png'
 
 
 const Playing = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
     // const [artists ,setArtists] = useState([])
     // const [albums ,setAlbums] = useState([])
     // const [songs ,setSongs] = useState([])
@@ -27,8 +28,7 @@ const Playing = () => {
         setBrowserFilter(browseFilter);
         setGenresFilter(genresFilter);
 
-
-    }, [])
+    }, [browseFilter,genresFilter])
 
     useEffect(() => {
         const handleStorageChange = (event) => {
@@ -94,6 +94,7 @@ const Playing = () => {
         slidesToScroll: 2,
         autoplay: false,
         infinite: true,
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
         responsive: [
             {
                 breakpoint: 1400,
@@ -288,9 +289,9 @@ const Playing = () => {
                                             <h2 className='text-start text-3xl font-bold mb-12'>Popular artists</h2>
                                             <Slider {...settings}>
                                                 {
-                                                    Artists?.map((i, index) => {
+                                                    Artists?.map((i) => {
                                                         return (
-                                                            <div key={index}>
+                                                            <div key={i.id} data-current-slide={currentSlide}>
                                                                 <div className='flex flex-col items-center justify-center relative ArtistsBox'>
                                                                     <img className='w-36 h-36 rounded-full' src={i.imgScr} />
                                                                     <a href={`/Artists/${i.name}`} className='text-2xl mt-2 font-bold'>{i.name}</a>
@@ -314,16 +315,16 @@ const Playing = () => {
                                             <h2 className='text-start text-3xl font-bold mb-12'>Popular Albums</h2>
                                             <Slider {...settings}>
                                                 {
-                                                    albums?.map((i, index) => {
+                                                    albums?.map((i) => {
                                                         return (
-                                                            <div key={index}>
+                                                            <div key={i.id}>
                                                                 <div className='flex flex-col relative ArtistsBox'>
                                                                     <img className='w-36 h-36 rounded-xl' src={i.imgScr} />
                                                                     <div className='flex flex-col'>
                                                                         <a href={`/albums/${i.name}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>{i.name}</a>
                                                                         <a href={`/artist/${i.artist}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>{i.artist}</a>
                                                                     </div>
-                                                                    <span onClick={(i) => {
+                                                                    <span onClick={() => {
                                                                         setCurrentAlbum(
                                                                             i
                                                                         )
@@ -344,13 +345,13 @@ const Playing = () => {
                                             <h2 className='text-start text-3xl font-bold mb-12'>Popular songs</h2>
                                             <Slider {...settings}>
                                                 {
-                                                    songs?.map((i, index) => {
+                                                    songs?.map((i) => {
                                                         return (
-                                                            <div key={index}>
+                                                            <div key={i.id}>
                                                                 <div className='flex flex-col'>
                                                                     <div className='relative ArtistsBox'>
                                                                         <img className='w-36 h-36 rounded-xl' src={i.imgScr} />
-                                                                        <span onClick={(i) => {
+                                                                        <span onClick={() => {
                                                                             setCurrentAlbum(
                                                                                 i
                                                                             )

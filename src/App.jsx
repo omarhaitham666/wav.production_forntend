@@ -1,22 +1,30 @@
-
+import React, { lazy, Suspense } from "react";
 import './App.css'
 import { Route, Router, Routes } from 'react-router-dom';
-import Footer from './Components/Footer'
+
+
 import Header from './Components/Header'
-import Home from './Pages/Home/Home';
-import Register from './Pages/Auth/Register';
-import Login from './Pages/Auth/Login';
-import ForgotPassword from './Pages/Auth/ForgotPassword';
-import ResetPassword from './Pages/Auth/ResetPassword';
-import JoinUs from './Pages/Join Us/JoinUs';
-import Pricing from './Pages/Pricing/Pricing';
-import FAQs from './Pages/FAQs/FAQs';
-import Contact from './Pages/Contact/Contact';
-import Playing from './Pages/Playing/Playing';
-import OrderVideo from './Pages/OrderVideo/OrderVideo';
-// import Player from './Components/player';
+import Footer from './Components/Footer'
+import { ClipLoader } from "react-spinners";
+
+
+
+
+const Home = lazy(() => import("./Pages/Home/Home"));
+const Register = lazy(() => import("./Pages/Auth/Register"));
+const Login = lazy(() => import("./Pages/Auth/Login"));
+const ForgotPassword = lazy(() => import("./Pages/Auth/ForgotPassword"));
+const ResetPassword = lazy(() => import("./Pages/Auth/ResetPassword"));
+const JoinUs = lazy(() => import("./Pages/Join Us/JoinUs"));
+const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
+const FAQs = lazy(() => import("./Pages/FAQs/FAQs"));
+const Contact = lazy(() => import("./Pages/Contact/Contact"));
+const Playing = lazy(() => import("./Pages/Playing/Playing"));
+const OrderVideo = lazy(() => import("./Pages/OrderVideo/OrderVideo"));
+// const Player = lazy(() => import("./Components/player"));
 
 function App() {
+
   const Layout = ({ children }) => (
     <>
       <Header />
@@ -30,6 +38,7 @@ function App() {
 
   return (
 
+    <Suspense fallback={<ClipLoader color="#30B797" size={50} />}>
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
         <Route path="/Register" element={<Register />} />
@@ -42,11 +51,8 @@ function App() {
         <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
         <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
         <Route path="/OrderVideo" element={<Layout ><OrderVideo /></Layout>} />
-
-
-
-
       </Routes>
+      </Suspense>
 
   )
 }

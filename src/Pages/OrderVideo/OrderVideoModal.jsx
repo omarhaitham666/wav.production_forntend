@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-const OrderVideoModal = ({ orderInfo, props}) => {
+const OrderVideoModal = ({ orderInfo ,handleClose}) => {
 
 
     const formik = useFormik({
@@ -38,18 +38,18 @@ const OrderVideoModal = ({ orderInfo, props}) => {
         onSubmit: async (values) => {
             const token = localStorage.getItem("token");
 
-            // if (!token) {
-            //     Swal.fire({
-            //         title: "يجب تسجيل الدخول",
-            //         text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
-            //         icon: "warning",
-            //         confirmButtonText: "تسجيل الدخول",
-            //     }).then(() => {
-            //         window.location.href = "/Register";
-            //     });
+            if (!token) {
+                Swal.fire({
+                    title: "يجب تسجيل الدخول",
+                    text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
+                    icon: "warning",
+                    confirmButtonText: "تسجيل الدخول",
+                }).then(() => {
+                    window.location.href = "/Register";
+                });
 
-            //     return;
-            // }
+                return;
+            }
             console.log(orderInfo)
 
             try {
@@ -113,7 +113,7 @@ const OrderVideoModal = ({ orderInfo, props}) => {
                         <button type="button"
                             onClick={
                                 () => {
-                                    props.handleClose();
+                                    handleClose();
                                 }
                             }
                             className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center ">
