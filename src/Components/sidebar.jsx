@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getCategory } from '../actions/getcategory';
 
-const Sidebar = () => {
+const Sidebar = ({ filters, setFilters }) => {
     const [category, setCategory] = useState([])
     const [browseFilter, setBrowserfilter] = useState('')
     const [genresFilter, setGenresFilters] = useState('')
@@ -70,18 +70,17 @@ const Sidebar = () => {
     }
 
     useEffect(() => {
-        // save in localStorage
-        localStorage.setItem('BrowseFilter', JSON.stringify(browseFilter));
-        localStorage.setItem('GenresFilter', JSON.stringify(genresFilter));
-        
+        setFilters({browseFilter, genresFilter })
     }, [browseFilter, genresFilter])
+
+
 
 
 
 
     return (
         <div className="lg:w-1/4 flex-col flex">
-            <div className='py-4 border-b border-[#959595]'>
+            <div className='pb-4 border-b border-[#959595]'>
                 <h3 className="text-2xl font-bold text-[#30B797]">Browse</h3>
                 <ul className='text-lg p-0 pt-5'>
                     <li className={`${browseFilter === '' ? 'text-white px-4 bg-[#00000080]' : null
