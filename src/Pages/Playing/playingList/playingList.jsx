@@ -17,14 +17,36 @@ const PlayingList = ({ filters }) => {
     const [currentAlbum, setCurrentAlbum] = useState({})
     const [currentArtist, setCurrentArtist] = useState({})
     const [currentPlaylist, setCurrentPlaylist] = useState({})
+    const [songs,setSongs]=useState([]);
     const [isPlaying, setIsPlaying] = useState(false);
     const [loading, setLoading] = useState(false);
     const [filtered, setFiltered] = useState("");
-    const [songs,setSongs]=useState([]);
 
     const TrendingSongs = lazy(() => import("./TrendingSongs"));
     const TrendingAlbums = lazy(() => import("./TrendingAlbums"));
-   
+    
+    useEffect(() => {
+        axios
+            .get("http://127.0.0.1:8000/api/Songs")
+            .then(response => {
+                console.log("البيانات المستلمة من API:", response.data); 
+
+                // تحويل بيانات API إلى الأسماء المناسبة
+                const formattedSongs = response.data.map(song => ({
+                    id: song.id,
+                    title: song.title,       
+                    artist: song.artist_name, 
+                    cover_url: song.cover_url,   
+                    song_url: song.song_url,       
+                }));
+
+                setSongs(formattedSongs); 
+            })
+            .catch(error => console.error("حدث خطأ أثناء جلب الأغاني:", error));
+    }, []);
+
+
+
     // useEffect(()=>{
     //     setLoading(true)
 
@@ -48,28 +70,6 @@ const PlayingList = ({ filters }) => {
 
     //     setLoading(false)
     // },[])
-
-
-
-    useEffect(() => {
-        axios
-            .get("http://127.0.0.1:8000/api/Songs")
-            .then(response => {
-                console.log("البيانات المستلمة من API:", response.data); 
-
-                // تحويل بيانات API إلى الأسماء المناسبة
-                const formattedSongs = response.data.map(song => ({
-                    id: song.id,
-                    title: song.title,       
-                    artist: song.artist_name, 
-                    cover_url: song.cover_url,   
-                    song_url: song.song_url,       
-                }));
-
-                setSongs(formattedSongs); 
-            })
-            .catch(error => console.error("حدث خطأ أثناء جلب الأغاني:", error));
-    }, []);
 
 
     const settings = {
@@ -366,7 +366,45 @@ const PlayingList = ({ filters }) => {
                         </div>
                         <div className='slider-container relative mt-16'>
                             <h2 className='text-start text-3xl font-bold mb-12'>Popular songs</h2>
-                            <Slider {...settings}>
+                            {/* <Slider {...settings}>
+                                {
+                                    songs?.SongList?.map((i) => {
+                                        return (
+                                            <div key={i.id}>
+                                                <div className='flex flex-col max-w-36'>
+                                                    <div className='relative ArtistsBox'>
+                                                        <img className='w-36 h-36 rounded-xl' src={i.imgScr} />
+                                                        <span onClick={() => {
+                                                            currentSong !== i.url ? playSong(i) : togglePlayPause()
+
+                                                        }}
+                                                            className='playbtn cursor-pointer opacity-0 transition-all absolute bottom-2 right-2 bg-[#30B797] text-white hover:bg-[1f8d73] text-sm p-2 rounded-full'>
+                                                            <FaPlay />
+                                                        </span>
+                                                        <div className='flex flex-row items-center gap-2.5 playbtn cursor-pointer opacity-0 transition-all absolute bottom-2 left-2  text-white text-lg'>
+                                                            <FaDownload onClick={
+                                                                () => {
+                                                                    downloadSong(i.link)
+                                                                }
+                                                            } />
+                                                            <FaHeart onClick={
+                                                                () => {
+                                                                    addFavorite(i)
+                                                                }
+                                                            } />
+                                                        </div>
+                                                    </div>
+                                                    <div className='flex flex-col'>
+                                                        <h3 className='text-start text-2xl mt-2 font-bold'>{i.name}</h3>
+                                                        <a href={`/${i.artist}`} className='text-start text-sm hover:text-[#30B797] transition-all text-gray-400'>{i.artist}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </Slider> */}
+                               <Slider {...settings}>
     {songs?.map((song) => (
         <div key={song.id}>
             <div className='flex flex-col max-w-36'>
