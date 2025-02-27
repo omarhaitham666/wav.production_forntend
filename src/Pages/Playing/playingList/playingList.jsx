@@ -31,7 +31,7 @@ const PlayingList = ({ filters }) => {
             .then(response => {
                 console.log("البيانات المستلمة من API:", response.data); 
 
-                // تحويل بيانات API إلى الأسماء المناسبة
+              
                 const formattedSongs = response.data.map(song => ({
                     id: song.id,
                     title: song.title,       
