@@ -2,13 +2,17 @@ import React, { lazy, Suspense, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight, FaDownload, FaHeart, FaPlay } from 'react-icons/fa';
 import logo from '../../../assets/Img/logo.png'
+import { useAudioPlayer } from '../../../Context/AudioPlayerContext';
+import { addFavorite, downloadSong } from '../../../actions/songsActions';
 const PlayingList = ({ filters }) => {
+    const { loadSong, togglePlayPause, playing, currentSong, playSong, PlayingList } = useAudioPlayer();
+
     const [currentSlide, setCurrentSlide] = useState(0);
     // const [artists ,setArtists] = useState([])
     // const [albums ,setAlbums] = useState([])
     // const [songs ,setSongs] = useState([])
 
-    const [currentSong, setCurrentSong] = useState({})
+    // const [currentSong, setCurrentSong] = useState({})
     const [currentAlbum, setCurrentAlbum] = useState({})
     const [currentArtist, setCurrentArtist] = useState({})
     const [currentPlaylist, setCurrentPlaylist] = useState({})
@@ -19,7 +23,6 @@ const PlayingList = ({ filters }) => {
     const TrendingSongs = lazy(() => import("./TrendingSongs"));
     const TrendingAlbums = lazy(() => import("./TrendingAlbums"));
 
-    console.log(filters)
     // useEffect(()=>{
     //     setLoading(true)
 
@@ -193,25 +196,25 @@ const PlayingList = ({ filters }) => {
         SongList: [
             {
                 id: 1,
-                name: "Song 1",
+                name: "يا خساره عليكو",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 1",
+                artist: "رمضان البرنس",
                 album: "Album 1",
+                url: "./1.mp3",
             },
             {
                 id: 2,
-                name: "Song 2",
+                name: "انا رايح مش راجع",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 2",
+                url: "./2.mp3",
+                artist: "حوده بندق",
                 album: "Album 2",
             },
             {
                 id: 3,
                 name: "Song 3",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
+                url: "",
                 artist: "Artist 3",
                 album: "Album 3",
             },
@@ -219,7 +222,7 @@ const PlayingList = ({ filters }) => {
                 id: 4,
                 name: "Song 4",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
+                url: "",
                 artist: "Artist 4",
                 album: "Album 4",
             },
@@ -227,7 +230,7 @@ const PlayingList = ({ filters }) => {
                 id: 5,
                 name: "Song 5",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
+                url: "",
                 artist: "Artist 5",
                 album: "Album 5",
             },
@@ -235,12 +238,13 @@ const PlayingList = ({ filters }) => {
                 id: 6,
                 name: "Song 6",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
+                url: "",
                 artist: "Artist 6",
                 album: "Album 6",
             },
         ]
     }
+
 
     useEffect(() => {
         setLoading(true)
@@ -343,14 +347,12 @@ const PlayingList = ({ filters }) => {
                                     songs?.SongList?.map((i) => {
                                         return (
                                             <div key={i.id}>
-                                                <div className='flex flex-col'>
+                                                <div className='flex flex-col max-w-36'>
                                                     <div className='relative ArtistsBox'>
                                                         <img className='w-36 h-36 rounded-xl' src={i.imgScr} />
                                                         <span onClick={() => {
-                                                            setCurrentAlbum(
-                                                                i
-                                                            )
-                                                            setIsPlaying(true)
+                                                            currentSong !== i.url ? playSong(i) : togglePlayPause()
+
                                                         }}
                                                             className='playbtn cursor-pointer opacity-0 transition-all absolute bottom-2 right-2 bg-[#30B797] text-white hover:bg-[1f8d73] text-sm p-2 rounded-full'>
                                                             <FaPlay />
@@ -402,7 +404,7 @@ const PlayingList = ({ filters }) => {
                                 <p>No content found.</p>
                             </div>
             }
-        </div>
+        </div >
     );
 }
 

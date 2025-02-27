@@ -98,3 +98,12 @@
     background-color: #4D39CF;
     color: white;
 }
+
+.slick-track{
+    align-items: start;
+}
+
+.w-fitAv{
+    width: -webkit-fill-available;
+}
+

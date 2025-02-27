@@ -76,8 +76,10 @@ const TrendingSongs = () => {
                     <div className='flex flex-row gap-4'>
                         <img src={song.imgScr} className='rounded-xl w-48 h-48' alt="song" />
                         <div className='flex flex-col justify-around'>
-                            <h3 className='font-bold text-2xl mb-2'>{song.name}</h3>
-                            <p className='text-xl'>{song.artist}</p>
+                            <div>
+                                <h3 className='font-bold text-2xl mb-2'>{song.name}</h3>
+                                <p className='text-xl'>{song.artist}</p>
+                            </div>
                             <p className='text-xl'>{song.album}</p>
                             <div className='flex flex-row gap-2 mt-4'>
                                 <MdOutlineReplay size={24}
