@@ -93,7 +93,7 @@ export const AudioPlayerProvider = ({ children }) => {
             setIsLoading(false);
         });
         wavesurfer.current.on("error", (error) => {
-            console.error("❌ WaveSurfer Error:", error);
+            
         });
     };
 
@@ -101,7 +101,9 @@ export const AudioPlayerProvider = ({ children }) => {
     const playSong = (song) => {
         setPlaylist([song]);
         setCurrentIndex(0);
-        loadSong(song.url);
+        setCurrentSong(song); // تحديث الأغنية الحالية فورًا
+        loadSong(song.song_url);
+
     };
 
     const playPlaylist = (songs) => {
@@ -109,6 +111,12 @@ export const AudioPlayerProvider = ({ children }) => {
         setCurrentIndex(0);
         loadSong(songs[0].url);
     };
+
+    useEffect(() => {
+        if (currentSong) {
+            loadSong(currentSong.song_url);
+        }
+    }, [currentSong]);
 
     const togglePlayPause = () => {
         if (!wavesurfer.current) return;
