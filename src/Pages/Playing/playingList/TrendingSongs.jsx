@@ -17,6 +17,8 @@ const TrendingSongs = () => {
     //         .then(data => setTrendingSongs(data))
     // }, []);
 
+    const [currentWaveSurfer, setCurrentWaveSurfer] = useState(null);
+
     const songs = {
         name: "Songs",
         SongList: [
@@ -34,6 +36,7 @@ const TrendingSongs = () => {
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
                 artist: "Artist 2",
                 album: "Album 2",
+                url: "./2.mp3",
             },
             {
                 id: 3,
@@ -41,6 +44,7 @@ const TrendingSongs = () => {
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
                 artist: "Artist 3",
                 album: "Album 3",
+                url: "./3.mp3",
             },
             {
                 id: 4,
@@ -67,9 +71,7 @@ const TrendingSongs = () => {
     }
 
 
-
     return (
-
         <>{
             songs?.SongList.map((song) => (
                 <div className='flex flex-col' key={song.id}>
@@ -103,7 +105,7 @@ const TrendingSongs = () => {
                             </div>
                         </div>
                     </div>
-                    <Waveform url={song.url} />
+                    <Waveform url={song.url} song={song} setCurrentWaveSurfer={setCurrentWaveSurfer} currentWaveSurfer={currentWaveSurfer} />
                 </div>
             ))
         }

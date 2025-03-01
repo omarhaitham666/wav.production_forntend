@@ -14,6 +14,7 @@ const formatTime = (seconds) => {
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 };
 
+
 export const AudioPlayerProvider = ({ children }) => {
     const waveformRef = useRef(null);
     const wavesurfer = useRef(null);
@@ -29,6 +30,9 @@ export const AudioPlayerProvider = ({ children }) => {
 
 
     useEffect(() => {
+        if (wavesurfer.current) {
+            wavesurfer.current.destroy();
+        }
         wavesurfer.current = WaveSurfer.create({
             container: waveformRef.current,
             waveColor: "#575757",
@@ -77,8 +81,11 @@ export const AudioPlayerProvider = ({ children }) => {
     const loadSong = (url) => {
         setIsLoading(true);
         console.log("Loading song:")
-        if (!url || !wavesurfer.current) return;
-        wavesurfer.current.stop();
+        if (wavesurfer.current.isPlaying()) {
+            wavesurfer.current.stop();
+        }
+        wavesurfer.current.empty();
+
         wavesurfer.current.load(url);
 
         setPlaying(false);
@@ -102,6 +109,7 @@ export const AudioPlayerProvider = ({ children }) => {
         setPlaylist([song]);
         setCurrentIndex(0);
         loadSong(song.url);
+        console.log(song)
     };
 
     const playPlaylist = (songs) => {
@@ -131,6 +139,7 @@ export const AudioPlayerProvider = ({ children }) => {
     const handleRestart = () => {
         if (!wavesurfer.current) return;
         wavesurfer.current.seekTo(0);
+        wavesurfer.current.play();
         setPlaying(true);
     };
 
@@ -158,10 +167,10 @@ export const AudioPlayerProvider = ({ children }) => {
             playPlaylist, //  متاح للاستخدام في أي مكون
         }}>
             {children}
-            <div className={`${isInFullScreen ? "flex top-0 h-screen z-50 flex-col justify-end pt-44 pb-56" : "flex-row bg-[#1D212E]"} fixed bottom-0 left-0 w-full shadow-lg p-4 flex  gap-8 text-white `}
-            style={{
-                background : currentSong? currentSong.imgScr :"#1D212E"
-            }}
+            <div className={`${isInFullScreen ? "flex top-0 h-screenflex-col justify-end pt-44 pb-56" : "flex-row bg-[#1D212E]"} fixed z-[1000] bottom-0 left-0 w-full shadow-lg p-4 flex  gap-8 text-white `}
+                style={{
+                    background: currentSong ? currentSong.imgScr : "#1D212E"
+                }}
             >
                 <>
                     <div className={` ${isInFullScreen ? "absolute bottom-40 right-1/2 translate-x-[50%]" : ""} flex-row items-center gap-2.5 hidden lg:flex text-xl`}>
@@ -177,10 +186,10 @@ export const AudioPlayerProvider = ({ children }) => {
                     </div>
 
                     <div className={`${isInFullScreen ? "-order-1" : ""} transition-opacity duration-500 ease-in-out opacity-100 flex flex-row items-center gap-3`}>
-                        <img src={currentSong? currentSong.imgScr : logo} className={`${isInFullScreen ? 'w-48 h-48' : "w-32 h-32"} rounded-2xl shadow-lg`} alt="song Img" />
+                        <img src={currentSong ? currentSong.imgScr : logo} className={`${isInFullScreen ? 'w-48' : "w-32"} rounded-2xl shadow-lg`} alt="song Img" />
                         <div className="flex flex-col gap-2">
-                            <h1 className={`${isInFullScreen ? "text-3xl" : "text-xl"} font-bold mt-2`}>{currentSong? currentSong.name : "لا يحتوي المشغل علي اي اغنية"}</h1>
-                            <p className={`${isInFullScreen ? "text-1xl" : "text-sm"} text-gray-500`}>{currentSong? currentSong.artist : "هنا اسم الفنان"}</p>
+                            <h1 className={`${isInFullScreen ? "text-3xl" : "text-xl"} font-bold mt-2`}>{currentSong ? currentSong.name : "لا يحتوي المشغل علي اي اغنية"}</h1>
+                            <p className={`${isInFullScreen ? "text-1xl" : "text-sm"} text-gray-500`}>{currentSong ? currentSong.artist : "هنا اسم الفنان"}</p>
                         </div>
                     </div>
 
@@ -215,7 +224,7 @@ export const AudioPlayerProvider = ({ children }) => {
                             {isInFullScreen ? <MdCloseFullscreen /> : <MdOpenInFull />}
                         </button>
                     </div>
-                    <img src={logo} className={isInFullScreen? "absolute top-40 left-20":"hidden"} alt="" />
+                    <img src={logo} className={isInFullScreen ? "absolute top-40 left-20" : "hidden"} alt="" />
                 </>
             </div>
         </AudioPlayerContext.Provider>
@@ -223,3 +232,7 @@ export const AudioPlayerProvider = ({ children }) => {
 };
 
 export const useAudioPlayer = () => useContext(AudioPlayerContext);
+
+
+
+

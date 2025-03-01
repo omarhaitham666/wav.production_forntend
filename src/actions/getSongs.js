@@ -42,6 +42,16 @@ export async function getTrendingAlbums() {
         .catch(err => console.error(err));
 }
 
+// get songs from album
+
+export async function getSongsFromAlbum(albumId) {
+
+    axios.get(`${API_ENDPOINT}/songs?albumId=${albumId}`)
+        .then(res => { return res.json() })
+        .catch(err => console.error(err));
+
+}
+
 
 
 

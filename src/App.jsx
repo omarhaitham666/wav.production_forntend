@@ -5,7 +5,8 @@ import { Route, Router, Routes } from 'react-router-dom';
 
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-import { ClipLoader } from "react-spinners";
+import logo from "../src/assets/Img/logo.png"
+
 
 
 
@@ -21,6 +22,9 @@ const FAQs = lazy(() => import("./Pages/FAQs/FAQs"));
 const Contact = lazy(() => import("./Pages/Contact/Contact"));
 const Playing = lazy(() => import("./Pages/Playing/Playing"));
 const OrderVideo = lazy(() => import("./Pages/OrderVideo/OrderVideo"));
+const Album = lazy(() => import("./Pages/Albums/album"));
+const Artist = lazy(() => import("./Pages/Artists/artist"));
+
 // const Player = lazy(() => import("./Components/player"));
 
 function App() {
@@ -38,7 +42,10 @@ function App() {
 
   return (
 
-    <Suspense fallback={<ClipLoader color="#30B797" size={50} />}>
+    <Suspense fallback={<div className="flex flex-col items-center justify-center py-14" role="status">
+      <img src={logo} className='w-80 mb-10 animate-pulse' alt="" />
+      <span className="text-center text-3xl font-bold animate-pulse">Loading...</span>
+    </div>}>
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
         <Route path="/Register" element={<Register />} />
@@ -51,8 +58,10 @@ function App() {
         <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
         <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
         <Route path="/OrderVideo" element={<Layout ><OrderVideo /></Layout>} />
+        <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
+        <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
       </Routes>
-      </Suspense>
+    </Suspense>
 
   )
 }

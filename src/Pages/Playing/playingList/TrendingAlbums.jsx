@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const TrendingAlbums = () => {
 
@@ -59,8 +60,8 @@ const TrendingAlbums = () => {
                     <div key={i.id} className='flex flex-col relative ArtistsBox'>
                         <img className='w-46 h-46 rounded-xl' src={i.imgScr} />
                         <div className='flex flex-col'>
-                            <a href={`/albums/${i.name}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>{i.name}</a>
-                            <a href={`/artist/${i.artist}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>{i.artist}</a>
+                            <Link to={`/Albums/${i.id}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>{i.name}</Link>
+                            <Link to={`/Artist/${i.artist}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>{i.artist}</Link>
                         </div>
                         <span onClick={() => {
                             setCurrentAlbum(

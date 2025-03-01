@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoPauseCircleOutline, IoPlayCircleOutline } from "react-icons/io5";
 import WaveSurfer from "wavesurfer.js";
+import { useAudioPlayer } from "../Context/AudioPlayerContext";
 
 const formWaveSurferOptions = ref => ({
   container: ref,
@@ -19,17 +20,19 @@ const formWaveSurferOptions = ref => ({
 });
 
 const formatTime = seconds => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
-  };
-  
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+};
 
-export default function Waveform({ url }) {
+
+export default function Waveform({ url, song, setCurrentWaveSurfer, currentWaveSurfer }) {
+  const { loadSong, togglePlayPause, currentSong, playSong, PlayingList } = useAudioPlayer();
+
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
   const [playing, setPlay] = useState(false);
-  const [volume, setVolume] = useState(0.5);
+  const [volume, setVolume] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -41,6 +44,11 @@ export default function Waveform({ url }) {
     setPlay(false);
     setIsLoaded(false);
 
+    // التأكد من إيقاف الصوت الحالي قبل تشغيل أغنية جديدة
+    if (currentWaveSurfer && currentWaveSurfer !== wavesurfer.current) {
+      currentWaveSurfer.pause(); // ⛔ إيقاف أي مشغل آخر قبل التشغيل الجديد
+    }
+
     const options = formWaveSurferOptions(waveformRef.current);
     wavesurfer.current = WaveSurfer.create(options);
 
@@ -49,7 +57,7 @@ export default function Waveform({ url }) {
 
       wavesurfer.current.on("ready", () => {
         if (wavesurfer.current) {
-          wavesurfer.current.setVolume(volume);
+          wavesurfer.current.setVolume(0);
           setDuration(wavesurfer.current.getDuration());
           setIsLoaded(true);
         }
@@ -79,16 +87,21 @@ export default function Waveform({ url }) {
 
 
   const handlePlayPause = () => {
-    setPlay(!playing);
-    wavesurfer.current.playPause();
+    if (currentSong?.song_url !== url) {
+      playSong(song); // 🎵 تحميل الأغنية للمشغل الرئيسي
+    } else {
+      togglePlayPause(); // ⏯ تشغيل أو إيقاف المشغل الرئيسي
+    }
+
+    setCurrentWaveSurfer(wavesurfer.current); // تحديث المشغل الفرعي النشط
   };
 
   return (
     <div className="flex flex-row items-center py-8 gap-4 w-full">
       <div className="order-1 w-full flex flex-row items-center gap-3">
-      <span className="font-bold">{formatTime(currentTime)}</span>
-      <div id="waveform" className="w-full" ref={waveformRef} />
-      <span className="font-bold">{formatTime(duration)}</span>
+        <span className="font-bold">{formatTime(currentTime)}</span>
+        <div id="waveform" className="w-full" ref={waveformRef} />
+        <span className="font-bold">{formatTime(duration)}</span>
       </div>
       <div className="controls">
         {
