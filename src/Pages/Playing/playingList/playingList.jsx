@@ -21,6 +21,8 @@ const PlayingList = ({ filters }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [loading, setLoading] = useState(false);
     const [filtered, setFiltered] = useState("");
+    const [artists,setArtists]=useState([])
+    const [Albums, setAlbums] = useState([]);
 
     const TrendingSongs = lazy(() => import("./TrendingSongs"));
     const TrendingAlbums = lazy(() => import("./TrendingAlbums"));
@@ -29,9 +31,6 @@ const PlayingList = ({ filters }) => {
         axios
             .get("http://127.0.0.1:8000/api/Songs")
             .then(response => {
-                console.log("البيانات المستلمة من API:", response.data); 
-
-              
                 const formattedSongs = response.data.map(song => ({
                     id: song.id,
                     title: song.title,       
@@ -45,31 +44,26 @@ const PlayingList = ({ filters }) => {
             .catch(error => console.error("حدث خطأ أثناء جلب الأغاني:", error));
     }, []);
 
+   
+    
+    useEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/Artists")
+            .then((response) => {
+                setArtists(response.data);
+            })
+            .catch((error) => console.error("Error fetching artists", error));
+    }, []);
 
 
-    // useEffect(()=>{
-    //     setLoading(true)
+    useEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/albums") 
+            .then(response => {
+                setAlbums(response.data); 
+            })
+            .catch(error => console.error("Error fetching albums:", error));
+    }, []);
+    
 
-    //     // getArtists
-    //     const getArtists = async () => {
-    //         const artists = await getArtists();
-    //     setArtists(artists)
-    //     }
-
-    //     // getAlbums
-    //     const getAlbums = async () => {
-    //         const albums = await getAlbums()
-    //         setAlbums(albums)
-    //     }
-
-    //     // getSongs
-    //     const getSongs = async () => {
-    //         const songs = await getSongs()
-    //         setSongs(songs)
-    //     }
-
-    //     setLoading(false)
-    // },[])
 
 
     const settings = {
@@ -124,151 +118,7 @@ const PlayingList = ({ filters }) => {
         ],
     };
 
-    const Artists = {
-        name: "Artist",
-        ArtistList: [
-            {
-                id: 1,
-                name: "Artist 1",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-            },
-            {
-                id: 2,
-                name: "Artist 2",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-            },
-            {
-                id: 3,
-                name: "Artist 3",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-            },
-            {
-                id: 4,
-                name: "Artist 4",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-            },
-            {
-                id: 5,
-                name: "Artist 5",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-            },
-            {
-                id: 6,
-                name: "Artist 6",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-            },
-        ],
-    }
-
-    const albums = {
-        name: "Albums",
-        AlbumList: [
-            {
-                id: 1,
-                name: "Album 1",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 1",
-            },
-            {
-                id: 2,
-                name: "Album 2",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 2",
-            },
-            {
-                id: 3,
-                name: "Album 3",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 3",
-            },
-            {
-                id: 4,
-                name: "Album 4",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 4",
-            },
-            {
-                id: 5,
-                name: "Album 5",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 5",
-            },
-            {
-                id: 6,
-                name: "Album 6",
-                imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                link: "",
-                artist: "Artist 6",
-            },
-        ],
-    }
-
-
-    // const songs = {
-    //     name: "Songs",
-    //     SongList: [
-    //         {
-    //             id: 1,
-    //             name: "يا خساره عليكو",
-    //             imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //             artist: "رمضان البرنس",
-    //             album: "Album 1",
-    //             url: "./1.mp3",
-    //         },
-    //         {
-    //             id: 2,
-    //             name: "انا رايح مش راجع",
-    //             imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //             url: "./2.mp3",
-    //             artist: "حوده بندق",
-    //             album: "Album 2",
-    //         },
-    //         {
-    //             id: 3,
-    //             name: "Song 3",
-    //             imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //             url: "",
-    //             artist: "Artist 3",
-    //             album: "Album 3",
-    //         },
-    //         {
-    //             id: 4,
-    //             name: "Song 4",
-    //             imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //             url: "",
-    //             artist: "Artist 4",
-    //             album: "Album 4",
-    //         },
-    //         {
-    //             id: 5,
-    //             name: "Song 5",
-    //             imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //             url: "",
-    //             artist: "Artist 5",
-    //             album: "Album 5",
-    //         },
-    //         {
-    //             id: 6,
-    //             name: "Song 6",
-    //             imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-    //             url: "",
-    //             artist: "Artist 6",
-    //             album: "Album 6",
-    //         },
-    //     ]
-    // }
-
+    
 
     useEffect(() => {
         setLoading(true)
@@ -309,18 +159,20 @@ const PlayingList = ({ filters }) => {
                 : filtered === "All" ?
                     <>
                         <div className='slider-container relative'>
-                            <h2 className='text-start text-3xl font-bold mb-12'>Popular artists</h2>
+                            <h2 className='text-start text-3xl font-bold mb-12'>artists</h2>
                             <Slider {...settings}>
                                 {
-                                    Artists?.ArtistList?.map((i) => {
+                                   artists?.map((artist) => {
+                                   
+
                                         return (
-                                            <div key={i.id} data-current-slide={currentSlide}>
+                                            <div key={artist.id} data-current-slide={currentSlide}>
                                                 <div className='flex flex-col items-center justify-center relative ArtistsBox'>
-                                                    <img className='w-36 h-36 rounded-full' src={i.imgScr} />
-                                                    <a href={`/Artists/${i.name}`} className='text-2xl mt-2 font-bold'>{i.name}</a>
+                                                    <img className='w-36 h-36 rounded-full'src={`http://127.0.0.1:8000/storage/${artist.profile_image}`} alt={artist.name}  />
+                                                    <a href={`/Artists/${artist.id}`} className='text-2xl mt-2 font-bold'>{artist.name}</a>
                                                     <span onClick={() => {
                                                         setCurrentArtist(
-                                                            i
+                                                           artist
                                                         )
                                                         setIsPlaying(true)
                                                     }}
@@ -335,8 +187,8 @@ const PlayingList = ({ filters }) => {
                             </Slider>
                         </div>
                         <div className='slider-container relative mt-16'>
-                            <h2 className='text-start text-3xl font-bold mb-12'>Popular Albums</h2>
-                            <Slider {...settings}>
+                            <h2 className='text-start text-3xl font-bold mb-12'>Albums</h2>
+                            {/* <Slider {...settings}>
                                 {
                                     albums?.AlbumList?.map((i) => {
                                         return (
@@ -362,54 +214,42 @@ const PlayingList = ({ filters }) => {
                                         )
                                     })
                                 }
-                            </Slider>
+                            </Slider> */}
+                            <Slider {...settings}>
+            {Albums.map((album) => (
+                <div key={album.id}>
+                    <div className='flex flex-col relative ArtistsBox'>
+                    
+                        <img className='w-36 h-36 rounded-xl' src={`http://127.0.0.1:8000/storage/${album.album_cover}`} alt={album.title} />
+                        <div className='flex flex-col'>
+                            <a href={`/albums/${album.id}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>
+                                {album.title}
+                            </a>
+                            
+                            <a href={`/artist/${album.artist_id}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>
+                            
+                                {album.artist.name}
+                            </a>
+                        </div>
+                        <span onClick={() => {
+                            console.log(`Playing album: ${album.title}`);
+                        }}
+                            className='playbtn cursor-pointer opacity-0 transition-all absolute bottom-12 right-0 bg-[#30B797] text-white hover:bg-[1f8d73] text-xl p-4 rounded-full'>
+                            <FaPlay />
+                        </span>
+                    </div>
+                </div>
+            ))}
+        </Slider>
                         </div>
                         <div className='slider-container relative mt-16'>
-                            <h2 className='text-start text-3xl font-bold mb-12'>Popular songs</h2>
-                            {/* <Slider {...settings}>
-                                {
-                                    songs?.SongList?.map((i) => {
-                                        return (
-                                            <div key={i.id}>
-                                                <div className='flex flex-col max-w-36'>
-                                                    <div className='relative ArtistsBox'>
-                                                        <img className='w-36 h-36 rounded-xl' src={i.imgScr} />
-                                                        <span onClick={() => {
-                                                            currentSong !== i.url ? playSong(i) : togglePlayPause()
-
-                                                        }}
-                                                            className='playbtn cursor-pointer opacity-0 transition-all absolute bottom-2 right-2 bg-[#30B797] text-white hover:bg-[1f8d73] text-sm p-2 rounded-full'>
-                                                            <FaPlay />
-                                                        </span>
-                                                        <div className='flex flex-row items-center gap-2.5 playbtn cursor-pointer opacity-0 transition-all absolute bottom-2 left-2  text-white text-lg'>
-                                                            <FaDownload onClick={
-                                                                () => {
-                                                                    downloadSong(i.link)
-                                                                }
-                                                            } />
-                                                            <FaHeart onClick={
-                                                                () => {
-                                                                    addFavorite(i)
-                                                                }
-                                                            } />
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex flex-col'>
-                                                        <h3 className='text-start text-2xl mt-2 font-bold'>{i.name}</h3>
-                                                        <a href={`/${i.artist}`} className='text-start text-sm hover:text-[#30B797] transition-all text-gray-400'>{i.artist}</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </Slider> */}
+                            <h2 className='text-start text-3xl font-bold mb-12'>songs</h2>
                                <Slider {...settings}>
-    {songs?.map((song) => (
-        <div key={song.id}>
-            <div className='flex flex-col max-w-36'>
-                <div className='relative ArtistsBox'>
-                    <img className='w-36 h-36 rounded-xl' src={song.cover_url} alt={song.title} />
+                                {songs?.map((song) => (
+                                    <div key={song.id}>
+                                    <div className='flex flex-col max-w-36'>
+                                    <div className='relative ArtistsBox'>
+                                    <img className='w-36 h-36 rounded-xl' src={song.cover_url} alt={song.title} />
                     <span 
                         onClick={() => {
                             // currentSong !== song.song_url ? playSong(song) : togglePlayPause();
