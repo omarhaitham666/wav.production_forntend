@@ -154,8 +154,8 @@ export const AudioPlayerProvider = ({ children }) => {
             duration,
             currentSong,
             togglePlayPause,
-            playSong, // ✅ متاح للاستخدام في أي مكون
-            playPlaylist, // ✅ متاح للاستخدام في أي مكون
+            playSong, //  متاح للاستخدام في أي مكون
+            playPlaylist, //  متاح للاستخدام في أي مكون
         }}>
             {children}
             <div className={`${isInFullScreen ? "flex top-0 h-screen z-50 flex-col justify-end pt-44 pb-56" : "flex-row bg-[#1D212E]"} fixed bottom-0 left-0 w-full shadow-lg p-4 flex  gap-8 text-white `}
