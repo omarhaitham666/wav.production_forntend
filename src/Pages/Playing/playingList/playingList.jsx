@@ -5,6 +5,7 @@ import logo from '../../../assets/Img/logo.png'
 import { useAudioPlayer } from '../../../Context/AudioPlayerContext';
 import { addFavorite, downloadSong } from '../../../actions/songsActions';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 const PlayingList = ({ filters }) => {
     const { loadSong, togglePlayPause, playing, currentSong, playSong, PlayingList } = useAudioPlayer();
 
@@ -61,8 +62,6 @@ const PlayingList = ({ filters }) => {
             })
             .catch(error => console.error("Error fetching albums:", error));
     }, []);
-
-
 
 
     const settings = {
@@ -166,7 +165,7 @@ const PlayingList = ({ filters }) => {
                                             <div key={artist.id} data-current-slide={currentSlide}>
                                                 <div className='flex flex-col items-center justify-center relative ArtistsBox'>
                                                     <img className='w-36 h-36 rounded-full' src={`http://127.0.0.1:8000/storage/${artist.profile_image}`} alt={artist.name} />
-                                                    <a href={`/Artists/${artist.id}`} className='text-2xl mt-2 font-bold'>{artist.name}</a>
+                                                    <Link to={`/Artists/${artist.name}`} className='text-2xl mt-2 font-bold'>{artist.name}</Link>
                                                     <span onClick={() => {
                                                         setCurrentArtist(
                                                             artist
@@ -193,8 +192,8 @@ const PlayingList = ({ filters }) => {
                                                 <div className='flex flex-col relative ArtistsBox'>
                                                     <img className='w-36 h-36 rounded-xl' src={i.imgScr} />
                                                     <div className='flex flex-col'>
-                                                        <a href={`/albums/${i.name}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>{i.name}</a>
-                                                        <a href={`/artist/${i.artist}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>{i.artist}</a>
+                                                        <Link to={`/albums/${i.name}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>{i.name}</Link>
+                                                        <Link to={`/artist/${i.artist}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>{i.artist}</Link>
                                                     </div>
                                                     <span onClick={() => {
                                                         setCurrentAlbum(
@@ -219,14 +218,14 @@ const PlayingList = ({ filters }) => {
 
                                             <img className='w-36 h-36 rounded-xl' src={`http://127.0.0.1:8000/storage/${album.album_cover}`} alt={album.title} />
                                             <div className='flex flex-col'>
-                                                <a href={`/albums/${album.id}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>
+                                                <Link to={`/albums/${album.name}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>
                                                     {album.title}
-                                                </a>
+                                                </Link>
 
-                                                <a href={`/artist/${album.artist_id}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>
+                                                <Link to={`/artist/${album.artist}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>
 
                                                     {album.artist.name}
-                                                </a>
+                                                </Link>
                                             </div>
                                             <span onClick={() => {
                                                 console.log(`Playing album: ${album.title}`);
@@ -265,7 +264,7 @@ const PlayingList = ({ filters }) => {
                                             </div>
                                             <div className='flex flex-col'>
                                                 <h3 className='text-start text-2xl mt-2 font-bold'>{song.title}</h3>
-                                                <a href={`/${song.artist}`} className='text-start text-sm hover:text-[#30B797] transition-all text-gray-400'>{song.artist}</a>
+                                                <Link to={`/${song.artist}`} className='text-start text-sm hover:text-[#30B797] transition-all text-gray-400'>{song.artist}</Link>
                                             </div>
                                         </div>
                                     </div>

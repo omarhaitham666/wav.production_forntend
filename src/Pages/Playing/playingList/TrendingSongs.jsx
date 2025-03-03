@@ -6,6 +6,7 @@ import { MdOutlineReplay } from 'react-icons/md';
 import { IoPlayCircleOutline } from 'react-icons/io5';
 import Waveform from '../../../Components/Waveform';
 import { addFavorite, downloadSong } from '../../../actions/songsActions';
+import { Link } from 'react-router-dom';
 
 const TrendingSongs = () => {
     // Fetch trending songs from API
@@ -26,7 +27,7 @@ const TrendingSongs = () => {
                 id: 1,
                 name: "Song 1",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                artist: "Artist 1",
+                artist: "Artist1",
                 album: "Album 1",
                 url: "./1.mp3",
             },
@@ -34,7 +35,7 @@ const TrendingSongs = () => {
                 id: 2,
                 name: "Song 2",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                artist: "Artist 2",
+                artist: "Artist2",
                 album: "Album 2",
                 url: "./2.mp3",
             },
@@ -42,7 +43,7 @@ const TrendingSongs = () => {
                 id: 3,
                 name: "Song 3",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                artist: "Artist 3",
+                artist: "Artist3",
                 album: "Album 3",
                 url: "./3.mp3",
             },
@@ -50,21 +51,21 @@ const TrendingSongs = () => {
                 id: 4,
                 name: "Song 4",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                artist: "Artist 4",
+                artist: "Artist4",
                 album: "Album 4",
             },
             {
                 id: 5,
                 name: "Song 5",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                artist: "Artist 5",
+                artist: "Artist5",
                 album: "Album 5",
             },
             {
                 id: 6,
                 name: "Song 6",
                 imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
-                artist: "Artist 6",
+                artist: "Artist6",
                 album: "Album 6",
             },
         ]
@@ -80,9 +81,9 @@ const TrendingSongs = () => {
                         <div className='flex flex-col justify-around'>
                             <div>
                                 <h3 className='font-bold text-2xl mb-2'>{song.name}</h3>
-                                <p className='text-xl'>{song.artist}</p>
+                                <Link to={`/Artists/${song.artist}`} className='text-xl hover:text-[#30B797] transition-all'>{song.artist}</Link>
                             </div>
-                            <p className='text-xl'>{song.album}</p>
+                            <Link to={`/Albums/${song.album}`} className='text-xl hover:text-[#30B797] transition-all'>{song.album}</Link>
                             <div className='flex flex-row gap-2 mt-4'>
                                 <MdOutlineReplay size={24}
                                     className='text-2xl text-black hover:text-[#30B797] transition-all'
