@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+
 .showMenuNav {
     display: block;
     position: absolute;
@@ -93,17 +100,16 @@
     opacity: 1;
 }
 
-.order-popupBtn:hover span{
+.order-popupBtn:hover span {
 
     background-color: #4D39CF;
     color: white;
 }
 
-.slick-track{
+.slick-track {
     align-items: start;
 }
 
-.w-fitAv{
+.w-fitAv {
     width: -webkit-fill-available;
 }
-

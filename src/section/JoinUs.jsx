@@ -11,8 +11,8 @@ const JoinUs = () => {
     return (
         <div className={`py-8 bg-cover bg-white`}>
             <div className="container m-auto">
-                <div className="flex flex-row gap-14">
-                    <div className="lg:w-1/2 w-full flex flex-col lg:items-start items-center mr-8 text-center lg:text-start">
+                <div className="flex lg:flex-row flex-col gap-14">
+                    <div className="lg:w-1/2 w-full flex flex-col lg:items-start items-center lg:mr-8 text-center lg:text-start">
                         <h2 className="text-4xl font-bold text-black mb-4">Join Us and Take Your Music Career to the Next Level! 🎵</h2>
                         <p className="text-2xl mb-8 text-gray-600">Are you an aspiring artist or an established star looking for a platform to support your journey and expand your reach? We are here to be your trusted partner and agent for success!</p>
                         <div className='relative py-12'>

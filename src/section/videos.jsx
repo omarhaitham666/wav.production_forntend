@@ -298,7 +298,7 @@ const Videos = () => {
                     </div>
                     <div className='relative mt-16'>
                         <h2 className='text-start text-3xl font-bold mb-12'>Top 4</h2>
-                        <div className="flex flex-wrap items-center justify-between gap-4">
+                        <div className="flex flex-wrap items-center justify-center md:justify-between gap-4">
                             {
                                 top4?.map((i, index) => {
                                     return (
