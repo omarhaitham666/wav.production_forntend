@@ -7,6 +7,9 @@ import CompressionPlugin from 'compression-webpack-plugin'
 
 
 export default defineConfig({
+  optimizeDeps: {
+    include: ["react-dropzone"],
+  },
   build: {
     minify: 'esbuild',  
     sourcemap: false,  

@@ -24,6 +24,7 @@ const Playing = lazy(() => import("./Pages/Playing/Playing"));
 const OrderVideo = lazy(() => import("./Pages/OrderVideo/OrderVideo"));
 const Album = lazy(() => import("./Pages/Albums/album"));
 const Artist = lazy(() => import("./Pages/Artists/artist"));
+const Upload = lazy(() => import("./Pages/Upload/upload"));
 
 // const Player = lazy(() => import("./Components/player"));
 
@@ -60,6 +61,8 @@ function App() {
         <Route path="/OrderVideo" element={<Layout ><OrderVideo /></Layout>} />
         <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
         <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
+        <Route path="/upload" element={<Layout ><Upload /></Layout>} />
+
       </Routes>
     </Suspense>
 
