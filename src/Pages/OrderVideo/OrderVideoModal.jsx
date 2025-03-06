@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-const OrderVideoModal = ({ orderInfo ,handleClose}) => {
+const OrderVideoModal = ({ orderInfo, handleClose }) => {
+    const [agree, setAgree] = useState(false);
+
 
 
     const formik = useFormik({
@@ -37,6 +39,15 @@ const OrderVideoModal = ({ orderInfo ,handleClose}) => {
 
         onSubmit: async (values) => {
             const token = localStorage.getItem("token");
+
+            if (!agree) {
+                Swal.fire({
+                    title: 'خطأ',
+                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                    icon: 'error',
+                });
+                return;
+            }
 
             if (!token) {
                 Swal.fire({
@@ -168,6 +179,13 @@ const OrderVideoModal = ({ orderInfo ,handleClose}) => {
                                     name="mas"
                                     id="mas"
                                     className="border rounded-xl border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5 h-[150px] resize-y" placeholder='Write your Text' />
+                            </div>
+
+                            <div className='flex items-center mt-4'>
+                                <input type="checkbox" id="terms" checked={agree} onChange={() => setAgree(!agree)} className='mr-2' />
+                                <label htmlFor="terms" className='text-sm'>
+                                    أوافق على <a href="/Terms/VideosOrder" className='text-[#2F00AC] underline'>الشروط والأحكام</a>
+                                </label>
                             </div>
                             <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
                         </form>

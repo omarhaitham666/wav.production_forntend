@@ -18,6 +18,8 @@ const JoinUs = () => {
     const [imagePreview, setImagePreview] = useState("");
     const token = localStorage.getItem("token");
     const [preview, setPreview] = useState(null);
+    const [agree, setAgree] = useState(false);
+
 
 
     const handleChange = (e) => {
@@ -87,6 +89,15 @@ const JoinUs = () => {
                     window.location.href = "/Register";
                 });
 
+                return;
+            }
+
+            if (!agree) {
+                Swal.fire({
+                    title: 'خطأ',
+                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                    icon: 'error',
+                });
                 return;
             }
 
@@ -213,6 +224,15 @@ const JoinUs = () => {
 
                 return;
             }
+
+                  if (!agree) {
+                    Swal.fire({
+                        title: 'خطأ',
+                        text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                        icon: 'error',
+                    });
+                    return;
+                }
 
             try {
                 const formData = new FormData();
@@ -366,6 +386,10 @@ const JoinUs = () => {
                                         if (selectedType === "famous") {
                                             setShowForm(true);
                                         }
+                                        if (selectedType === "Rising") {
+                                            setShowForm(true);
+                                        }
+
                                     }
                                 }
                             }
@@ -376,7 +400,7 @@ const JoinUs = () => {
                     selectedType === "Rising" && (
 
                         <>
-                            <RisingForm />
+                            {/* <RisingForm /> */}
                             {showForm === true ?
                                 <div aria-hidden="true" className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full">
                                     <div className="relative p-4 w-full md:w-1/2 max-h-full">
@@ -511,7 +535,12 @@ const JoinUs = () => {
                                                             <small className='text-red-500'>{formik.errors.profile_image}</small>
                                                         ) : null}
                                                     </div>
-
+                                                    <div className='flex items-center mt-4'>
+                                                        <input type="checkbox" id="terms" checked={agree} onChange={() => setAgree(!agree)} className='mr-2' />
+                                                        <label htmlFor="terms" className='text-sm'>
+                                                            أوافق على <a href={`/Terms/${selectedType}`} className='text-[#2F00AC] underline'>الشروط والأحكام</a>
+                                                        </label>
+                                                    </div>
                                                     <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
                                                 </form>
                                             </div>
@@ -649,6 +678,12 @@ const JoinUs = () => {
                                                         {famousformik.touched.famous_profile_image && famousformik.errors.famous_profile_image ? (
                                                             <small className='text-red-500'>{famousformik.errors.famous_profile_image}</small>
                                                         ) : null}
+                                                    </div>
+                                                    <div className='flex items-center mt-4'>
+                                                        <input type="checkbox" id="terms" checked={agree} onChange={() => setAgree(!agree)} className='mr-2' />
+                                                        <label htmlFor="terms" className='text-sm'>
+                                                            أوافق على <a href={`/Terms/${selectedType}`} className='text-[#2F00AC] underline'>الشروط والأحكام</a>
+                                                        </label>
                                                     </div>
                                                     <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
                                                 </form>

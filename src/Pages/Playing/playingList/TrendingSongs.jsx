@@ -3,7 +3,6 @@ import { getTrendingSongs } from '../../../actions/getSongs';
 import { FaRegHeart } from 'react-icons/fa';
 import { LuDownload } from 'react-icons/lu';
 import { MdOutlineReplay } from 'react-icons/md';
-import { IoPlayCircleOutline } from 'react-icons/io5';
 import Waveform from '../../../Components/Waveform';
 import { addFavorite, downloadSong } from '../../../actions/songsActions';
 import { Link } from 'react-router-dom';
@@ -91,7 +90,11 @@ const TrendingSongs = () => {
                                 <LuDownload size={24}
                                     className='text-2xl text-black hover:text-[#30B797] transition-all'
                                     onClick={() => {
-                                        downloadSong(song.url)
+                                        if (song.url) {
+                                            downloadSong(song.url);
+                                        } else {
+                                            console.error("No URL available for this song");
+                                        }
                                     }
                                     }
                                 />

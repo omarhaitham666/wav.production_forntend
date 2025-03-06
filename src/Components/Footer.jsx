@@ -1,6 +1,8 @@
 import React from 'react'
 import logo  from "../assets/Img/logo.png"
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterCircle, AiFillYoutube } from 'react-icons/ai';
+import { LinksData } from './LinksData';
+import { Link } from 'react-router-dom';
 
 function Footer() {
 
@@ -15,45 +17,26 @@ function Footer() {
               <img src={logo} className="w-48 md:w-full me-3" alt="wav.Logo" />
             </a>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-4">
             <div>
               <h2 className="mb-6 text-sm font-bold text-white uppercase">Learn More</h2>
               <ul className="text-gray-500 font-medium">
-                <li className="mb-4">
-                  <a href="/About us" className="hover:underline">About us</a>
-                </li>
-                <li className="mb-4">
-                  <a href="/Releases" className="hover:underline">
-                  Press Releases
-                  </a>
-                </li>
-                <li className="mb-4">
-                  <a href="/Environment" className="hover:underline">
-                    Environment
-                  </a>
-                </li>
-                <li className="mb-4">
-                  <a href="/join us" className="hover:underline">
-                    work with us
-                  </a>
-                </li>
-                <li className="mb-4">
-                  <a href="/Privacy Policy" className="hover:underline">
-                  Privacy Policy
-                  </a>
-                </li>
-                <li className="mb-4">
-                  <a href="/Contact" className="hover:underline">
-                    Contact Us
-                  </a>
-                </li>
+                {LinksData.map((link)=>{
+                  return(
+                    <li key={link.id} className="mb-4">
+                      <Link to={link.to} className="hover:underline">
+                        {link.title}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
             <div>
               <h2 className="mb-6 text-sm font-bold text-white uppercase">Privacy Policy</h2>
               <ul className="text-gray-500 font-medium">
                 <li className="mb-4">
-                  <a href="/Terms of Use" className="hover:underline ">Terms of Use</a>
+                  <a href="/Terms-of-Use" className="hover:underline ">Terms of Use</a>
                 </li>
                 <li className='mb-4'>
                   <a href="/Cookie" className="hover:underline">Cookie Settings</a>

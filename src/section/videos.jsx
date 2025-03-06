@@ -4,10 +4,15 @@ import { FiPlus } from 'react-icons/fi';
 import Slider from 'react-slick';
 import { getVideosOrder } from '../actions/getVideosOrder';
 import { getTop4 } from '../actions/getTop4';
+import OrderVideoModal from '../Pages/OrderVideo/OrderVideoModal';
 
 const Videos = () => {
     // const [videosOrder, setVideosOrder] = useState([]);
     // const [top4, setTop4] = useState([]);
+    const [orderInfo, setOrderInfo] = useState();
+    const [openModel, setOpenModel] = useState(false);
+
+
 
 
     const settings = {
@@ -238,7 +243,6 @@ const Videos = () => {
     // }, []);
 
 
-
     return (
         <div className={`pt-20 pb-40 bg-cover bg-[#30B7971A]`}>
             <div className="container m-auto">
@@ -277,9 +281,14 @@ const Videos = () => {
                             {
                                 videosOrder?.map((i, index) => {
                                     return (
-                                        <a href={
-                                            `/OrderVideo/${i.name}`
-                                        } key={index} className='m-auto'>
+                                        <div
+                                            onClick={
+                                                () => {
+                                                    setOrderInfo(i)
+                                                    setOpenModel(true)
+                                                }
+                                            }
+                                            key={index} className='m-auto cursor-pointer'>
                                             <img className='w-56 h-60 rounded-lg' src={i.imgScr} />
                                             <div className='order-text'>
                                                 <h3 className='text-start text-2xl font-bold'>{i.name}</h3>
@@ -290,7 +299,7 @@ const Videos = () => {
                                                 </div>
                                                 <p className='text-start text-lg font-bold'>EGP {i.prise}</p>
                                             </div>
-                                        </a>
+                                        </div>
                                     )
                                 })
                             }
@@ -323,9 +332,15 @@ const Videos = () => {
                                                 </div>
                                             </div>
 
-                                            <a className='text-[#30B797] text-center w-full block font-bold pt-2 pb-3 text-xl hover:text-white hover:bg-[#30b797] transition' href={
-                                                `/OrderVideo/${i.name}`
-                                            }>Order now</a>
+                                            <button
+                                                onClick={
+                                                    () => {
+                                                        setOrderInfo(i)
+                                                        setOpenModel(true)
+                                                    }
+                                                }
+                                                className='text-[#30B797] text-center w-full block font-bold pt-2 pb-3 text-xl hover:text-white hover:bg-[#30b797] transition'>
+                                                Order now</button>
                                         </div>
                                     )
                                 })
@@ -333,6 +348,14 @@ const Videos = () => {
                         </div>
                     </div>
                 </div>
+                {
+                    openModel && (
+                        <OrderVideoModal
+                            handleClose={() => setOpenModel(false)}
+                            orderInfo={orderInfo}
+                        />
+                    )
+                }
             </div>
         </div>
     );

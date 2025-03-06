@@ -25,6 +25,10 @@ const OrderVideo = lazy(() => import("./Pages/OrderVideo/OrderVideo"));
 const Album = lazy(() => import("./Pages/Albums/album"));
 const Artist = lazy(() => import("./Pages/Artists/artist"));
 const Upload = lazy(() => import("./Pages/Upload/upload"));
+const Services = lazy(() => import("./Pages/Services/Services"));
+const Terms = lazy(() => import("./Pages/Terms/Terms"));
+const TermsofUse = lazy(() => import("./Pages/Terms/TermsofUse"));
+
 
 // const Player = lazy(() => import("./Components/player"));
 
@@ -33,7 +37,6 @@ function App() {
   const Layout = ({ children }) => (
     <>
       <Header />
-      {/* <Player /> */}
       {children}
       <Footer />
 
@@ -48,7 +51,7 @@ function App() {
       <span className="text-center text-3xl font-bold animate-pulse">Loading...</span>
     </div>}>
       <Routes>
-        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/" element={<Home />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
@@ -62,6 +65,10 @@ function App() {
         <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
         <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
         <Route path="/upload" element={<Layout ><Upload /></Layout>} />
+        <Route path="/Services" element={<Layout ><Services /></Layout>} />
+        <Route path="/Terms/:type" element={<Layout ><Terms /></Layout>} />
+        <Route path="/Terms-of-Use" element={<Layout ><TermsofUse /></Layout>} />
+
 
       </Routes>
     </Suspense>

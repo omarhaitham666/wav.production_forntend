@@ -156,7 +156,6 @@ const OrderVideo = () => {
     const handleVideoClick = (orderd) => {
         setOrderInfo(orderd)
         setOpenModel(true);
-        console.log(orderd)
     }
 
 
