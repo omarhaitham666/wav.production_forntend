@@ -6,10 +6,13 @@ import Vector from '../assets/Img/Vector.png'
 import Vector2 from '../assets/Img/Vector2.png'
 import Vector3 from '../assets/Img/Vector3.png'
 import Vector4 from '../assets/Img/Vector4.png'
+import Aos from 'aos';
+
 
 const JoinUs = () => {
+
     return (
-        <div className={`py-8 bg-cover bg-white`}>
+        <div  data-aos="fade-up" className={`py-8 bg-cover bg-white`}>
             <div className="container m-auto">
                 <div className="flex lg:flex-row flex-col gap-14">
                     <div className="lg:w-1/2 w-full flex flex-col lg:items-start items-center lg:mr-8 text-center lg:text-start">

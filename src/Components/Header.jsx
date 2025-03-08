@@ -51,10 +51,10 @@ function Header({isScrolled}) {
           </div>
           <div className={`flex flex-row gap-8`}>
             <div className={`hidden flex-row gap-4 lg:flex`}>
-              <Link to={'/Login'} className="text-[#2F00AC] bg-[#E6F6F2] font-bold border border-[#E6F6F2] hover:bg-transparent hover:text-[#E6F6F2] py-3 rounded-xl px-6">
+              <Link to={'/Login'} className={`${isScrolled? "hover:bg-[#2F00AC] hover:text-[#E6F6F2]":"hover:bg-transparent hover:text-[#2F00AC]"} text-[#2F00AC] bg-[#E6F6F2] font-bold border border-[#E6F6F2]  py-3 rounded-xl px-6`}>
                 Login
               </Link>
-              <Link to={'/Register'} className="text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] hover:bg-transparent py-3 rounded-xl px-6">
+              <Link to={'/Register'} className={`${isScrolled?"hover:text-[#2F00AC]":""} hover:bg-transparent text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] py-3 rounded-xl px-6`}>
                 Sign Up
               </Link>
             </div>

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import './App.css'
 import { Route, Router, Routes } from 'react-router-dom';
 
@@ -8,7 +8,8 @@ import Footer from './Components/Footer'
 import logo from "../src/assets/Img/logo.png"
 import { HelmetProvider } from "react-helmet-async";
 
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 
@@ -34,7 +35,11 @@ const TermsofUse = lazy(() => import("./Pages/Terms/TermsofUse"));
 // const Player = lazy(() => import("./Components/player"));
 
 function App() {
-
+  useEffect(() => {
+    AOS.init({
+        duration: 1000,
+      });
+}, []);
   const Layout = ({ children }) => (
     <>
       <Header />

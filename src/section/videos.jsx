@@ -275,7 +275,7 @@ const Videos = () => {
                             <a href="/join-us" className='text-black font-bold my-2 text-2xl underline text-center'>join us</a>
                         </div>
                     </div>
-                    <div className='slider-container relative mt-16'>
+                    <div  data-aos="zoom-out" className='slider-container relative mt-16'>
                         <h2 className='text-start text-3xl font-bold mb-12'>Most Ordered</h2>
                         <Slider {...settings}>
                             {
@@ -305,7 +305,7 @@ const Videos = () => {
                             }
                         </Slider>
                     </div>
-                    <div className='relative mt-16'>
+                    <div  data-aos="zoom-out" className='relative mt-16'>
                         <h2 className='text-start text-3xl font-bold mb-12'>Top 4</h2>
                         <div className="flex flex-wrap items-center justify-center md:justify-between gap-4">
                             {
