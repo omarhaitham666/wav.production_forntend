@@ -11,6 +11,7 @@ import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 
 const Services = () => {
@@ -221,208 +222,213 @@ const Services = () => {
 
 
     return (
-        <div className="py-24">
-            <div className="container mx-auto">
-                <div className="flex flex-col lg:flex-row justify-center gap-8">
-                    <div className="w-full lg:w-1/2">
-                        <h1 className='text-6xl font-bold mb-4'>Social Media Specialist</h1>
-                        <p className="text-xl leading-10 mb-4">Here is the reality: having a strong Social Media presence is essential for
-                            Whether you are managing a local startup or a large-scale enterprise, social media is the bridge that connects your brand to your audience.
-                            It is more than just posting—it is about sharing valuable, engaging, and meaningful content that resonates with your customers.
-                            A well-executed social media strategy helps you boost brand awareness, build trust, enhance your online visibility, and make your business more memorable in a competitive digital landscape.
-                            Social media isn it just an option; it is the foundation for building lasting connections with your audience.
-                        </p>
-                        <button
-                            className="py-2 px-8 text-lg bg-[#30B797] text-white border border-[#30B797] cursor-pointer hover:text-[#30B797] font-bold rounded-2xl hover:bg-white transition-all"
-                            href="#Sevrvices"
-                        >
-                            Get started
-                        </button>
+        <>
+            <Helmet>
+                <title>Services | Could.wav</title>
+            </Helmet>
+            <div className="py-24">
+                <div className="container mx-auto">
+                    <div className="flex flex-col lg:flex-row justify-center gap-8">
+                        <div className="w-full lg:w-1/2">
+                            <h1 className='text-6xl font-bold mb-4'>Social Media Specialist</h1>
+                            <p className="text-xl leading-10 mb-4">Here is the reality: having a strong Social Media presence is essential for
+                                Whether you are managing a local startup or a large-scale enterprise, social media is the bridge that connects your brand to your audience.
+                                It is more than just posting—it is about sharing valuable, engaging, and meaningful content that resonates with your customers.
+                                A well-executed social media strategy helps you boost brand awareness, build trust, enhance your online visibility, and make your business more memorable in a competitive digital landscape.
+                                Social media isn it just an option; it is the foundation for building lasting connections with your audience.
+                            </p>
+                            <button
+                                className="py-2 px-8 text-lg bg-[#30B797] text-white border border-[#30B797] cursor-pointer hover:text-[#30B797] font-bold rounded-2xl hover:bg-white transition-all"
+                                href="#Sevrvices"
+                            >
+                                Get started
+                            </button>
+                        </div>
+                        <div className="w-full mt-4 lg:mt-0 lg:w-1/2">
+                            <img src={Kit} className='w-full' alt="" />
+                        </div>
                     </div>
-                    <div className="w-full mt-4 lg:mt-0 lg:w-1/2">
-                        <img src={Kit} className='w-full' alt="" />
-                    </div>
-                </div>
-                <div className="flex flex-col lg:flex-row justify-center lg:gap-44 gap-20" id='Sevrvices'>
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                        <h1 className='text-5xl font-bold mb-4'>How it works</h1>
-                        <p className="text-xl leading-5 mb-4">We believe that the best way to create successful marketing campaigns is to work closely with our clients to understand their goals and challenges.</p>
-                        <img src={lamp} className='mt-12' alt="" />
-                    </div>
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                        <ul className="mb-8">
-                            {SocialMediaServices.map((service, index) => (
-                                <li key={index} className='flex md:flex-row flex-col items-center gap-6 mb-6'>
-                                    <div className="flex items-center justify-center bg-[#30B797] p-8 rounded-2xl text-4xl text-white">
-                                        {service.icon}
-                                    </div>
-                                    <div className="flex flex-col text-center md:text-start">
-                                        <h2 className="text-3xl mb-2 font-bold">{service.title}</h2>
-                                        <p className='text-sm'>{service.description}</p>
-                                        <div className="flex md:flex-row flex-col items-center font-bold gap-2">
-                                            <p className="font-bold">Prices start from ${service.price}</p>
-                                            <button
-                                                className="flex flex-row items-center text-lg text-[#30B797] cursor-pointer hover:text-[#488b7c] font-bold transition-all"
-                                                onClick={
-                                                    () => {
-                                                        setModalOpen(true);
-                                                        setSelectedService(service.title);
+                    <div className="flex flex-col lg:flex-row justify-center lg:gap-44 gap-20" id='Sevrvices'>
+                        <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                            <h1 className='text-5xl font-bold mb-4'>How it works</h1>
+                            <p className="text-xl leading-5 mb-4">We believe that the best way to create successful marketing campaigns is to work closely with our clients to understand their goals and challenges.</p>
+                            <img src={lamp} className='mt-12' alt="" />
+                        </div>
+                        <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                            <ul className="mb-8">
+                                {SocialMediaServices.map((service, index) => (
+                                    <li key={index} className='flex md:flex-row flex-col items-center gap-6 mb-6'>
+                                        <div className="flex items-center justify-center bg-[#30B797] p-8 rounded-2xl text-4xl text-white">
+                                            {service.icon}
+                                        </div>
+                                        <div className="flex flex-col text-center md:text-start">
+                                            <h2 className="text-3xl mb-2 font-bold">{service.title}</h2>
+                                            <p className='text-sm'>{service.description}</p>
+                                            <div className="flex md:flex-row flex-col items-center font-bold gap-2">
+                                                <p className="font-bold">Prices start from ${service.price}</p>
+                                                <button
+                                                    className="flex flex-row items-center text-lg text-[#30B797] cursor-pointer hover:text-[#488b7c] font-bold transition-all"
+                                                    onClick={
+                                                        () => {
+                                                            setModalOpen(true);
+                                                            setSelectedService(service.title);
+                                                        }
                                                     }
-                                                }
-                                            >
-                                                Get it now
-                                                <FaChevronRight />
-                                            </button>
+                                                >
+                                                    Get it now
+                                                    <FaChevronRight />
+                                                </button>
+                                            </div>
                                         </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="pt-20 flex flex-col lg:flex-row justify-center gap-10">
+                        <div className="lg:w-1/2">
+                            <h2 className="text-5xl mb-12 font-bold w-full text-center lg:text-start lg:w-2/3">Lets talk for something Special</h2>
+                            <p className='text-[#4C484F] text-lg w-full text-center lg:text-start lg:w-2/3'>Our white-label technology consulting company has become one of the most sought-after Custom Web Development Services in a very short period. It is famous for its unique techniques and practical results.</p>
+                        </div>
+                        <div className="lg:w-1/2">
+                            <form action="" onSubmit={formik.handleSubmit}>
+                                <input className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
+                                    type="text"
+                                    placeholder="Your name"
+
+                                    name='name'
+                                    onChange={formik.handleChange} value={formik.values.name}
+
+                                />
+                                {formik.touched.name && formik.errors.name ? (
+                                    <small className='text-red-500'>{formik.errors.name}</small>
+                                ) : null}
+                                <input
+                                    className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4 mt-4'
+                                    type="email"
+                                    placeholder="Your email"
+                                    name='email'
+                                    id='email'
+                                    onChange={formik.handleChange} value={formik.values.email}
+                                />
+                                {formik.touched.email && formik.errors.email ? (
+                                    <small className='text-red-500'>{formik.errors.email}</small>
+                                ) : null}
+                                <textarea className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
+                                    rows='5'
+                                    placeholder="Project details"
+                                    name='message'
+                                    id='message'
+                                    onChange={formik.handleChange} value={formik.values.message}
+                                />
+                                {formik.touched.message && formik.errors.message ? (
+                                    <small className='text-red-500'>{formik.errors.message}</small>
+                                ) : null}
+
+                                <button className='bg-[#1F1A23] text-white font-bold rounded-full p-4 mt-4 text-2xl hover:bg-[#2F00AC] transition'
+                                    type='submit'
+                                >Send message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {
+                    modalOpen ?
+                        <div aria-hidden="true" className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full">
+                            <div className="relative p-4 w-full md:w-1/2 max-h-full">
+                                <div className="relative bg-white rounded-3xl shadow-sm">
+                                    <div className="flex items-center justify-between p-4 md:p-5">
+                                        <button type="button" onClick={
+                                            () => {
+                                                setModalOpen(false)
+                                            }
+                                        } className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center ">
+                                            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                            </svg>
+                                            <span className="sr-only">Close modal</span>
+                                        </button>
                                     </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-                <div className="pt-20 flex flex-col lg:flex-row justify-center gap-10">
-                    <div className="lg:w-1/2">
-                        <h2 className="text-5xl mb-12 font-bold w-full text-center lg:text-start lg:w-2/3">Lets talk for something Special</h2>
-                        <p className='text-[#4C484F] text-lg w-full text-center lg:text-start lg:w-2/3'>Our white-label technology consulting company has become one of the most sought-after Custom Web Development Services in a very short period. It is famous for its unique techniques and practical results.</p>
-                    </div>
-                    <div className="lg:w-1/2">
-                        <form action="" onSubmit={formik.handleSubmit}>
-                            <input className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
-                                type="text"
-                                placeholder="Your name"
+                                    <div className="p-4 md:p-5">
+                                        <form className="space-y-4" action="#" onSubmit={servicesFormik.handleSubmit}>
+                                            <div className='mb-6'>
+                                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
+                                                <input type="name"
+                                                    onChange={servicesFormik.handleChange} value={servicesFormik.values.name}
+                                                    name="name"
+                                                    id="name"
+                                                    placeholder="Your name"
+                                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
+                                                {servicesFormik.touched.name && servicesFormik.errors.name ? (
+                                                    <small className='text-red-500'>{servicesFormik.errors.name}</small>
+                                                ) : null}
+                                            </div>
+                                            <div className='mb-6'>
+                                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
+                                                <input type="email"
+                                                    onChange={servicesFormik.handleChange} value={servicesFormik.values.email}
+                                                    name="email"
+                                                    id="email"
+                                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your email' />
+                                                {servicesFormik.touched.email && servicesFormik.errors.email ? (
+                                                    <small className='text-red-500'>{servicesFormik.errors.email}</small>
+                                                ) : null}
+                                            </div>
+                                            <div className='mb-6'>
+                                                <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Number</label>
+                                                <input type="tel"
+                                                    onChange={servicesFormik.handleChange} value={servicesFormik.values.number}
+                                                    name="number"
+                                                    id="Number"
+                                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Number' />
+                                                {servicesFormik.touched.number && servicesFormik.errors.number ? (
+                                                    <small className='text-red-500'>{servicesFormik.errors.number}</small>
+                                                ) : null}
+                                            </div>
+                                            <div className='mb-6'>
+                                                <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">whatsapp_number</label>
+                                                <input type="tel"
+                                                    onChange={servicesFormik.handleChange} value={servicesFormik.values.whatsapp_number}
+                                                    name="whatsapp_number"
+                                                    id="Number"
+                                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='whatsapp Number' />
+                                                {servicesFormik.touched.whatsapp_number && servicesFormik.errors.whatsapp_number ? (
+                                                    <small className='text-red-500'>{servicesFormik.errors.whatsapp_number}</small>
+                                                ) : null}
+                                            </div>
+                                            <div className='mb-6'>
+                                                <label htmlFor="social_links" className="block mb-2 text-sm font-medium text-[#522ED3]">Social media links</label>
+                                                <input type="text"
+                                                    onChange={servicesFormik.handleChange} value={servicesFormik.values.social_links}
+                                                    name="social_links"
+                                                    id="links"
+                                                    className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your social media links' />
+                                                {servicesFormik.touched.social_links && servicesFormik.errors.social_links ? (
+                                                    <small className='text-red-500'>{servicesFormik.errors.social_links}</small>
+                                                ) : null}
+                                            </div>
+                                            <div className='mb-6'>
+                                                <label htmlFor="details" className="block mb-2 text-sm font-medium text-[#522ED3]">Details</label>
+                                                <input type="text"
+                                                    onChange={servicesFormik.handleChange} value={servicesFormik.values.details}
+                                                    name="details"
+                                                    id="Details"
+                                                    className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your social media links' />
+                                                {servicesFormik.touched.details && servicesFormik.errors.details ? (
+                                                    <small className='text-red-500'>{servicesFormik.errors.details}</small>
+                                                ) : null}
+                                            </div>
 
-                                name='name'
-                                onChange={formik.handleChange} value={formik.values.name}
-
-                            />
-                            {formik.touched.name && formik.errors.name ? (
-                                <small className='text-red-500'>{formik.errors.name}</small>
-                            ) : null}
-                            <input
-                                className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4 mt-4'
-                                type="email"
-                                placeholder="Your email"
-                                name='email'
-                                id='email'
-                                onChange={formik.handleChange} value={formik.values.email}
-                            />
-                            {formik.touched.email && formik.errors.email ? (
-                                <small className='text-red-500'>{formik.errors.email}</small>
-                            ) : null}
-                            <textarea className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
-                                rows='5'
-                                placeholder="Project details"
-                                name='message'
-                                id='message'
-                                onChange={formik.handleChange} value={formik.values.message}
-                            />
-                            {formik.touched.message && formik.errors.message ? (
-                                <small className='text-red-500'>{formik.errors.message}</small>
-                            ) : null}
-
-                            <button className='bg-[#1F1A23] text-white font-bold rounded-full p-4 mt-4 text-2xl hover:bg-[#2F00AC] transition'
-                                type='submit'
-                            >Send message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            {
-                modalOpen ?
-                    <div aria-hidden="true" className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full">
-                        <div className="relative p-4 w-full md:w-1/2 max-h-full">
-                            <div className="relative bg-white rounded-3xl shadow-sm">
-                                <div className="flex items-center justify-between p-4 md:p-5">
-                                    <button type="button" onClick={
-                                        () => {
-                                            setModalOpen(false)
-                                        }
-                                    } className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center ">
-                                        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                        </svg>
-                                        <span className="sr-only">Close modal</span>
-                                    </button>
-                                </div>
-                                <div className="p-4 md:p-5">
-                                    <form className="space-y-4" action="#" onSubmit={servicesFormik.handleSubmit}>
-                                        <div className='mb-6'>
-                                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
-                                            <input type="name"
-                                                onChange={servicesFormik.handleChange} value={servicesFormik.values.name}
-                                                name="name"
-                                                id="name"
-                                                placeholder="Your name"
-                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
-                                            {servicesFormik.touched.name && servicesFormik.errors.name ? (
-                                                <small className='text-red-500'>{servicesFormik.errors.name}</small>
-                                            ) : null}
-                                        </div>
-                                        <div className='mb-6'>
-                                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
-                                            <input type="email"
-                                                onChange={servicesFormik.handleChange} value={servicesFormik.values.email}
-                                                name="email"
-                                                id="email"
-                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your email' />
-                                            {servicesFormik.touched.email && servicesFormik.errors.email ? (
-                                                <small className='text-red-500'>{servicesFormik.errors.email}</small>
-                                            ) : null}
-                                        </div>
-                                        <div className='mb-6'>
-                                            <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Number</label>
-                                            <input type="tel"
-                                                onChange={servicesFormik.handleChange} value={servicesFormik.values.number}
-                                                name="number"
-                                                id="Number"
-                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Number' />
-                                            {servicesFormik.touched.number && servicesFormik.errors.number ? (
-                                                <small className='text-red-500'>{servicesFormik.errors.number}</small>
-                                            ) : null}
-                                        </div>
-                                        <div className='mb-6'>
-                                            <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">whatsapp_number</label>
-                                            <input type="tel"
-                                                onChange={servicesFormik.handleChange} value={servicesFormik.values.whatsapp_number}
-                                                name="whatsapp_number"
-                                                id="Number"
-                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='whatsapp Number' />
-                                            {servicesFormik.touched.whatsapp_number && servicesFormik.errors.whatsapp_number ? (
-                                                <small className='text-red-500'>{servicesFormik.errors.whatsapp_number}</small>
-                                            ) : null}
-                                        </div>
-                                        <div className='mb-6'>
-                                            <label htmlFor="social_links" className="block mb-2 text-sm font-medium text-[#522ED3]">Social media links</label>
-                                            <input type="text"
-                                                onChange={servicesFormik.handleChange} value={servicesFormik.values.social_links}
-                                                name="social_links"
-                                                id="links"
-                                                className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your social media links' />
-                                            {servicesFormik.touched.social_links && servicesFormik.errors.social_links ? (
-                                                <small className='text-red-500'>{servicesFormik.errors.social_links}</small>
-                                            ) : null}
-                                        </div>
-                                        <div className='mb-6'>
-                                            <label htmlFor="details" className="block mb-2 text-sm font-medium text-[#522ED3]">Details</label>
-                                            <input type="text"
-                                                onChange={servicesFormik.handleChange} value={servicesFormik.values.details}
-                                                name="details"
-                                                id="Details"
-                                                className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your social media links' />
-                                            {servicesFormik.touched.details && servicesFormik.errors.details ? (
-                                                <small className='text-red-500'>{servicesFormik.errors.details}</small>
-                                            ) : null}
-                                        </div>
-
-                                        <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
-                                    </form>
+                                            <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    : ""
-            }
-        </div>
+                        : ""
+                }
+            </div>
+        </>
     );
 }
 

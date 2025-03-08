@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const Pricing = () => {
 
@@ -107,6 +108,10 @@ const Pricing = () => {
 
 
     return (
+                <>
+                    <Helmet>
+                        <title>Pricing | Could.wav</title>
+                    </Helmet>
         <div className='py-20'>
             <div className="container m-auto">
                 <div className="flex items-center flex-col">
@@ -163,6 +168,7 @@ const Pricing = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

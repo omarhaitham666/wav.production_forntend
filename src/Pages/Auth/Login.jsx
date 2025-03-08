@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
 import { AppContext } from '../../Context/AppContext';
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -95,6 +96,9 @@ const Login = () => {
   return (
 
     <>
+      <Helmet>
+        <title>Login | Could.wav</title>
+      </Helmet>
       <div className='h-[100vh]'>
         <div className='flex justify-center items-center h-full'>
           <div className='lg:w-4/7 w-full h-full bg-white pt-28 mx-auto'>

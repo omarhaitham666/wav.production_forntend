@@ -2,6 +2,7 @@ import { useState } from "react";
 import PlayingHero from "../../Components/PlayingHero";
 import Sidebar from "../../Components/sidebar";
 import PlayingList from "./playingList/playingList";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -12,6 +13,9 @@ const Playing = () => {
 
     return (
         <>
+                    <Helmet>
+                        <title>Playing | Could.wav</title>
+                    </Helmet>
             <PlayingHero />
             <div className="py-12">
                 <div className="container mx-auto">

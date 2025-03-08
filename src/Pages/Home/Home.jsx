@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaChevronRight } from "react-icons/fa";
 import HeroBg from "../../assets/Img/Rectangle1.png";
 import JoinUs from '../../section/JoinUs';
@@ -6,6 +6,7 @@ import Services from '../../section/Services';
 import Videos from '../../section/videos';
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -29,6 +30,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Home | Could.wav</title>
+      </Helmet>
       <Header isScrolled={isScrolled} />
       <div className={`py-60 bg-cover bg-no-repeat`} style={{ backgroundImage: `url(${HeroBg})` }}>
         <div className="container m-auto">

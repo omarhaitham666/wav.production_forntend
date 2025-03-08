@@ -6,6 +6,7 @@ import { Route, Router, Routes } from 'react-router-dom';
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import logo from "../src/assets/Img/logo.png"
+import { HelmetProvider } from "react-helmet-async";
 
 
 
@@ -50,27 +51,30 @@ function App() {
       <img src={logo} className='w-80 mb-10 animate-pulse' alt="" />
       <span className="text-center text-3xl font-bold animate-pulse">Loading...</span>
     </div>}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/ForgotPassword" element={<ForgotPassword />} />
-        <Route path="/ResetPassword" element={<ResetPassword />} />
-        <Route path="/Playing" element={<Layout ><Playing /></Layout>} />
-        <Route path="/join us" element={<Layout ><JoinUs /></Layout>} />
-        <Route path="/Pricing" element={<Layout ><Pricing /></Layout>} />
-        <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
-        <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
-        <Route path="/OrderVideo" element={<Layout ><OrderVideo /></Layout>} />
-        <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
-        <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
-        <Route path="/upload" element={<Layout ><Upload /></Layout>} />
-        <Route path="/Services" element={<Layout ><Services /></Layout>} />
-        <Route path="/Terms/:type" element={<Layout ><Terms /></Layout>} />
-        <Route path="/Terms-of-Use" element={<Layout ><TermsofUse /></Layout>} />
+      <HelmetProvider>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/ResetPassword" element={<ResetPassword />} />
+          <Route path="/Playing" element={<Layout ><Playing /></Layout>} />
+          <Route path="/join us" element={<Layout ><JoinUs /></Layout>} />
+          <Route path="/Pricing" element={<Layout ><Pricing /></Layout>} />
+          <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
+          <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
+          <Route path="/OrderVideo" element={<Layout ><OrderVideo /></Layout>} />
+          <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
+          <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
+          <Route path="/upload" element={<Layout ><Upload /></Layout>} />
+          <Route path="/Services" element={<Layout ><Services /></Layout>} />
+          <Route path="/Terms/:type" element={<Layout ><Terms /></Layout>} />
+          <Route path="/Terms-of-Use" element={<Layout ><TermsofUse /></Layout>} />
 
 
-      </Routes>
+        </Routes>
+      </HelmetProvider>
     </Suspense>
 
   )

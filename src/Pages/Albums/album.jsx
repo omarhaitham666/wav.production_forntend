@@ -7,6 +7,7 @@ import { LuDownload } from 'react-icons/lu';
 import { FaPause, FaPlay, FaRegHeart } from 'react-icons/fa';
 import { MdOutlineReplay } from 'react-icons/md';
 import { useAudioPlayer } from '../../Context/AudioPlayerContext';
+import { Helmet } from 'react-helmet-async';
 
 const Album = () => {
     const { loadSong, togglePlayPause, playing, currentSong, playSong, PlayingList } = useAudioPlayer();
@@ -92,6 +93,9 @@ const Album = () => {
 
     return (
         <>
+                    <Helmet>
+                        <title>Albums | Could.wav</title>
+                    </Helmet>
             <PlayingHero />
             <div className="py-12">
                 <div className="container mx-auto">

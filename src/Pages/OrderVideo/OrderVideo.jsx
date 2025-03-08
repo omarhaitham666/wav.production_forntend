@@ -4,6 +4,7 @@ import { FcNext, FcPrevious } from 'react-icons/fc';
 import { FaSearch } from 'react-icons/fa';
 import { getVideosOrder } from '../../actions/getVideosOrder';
 import OrderVideoModal from './OrderVideoModal';
+import { Helmet } from 'react-helmet-async';
 
 const ITEMS_PER_PAGE = 12;
 const OrderVideo = () => {
@@ -161,54 +162,59 @@ const OrderVideo = () => {
 
 
     return (
-        <div className={`py-40 bg-white relative`}>
-            <div className="container mx-auto">
-                <div className='w-full px-4 py-3 rounded-sm mb-4 bg-[#F4F5F7] flex flex-row gap-2 items-center text-gray-500 '>
-                    <FaSearch />
-                    <input
-                        type="text"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="rounded-sm border-0 outline-0 bg-[#F4F5F7]"
-                    />
-                </div>
-                {displayedorders.length > 0 ?
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-8">
-                        {displayedorders.map(order => (
-                            <OrderVideoBox key={order.id}
-                                artistName={order.artist}
-                                position={order.position}
-                                price={order.price}
-                                image={order.image}
-                                handleVideoClick={handleVideoClick}
-                            />
-                        ))}
+        <>
+            <Helmet>
+                <title>Video Service | Could.wav</title>
+            </Helmet>
+            <div className={`py-40 bg-white relative`}>
+                <div className="container mx-auto">
+                    <div className='w-full px-4 py-3 rounded-sm mb-4 bg-[#F4F5F7] flex flex-row gap-2 items-center text-gray-500 '>
+                        <FaSearch />
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="rounded-sm border-0 outline-0 bg-[#F4F5F7]"
+                        />
                     </div>
-                    : (
-                        <div className="text-center text-gray-400 mt-10 text-3xl">لا توجد منتجات مطابقة للبحث</div>
+                    {displayedorders.length > 0 ?
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-8">
+                            {displayedorders.map(order => (
+                                <OrderVideoBox key={order.id}
+                                    artistName={order.artist}
+                                    position={order.position}
+                                    price={order.price}
+                                    image={order.image}
+                                    handleVideoClick={handleVideoClick}
+                                />
+                            ))}
+                        </div>
+                        : (
+                            <div className="text-center text-gray-400 mt-10 text-3xl">لا توجد منتجات مطابقة للبحث</div>
+                        )
+                    }
+                    <div className="flex justify-center mt-8 gap-2">
+                        <button onClick={prevPage} disabled={currentPage === 1}
+                            className="p-2 text-xl cursor-pointer border border-[#30B797] hover:bg-white hover:text-[#30B797] bg-gray-300 text-white rounded-full">
+                            <FcPrevious />
+                        </button>
+                        <span className="px-4 py-2">Page {currentPage} of {totalPages}</span>
+                        <button onClick={nextPage} disabled={currentPage === totalPages}
+                            className="p-2 text-xl cursor-pointer border border-[#30B797] hover:bg-white hover:text-[#30B797] bg-[#30B797] text-white rounded-full">
+                            <FcNext />
+                        </button>
+                    </div>
+                </div>
+                {
+                    openModel && (
+                        <OrderVideoModal
+                            handleClose={() => setOpenModel(false)}
+                            orderInfo={orderInfo}
+                        />
                     )
                 }
-                <div className="flex justify-center mt-8 gap-2">
-                    <button onClick={prevPage} disabled={currentPage === 1}
-                        className="p-2 text-xl cursor-pointer border border-[#30B797] hover:bg-white hover:text-[#30B797] bg-gray-300 text-white rounded-full">
-                        <FcPrevious />
-                    </button>
-                    <span className="px-4 py-2">Page {currentPage} of {totalPages}</span>
-                    <button onClick={nextPage} disabled={currentPage === totalPages}
-                        className="p-2 text-xl cursor-pointer border border-[#30B797] hover:bg-white hover:text-[#30B797] bg-[#30B797] text-white rounded-full">
-                        <FcNext />
-                    </button>
-                </div>
             </div>
-            {
-                openModel && (
-                    <OrderVideoModal
-                        handleClose={() => setOpenModel(false)}
-                        orderInfo={orderInfo}
-                    />
-                )
-            }
-        </div>
+        </>
     );
 }
 
