@@ -181,6 +181,7 @@ const OrderVideo = () => {
                         />
                     </div>
                     {categ = ""?
+                    <>
                     
                     {displayedorders.length > 0 ?
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-8">
@@ -198,6 +199,7 @@ const OrderVideo = () => {
                             <div className="text-center text-gray-400 mt-10 text-3xl">لا توجد منتجات مطابقة للبحث</div>
                         )
                     }
+                    </>
                     :
                     ""
                     }
