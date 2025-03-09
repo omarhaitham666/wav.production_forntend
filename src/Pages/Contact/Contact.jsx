@@ -75,17 +75,17 @@ const Contact = () => {
                                 <h2 className='text-4xl mb-4 font-bold'>Contact Information</h2>
                                 <p className='text-2xl'>Say something to start a live chat!</p>
                                 <ul className='py-20 text-3xl'>
-                                    <li className='flex items-center gap-4 mb-14'>
+                                    <a href='http://wa.me/+201006695204' className='flex items-center gap-4 mb-14'>
                                         <FaPhoneVolume />
-                                        <span className='text-lg'>+1 123 456 7890</span>
-                                    </li>
-                                    <li className='flex items-center gap-4 mb-14'>
+                                        <span className='text-lg'>+201006695204</span>
+                                    </a>
+                                    <a href='mailto:support@cloudwavproduction.com' className='flex items-center gap-4 mb-14'>
                                         <IoMdMail />
-                                        <span className='text-lg'>Cloud.wave@gmail.com</span>
-                                    </li>
+                                        <span className='text-lg'>support@cloudwavproduction.com</span>
+                                    </a>
                                     <li className='flex items-center gap-4 mb-14'>
                                         <FaLocationDot />
-                                        <span className='text-lg'>123 Main St, City, State, Zip</span>
+                                        <span className='text-lg'>22 Al-Sawah Street, Al-Zaytoun, Cairo, Egypt.</span>
                                     </li>
                                 </ul>
                                 <div className="flex flex-row gap-5 md:gap-12 pt-8 items-center z-10">

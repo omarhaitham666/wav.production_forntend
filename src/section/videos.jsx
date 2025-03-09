@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import { getVideosOrder } from '../actions/getVideosOrder';
 import { getTop4 } from '../actions/getTop4';
 import OrderVideoModal from '../Pages/OrderVideo/OrderVideoModal';
+import { Link } from 'react-router-dom';
 
 const Videos = () => {
     // const [videosOrder, setVideosOrder] = useState([]);
@@ -248,21 +249,21 @@ const Videos = () => {
             <div className="container m-auto">
                 <div className="flex flex-col">
                     <h1 className='text-center text-5xl font-bold text-black mb-12'>Personalized videos from your favorite stars</h1>
-                    <a href="/OrderVideo" className='flex flex-row justify-center' >
+                    <Link to="/OrderVideo" className='flex flex-row justify-center' >
                         <button className="flex flex-row items-center text-2xl gap-4 px-10 py-4 rounded-full font-bold bg-white text-black hover:bg-[#30B797] hover:text-white transition">
                             Order now
                             <FaChevronRight />
                         </button>
-                    </a>
+                    </Link>
                     <div className="flex justify-around items-center gap-8 flex-wrap mt-16">
                         {
                             StarsCateg.map((i, index) => {
                                 return (
                                     <div key={index} className='flex flex-col items-center'>
                                         <img className='w-48 h-48 rounded-full' src={i.imgScr} />
-                                        <a href={
+                                        <Link to={
                                             `/OrderVideo/${i.name}`
-                                        } className='text-black font-bold my-2 text-2xl underline text-center'>{i.name}</a>
+                                        } className='text-black font-bold my-2 text-2xl underline text-center'>{i.name}</Link>
                                     </div>
                                 )
                             }
@@ -275,7 +276,7 @@ const Videos = () => {
                             <a href="/join-us" className='text-black font-bold my-2 text-2xl underline text-center'>join us</a>
                         </div>
                     </div>
-                    <div  data-aos="zoom-out" className='slider-container relative mt-16'>
+                    <div  data-aos="zoom-in" className='slider-container relative mt-16'>
                         <h2 className='text-start text-3xl font-bold mb-12'>Most Ordered</h2>
                         <Slider {...settings}>
                             {
@@ -305,7 +306,7 @@ const Videos = () => {
                             }
                         </Slider>
                     </div>
-                    <div  data-aos="zoom-out" className='relative mt-16'>
+                    <div  data-aos="zoom-in" className='relative mt-16'>
                         <h2 className='text-start text-3xl font-bold mb-12'>Top 4</h2>
                         <div className="flex flex-wrap items-center justify-center md:justify-between gap-4">
                             {

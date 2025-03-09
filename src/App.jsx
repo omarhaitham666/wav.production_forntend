@@ -69,7 +69,7 @@ function App() {
           <Route path="/Pricing" element={<Layout ><Pricing /></Layout>} />
           <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
           <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
-          <Route path="/OrderVideo" element={<Layout ><OrderVideo /></Layout>} />
+          <Route path="/OrderVideo:categ" element={<Layout ><OrderVideo /></Layout>} />
           <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
           <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
           <Route path="/upload" element={<Layout ><Upload /></Layout>} />

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import logo from '../assets/Img/logo.png'
+import logo from '../../public/logo.svg'
 import { MdMenu, MdClose } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
@@ -58,7 +58,7 @@ function Header({isScrolled}) {
                 Sign Up
               </Link>
             </div>
-            <button className="lg:hidden text-[#2F00AC] bg-[#E6F6F2] text-3xl font-bold border border-[#E6F6F2] hover:bg-transparent hover:text-[#E6F6F2] py-2 px-4 rounded-xl"
+            <button className="lg:hidden text-[#2F00AC] text-3xl font-bold border border-[#2F00AC] hover:bg-transparent hover:text-[#E6F6F2] py-2 px-4 rounded-xl"
               onClick={
                 () => setIsNavOpen(!isNavOpen)
               }

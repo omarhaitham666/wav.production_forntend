@@ -30,6 +30,7 @@ export const AudioPlayerProvider = ({ children }) => {
 
 
     useEffect(() => {
+        if (!waveformRef.current) return; 
         if (wavesurfer.current) {
             wavesurfer.current.destroy();
         }
@@ -167,9 +168,13 @@ export const AudioPlayerProvider = ({ children }) => {
             playPlaylist, //  متاح للاستخدام في أي مكون
         }}>
             {children}
+            {!currentSong ? null :(
             <div className={`${isInFullScreen ? "flex top-0 h-screen flex-col justify-end pt-44 pb-56" : "flex-row bg-[#1D212E]"} fixed z-[1000] bottom-0 left-0 w-full shadow-lg p-4 flex  gap-8 text-white `}
                 style={{
                     background: currentSong ? currentSong.imgScr : "#1D212E"
+                }}
+                onClick={()=>{
+                    setIsInFullScreen(true)
                 }}
             >
                 <>
@@ -185,11 +190,11 @@ export const AudioPlayerProvider = ({ children }) => {
                         </button>
                     </div>
 
-                    <div className={`${isInFullScreen ? "-order-1" : ""} transition-opacity duration-500 ease-in-out opacity-100 flex flex-row items-center gap-3`}>
-                        <img src={currentSong ? currentSong.imgScr : logo} className={`${isInFullScreen ? 'w-48' : "w-32"} rounded-2xl shadow-lg`} alt="song Img" />
+                    <div className={`${isInFullScreen ? "-order-1 flex-col md:flex-row" : "flex-row"} transition-opacity duration-500 ease-in-out opacity-100 flex items-center gap-3`}>
+                        <img src={currentSong ? currentSong.imgScr : logo} className={`${isInFullScreen ? 'w-48' : "w-0 sm:w-32"} rounded-2xl shadow-lg`} alt="song Img" />
                         <div className="flex flex-col gap-2">
-                            <h1 className={`${isInFullScreen ? "text-3xl" : "text-xl"} font-bold mt-2`}>{currentSong ? currentSong.name : "لا يحتوي المشغل علي اي اغنية"}</h1>
-                            <p className={`${isInFullScreen ? "text-1xl" : "text-sm"} text-gray-500`}>{currentSong ? currentSong.artist : "هنا اسم الفنان"}</p>
+                            <h1 className={`${isInFullScreen ? "lg:text-3xl md:text-2xl text-xl" : "text-lg"} font-bold line-clamp-2 mt-2`}>{currentSong ? currentSong.name : "لا يحتوي المشغل علي اي اغنية"}</h1>
+                            <p className={`${isInFullScreen ? "text-xl" : "text-sm"} text-gray-500 truncate`}>{currentSong ? currentSong.artist : "هنا اسم الفنان"}</p>
                         </div>
                     </div>
 
@@ -199,7 +204,7 @@ export const AudioPlayerProvider = ({ children }) => {
                         <div ref={waveformRef} className="w-fitAv" />
                         <span>{formatTime(duration)}</span>
                     </div>
-                    <div className={` ${isInFullScreen ? "w-1/6 absolute bottom-40 right-16" : ""} flex flex-row items-center`}>
+                    <div className={` ${isInFullScreen ? "w-2/3 sm:w-1/3 md:w-1/6 gap-4 absolute bottom-20 md:bottom-40 right-16 flex" : "hidden md:flex "} flex-row items-center`}>
                         {isInFullScreen &&
                             <input
                                 type="range"
@@ -209,7 +214,7 @@ export const AudioPlayerProvider = ({ children }) => {
                                 step="0.01"
                                 value={volume}
                                 onChange={handleVolumeChange}
-                                className="w-full h-2 rounded-lg bg-gray-300 transition-all hover:bg-green-500 focus:bg-green-500"
+                                className="w-12 h-2 rounded-lg bg-gray-300 transition-all hover:bg-green-500 focus:bg-green-500"
                             />
                         }
                         <button onClick={handleRestart} className="p-3 hover:text-[#30B797] transition-all cursor-pointer">
@@ -224,9 +229,10 @@ export const AudioPlayerProvider = ({ children }) => {
                             {isInFullScreen ? <MdCloseFullscreen /> : <MdOpenInFull />}
                         </button>
                     </div>
-                    <img src={logo} className={isInFullScreen ? "absolute top-40 left-20" : "hidden"} alt="" />
+                    <img src={logo} className={isInFullScreen ? "absolute top-20 left-10 w-20 md:top-40 md:left-20 md:w-44" : "hidden"} alt="" />
                 </>
             </div>
+            )}
         </AudioPlayerContext.Provider>
     );
 };

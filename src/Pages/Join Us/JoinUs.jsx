@@ -24,8 +24,6 @@ const JoinUs = () => {
 
     const [videoMaker, setVideoMaker] = useState(false);
 
-    // التقدم إلى الخطوة التالية
-    const nextStep = () => setStep(step + 1);
 
     // العودة للخطوة السابقة (إذا أردت)
     const prevStep = () => setStep(step - 1);
@@ -87,6 +85,9 @@ const JoinUs = () => {
                     return value && value.size <= 2 * 1024 * 1024; // 2MB
                 }),
         }),
+
+        validateOnChange: true, 
+    validateOnBlur: true, 
         onSubmit: async (values) => {
             const token = localStorage.getItem("token");
 
@@ -223,8 +224,9 @@ const JoinUs = () => {
             videoMaker_details: Yup.string()
                 .min(10, "cant be less than 10 letters")
                 .max(500, "cant be more than 500 letters")
-
         }),
+
+
         onSubmit: async (values) => {
             // const token = localStorage.getItem("token");
 
@@ -310,6 +312,25 @@ const JoinUs = () => {
         }
 
     });
+
+
+    const nextStep = async () => {
+        const errors = await famousformik.validateForm();
+
+        if (Object.keys(errors).length === 0) {
+            setStep(step + 1); // الانتقال للخطوة التالية فقط إذا لم تكن هناك أخطاء
+        } else {
+            famousformik.setTouched(
+                Object.keys(errors).reduce((acc, key) => ({ ...acc, [key]: true }), {}),
+                false // منع إعادة التصيير التلقائي
+            );
+
+            famousformik.setErrors(errors); // تأكيد ظهور الأخطاء
+
+            famousformik.validateForm(); // إعادة التحقق لإجبار إعادة التصيير}
+        };
+    }
+
 
 
     const handleImageChange = (event) => {
@@ -432,6 +453,7 @@ const JoinUs = () => {
                                                     <button type="button" onClick={
                                                         () => {
                                                             setShowForm(false)
+                                                            setStep(1)
                                                         }
                                                     } className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center ">
                                                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -471,17 +493,25 @@ const JoinUs = () => {
                                                                 onChange={formik.handleChange} value={formik.values.number}
                                                                 name="number"
                                                                 id="Number"
+                                                                onBlur={formik.handleBlur}
+                                                                onInput={(e) => {
+                                                                    e.target.value = e.target.value.replace(/\d/g, "");
+                                                                }}
                                                                 className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Number' />
                                                             {formik.touched.number && formik.errors.number ? (
                                                                 <small className='text-red-500'>{formik.errors.number}</small>
                                                             ) : null}
                                                         </div>
                                                         <div className='mb-6'>
-                                                            <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">whatsapp_number</label>
+                                                            <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Whatsapp Number</label>
                                                             <input type="tel"
                                                                 onChange={formik.handleChange} value={formik.values.whatsapp_number}
                                                                 name="whatsapp_number"
                                                                 id="Number"
+                                                                onBlur={formik.handleBlur} // تشغيل التحقق عند فقدان التركيز
+                                                                onInput={(e) => {
+                                                                    e.target.value = e.target.value.replace(/\d/g, "");
+                                                                }}
                                                                 className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='whatsapp Number' />
                                                             {formik.touched.whatsapp_number && formik.errors.whatsapp_number ? (
                                                                 <small className='text-red-500'>{formik.errors.whatsapp_number}</small>
@@ -517,12 +547,12 @@ const JoinUs = () => {
                                                             ) : null}
                                                         </div>
                                                         <div className='mb-6'>
-                                                            <label htmlFor="details" className="block mb-2 text-sm font-medium text-[#522ED3]">Social media links</label>
+                                                            <label htmlFor="details" className="block mb-2 text-sm font-medium text-[#522ED3]">More Details</label>
                                                             <input type="text"
                                                                 onChange={formik.handleChange} value={formik.values.details}
                                                                 name="details"
                                                                 id="Details"
-                                                                className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your social media links' />
+                                                                className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='More Details' />
                                                             {formik.touched.details && formik.errors.details ? (
                                                                 <small className='text-red-500'>{formik.errors.details}</small>
                                                             ) : null}
@@ -543,7 +573,6 @@ const JoinUs = () => {
                                                                         setImagePreview(reader.result);
                                                                     };
                                                                     reader.readAsDataURL(file);
-
                                                                 }}
                                                                 name="profile_image"
                                                                 id="image"
@@ -586,6 +615,7 @@ const JoinUs = () => {
                                                     <button type="button" onClick={
                                                         () => {
                                                             setShowForm(false)
+                                                            setStep(1)
                                                         }
                                                     } className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center ">
                                                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -710,8 +740,9 @@ const JoinUs = () => {
                                                                         أوافق على <a href={`/Terms/${selectedType}`} className='text-[#2F00AC] underline'>الشروط والأحكام</a>
                                                                     </label>
                                                                 </div>
-                                                                <button className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center"
-                                                                    onClick={nextStep}>
+                                                                <button className={`${formik.isValid ? "bg-gray-400 text-gray-700 cursor-not-allowed" : "bg-[#522ED3] text-white "} w-full  border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center`}
+                                                                    onClick={nextStep}
+                                                                    disabled={!formik.isValid}>
                                                                     Next
                                                                 </button>
                                                             </>

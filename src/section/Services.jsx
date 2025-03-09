@@ -100,7 +100,7 @@ const Services = () => {
             <div  data-aos="zoom-in" className="container m-auto">
                 <p className='text-center font-bold text-xl text-[#29A49F] mb-4'>Satisfy Solution</p>
                 <h2 className='text-center text-4xl font-bold mb-6'>The Best Services we provide</h2>
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 pt-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-12">
                     {/* replace ServicesD  */}
                     {ServicesD.map((service, index) => (
                         <div key={index}>

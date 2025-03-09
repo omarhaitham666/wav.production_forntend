@@ -7,6 +7,7 @@ import Vector2 from '../assets/Img/Vector2.png'
 import Vector3 from '../assets/Img/Vector3.png'
 import Vector4 from '../assets/Img/Vector4.png'
 import Aos from 'aos';
+import { Link } from 'react-router-dom';
 
 
 const JoinUs = () => {
@@ -19,12 +20,12 @@ const JoinUs = () => {
                         <h2 className="text-4xl font-bold text-black mb-4">Join Us and Take Your Music Career to the Next Level! 🎵</h2>
                         <p className="text-2xl mb-8 text-gray-600">Are you an aspiring artist or an established star looking for a platform to support your journey and expand your reach? We are here to be your trusted partner and agent for success!</p>
                         <div className='relative py-12'>
-                            <a href='/join us' className='cursor-pointer'>
-                                <button className="relative z-10 px-10 py-4 text-xl rounded-full joinusBtn transition text-white font-bold flex -flex0-row gap-2 items-center">
+                            <Link to='Contact' className='cursor-pointer'>
+                                <button className="relative lg:text-2xl md:text-xl text-lg  z-10 lg:px-10 py-4 px-6 md:px-8 rounded-full joinusBtn transition text-white font-bold flex -flex0-row gap-2 items-center">
                                     <span>Join Us Now</span>
                                     <FiArrowDownRight />
                                 </button>
-                            </a>
+                            </Link>
                             <img src={Subtract} alt="subtract" className="absolute -right-8 top-1/2 -translate-y-1/2" />
                         </div>
                     </div>

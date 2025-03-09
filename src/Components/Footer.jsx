@@ -1,8 +1,10 @@
 import React from 'react'
-import logo  from "../assets/Img/logo.png"
+import logo from "../assets/Img/logo.png"
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterCircle, AiFillYoutube } from 'react-icons/ai';
 import { LinksData } from './LinksData';
 import { Link } from 'react-router-dom';
+import { FaPhoneVolume } from 'react-icons/fa';
+import { IoMdMail } from 'react-icons/io';
 
 function Footer() {
 
@@ -21,8 +23,8 @@ function Footer() {
             <div>
               <h2 className="mb-6 text-sm font-bold text-white uppercase">Learn More</h2>
               <ul className="text-gray-500 font-medium">
-                {LinksData.map((link)=>{
-                  return(
+                {LinksData.map((link) => {
+                  return (
                     <li key={link.id} className="mb-4">
                       <Link to={link.to} className="hover:underline">
                         {link.title}
@@ -49,10 +51,18 @@ function Footer() {
             <div>
               <h2 className="mb-6 text-sm font-bold text-white uppercase">Contact Us</h2>
               <ul className="text-gray-500 font-medium">
-                <li className="mb-4">
+                <li className="mb-4 hover:text-[#30B797] transition">
                   <span>Office:</span>
-                  <a href="tel:+201006695204"className="hover:underline">+201006695204</a>
+                  <a href="tel:+201006695204" className="hover:underline">+201006695204</a>
                 </li>
+                <a href='http://wa.me/+201006695204' className='flex items-center gap-2 mb-4 hover:text-[#30B797] transition'>
+                  <FaPhoneVolume />
+                  <span>+201006695204</span>
+                </a>
+                <a href='mailto:support@cloudwavproduction.com' className='flex items-center gap-2 mb-4 hover:text-[#30B797] transition'>
+                  <IoMdMail />
+                  <span>support@cloudwavproduction.com</span>
+                </a>
               </ul>
             </div>
             <div>
