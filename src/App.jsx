@@ -5,7 +5,7 @@ import { Route, Router, Routes } from 'react-router-dom';
 
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-import logo from "../src/assets/Img/logo.png"
+import logo from "../public/logo.svg"
 import { HelmetProvider } from "react-helmet-async";
 
 import AOS from "aos";
@@ -69,7 +69,7 @@ function App() {
           <Route path="/Pricing" element={<Layout ><Pricing /></Layout>} />
           <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
           <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
-          <Route path="/OrderVideo:categ" element={<Layout ><OrderVideo /></Layout>} />
+          <Route path="/OrderVideo/:categ" element={<Layout ><OrderVideo /></Layout>} />
           <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
           <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
           <Route path="/upload" element={<Layout ><Upload /></Layout>} />

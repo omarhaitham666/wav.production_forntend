@@ -9,3 +9,14 @@ export async function getVideosOrder() {
         .catch(err => console.error(err));
 
 }
+
+
+// getVideosOrder By position Category
+
+export async function getVideosOrderCategory(category) {
+
+    axios.get(`${API_ENDPOINT}/VideosOrder?category=${category}`)
+        .then(res => { return res.json() })
+        .catch(err => console.error(err));
+
+}

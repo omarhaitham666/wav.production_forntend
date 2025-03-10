@@ -72,27 +72,33 @@ const Videos = () => {
         {
             id: 1,
             name: 'Actors',
-            imgScr: "https://i.imgur.com/6Q6Zz4B.jpg"
+            imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
+            link:"Actors"
         },
         {
             id: 2,
             name: 'Musicians',
-            imgScr: "https://i.imgur.com/c858xO1.jpg"
+            imgScr: "https://i.imgur.com/c858xO1.jpg",
+            link:"Musicians"
         },
         {
             id: 3,
             name: 'Content creators',
-            imgScr: "https://i.imgur.com/g7Y40lO.jpg"
+            imgScr: "https://i.imgur.com/g7Y40lO.jpg",
+            link:"Content"
         },
         {
             id: 4,
             name: 'youtubers ',
-            imgScr: "https://i.imgur.com/F8o1Z5o.jpg"
+            imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
+            link:"Youtubers"
+
         },
         {
             id: 5,
             name: 'Athletes',
-            imgScr: "https://i.imgur.com/e6aYd0R.jpg"
+            imgScr: "https://i.imgur.com/e6aYd0R.jpg",
+            link:"Athletes"
         },
     ]
 
@@ -249,7 +255,7 @@ const Videos = () => {
             <div className="container m-auto">
                 <div className="flex flex-col">
                     <h1 className='text-center text-5xl font-bold text-black mb-12'>Personalized videos from your favorite stars</h1>
-                    <Link to="/OrderVideo" className='flex flex-row justify-center' >
+                    <Link to="/OrderVideo/All" className='flex flex-row justify-center' >
                         <button className="flex flex-row items-center text-2xl gap-4 px-10 py-4 rounded-full font-bold bg-white text-black hover:bg-[#30B797] hover:text-white transition">
                             Order now
                             <FaChevronRight />
@@ -262,7 +268,7 @@ const Videos = () => {
                                     <div key={index} className='flex flex-col items-center'>
                                         <img className='w-48 h-48 rounded-full' src={i.imgScr} />
                                         <Link to={
-                                            `/OrderVideo/${i.name}`
+                                            `/OrderVideo/${i.link}`
                                         } className='text-black font-bold my-2 text-2xl underline text-center'>{i.name}</Link>
                                     </div>
                                 )

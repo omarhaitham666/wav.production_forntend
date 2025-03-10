@@ -6,6 +6,8 @@ import { getVideosOrder } from '../../actions/getVideosOrder';
 import OrderVideoModal from './OrderVideoModal';
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
+import { useDebounce } from "../../hooks/useDebounce";
+
 
 const ITEMS_PER_PAGE = 12;
 const OrderVideo = () => {
@@ -13,7 +15,7 @@ const OrderVideo = () => {
     const [currentPage, setCurrentPage] = useState(1);
     // const [orders, setOrders] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const debouncedSearchTerm = useDebounce(searchTerm, 300);
     const [openModel, setOpenModel] = useState(false);
     const [orderInfo, setOrderInfo] = useState();
 
@@ -24,13 +26,15 @@ const OrderVideo = () => {
             id: 1,
             artist: 'Mohamed gamal',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/100/200/300'
         },
         {
             id: 2,
             artist: 'Mohamed fthey',
-            position: "TikToker",
+            position: "Actors",
+            category: "Actors",
             price: 50,
             image: 'https://picsum.photos/id/101/200/300'
         },
@@ -38,20 +42,23 @@ const OrderVideo = () => {
             id: 3,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/102/200/300'
         },
         {
             id: 4,
             artist: 'Mohamed medo',
-            position: "TikToker",
+            position: "Actors",
+            category: "Actors",
             price: 50,
             image: 'https://picsum.photos/id/103/200/300'
         },
         {
             id: 5,
             artist: 'Mohamed medo',
-            position: "TikToker",
+            position: "Content creators",
+            category: "Content",
             price: 50,
             image: 'https://picsum.photos/id/104/200/300'
         },
@@ -59,13 +66,15 @@ const OrderVideo = () => {
             id: 6,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/105/200/300'
         },
         {
             id: 7,
             artist: 'Mohamed medo',
-            position: "TikToker",
+            position: "Content creators",
+            category: "Content",
             price: 50,
             image: 'https://picsum.photos/id/106/200/300'
         },
@@ -73,6 +82,7 @@ const OrderVideo = () => {
             id: 8,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/107/200/300'
         },
@@ -80,6 +90,7 @@ const OrderVideo = () => {
             id: 9,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/108/200/300'
         },
@@ -87,6 +98,7 @@ const OrderVideo = () => {
             id: 10,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/109/200/300'
         },
@@ -94,6 +106,7 @@ const OrderVideo = () => {
             id: 11,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/110/200/300'
         },
@@ -101,6 +114,7 @@ const OrderVideo = () => {
             id: 12,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/111/200/300'
         },
@@ -108,6 +122,7 @@ const OrderVideo = () => {
             id: 13,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/112/200/300'
         },
@@ -115,6 +130,7 @@ const OrderVideo = () => {
             id: 14,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/113/200/300'
         },
@@ -122,6 +138,7 @@ const OrderVideo = () => {
             id: 15,
             artist: 'Mohamed medo',
             position: "TikToker",
+            category: "TikToker",
             price: 50,
             image: 'https://picsum.photos/id/114/200/300'
         }
@@ -134,21 +151,23 @@ const OrderVideo = () => {
     // }, []);
 
 
+
+
+
+
+
+    const filteredProducts = orders.filter(order =>
+        (categ === "All" || (order.category && order.category.toLowerCase() === categ.toLowerCase())) &&
+        (order.artist.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+            order.position.toLowerCase().includes(debouncedSearchTerm.toLowerCase()))
+    );
+
     useEffect(() => {
-        const filteredProducts = orders.filter((order) =>
-            order.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            order.position.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-
-        setFilteredProducts(filteredProducts);
         setCurrentPage(1);
-
-    }, [searchTerm]);
+    }, [debouncedSearchTerm]);
 
 
     const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
-
-
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const displayedorders = filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
@@ -180,9 +199,6 @@ const OrderVideo = () => {
                             className="rounded-sm border-0 outline-0 bg-[#F4F5F7]"
                         />
                     </div>
-                    {categ = ""?
-                    <>
-                    
                     {displayedorders.length > 0 ?
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-8">
                             {displayedorders.map(order => (
@@ -198,10 +214,6 @@ const OrderVideo = () => {
                         : (
                             <div className="text-center text-gray-400 mt-10 text-3xl">لا توجد منتجات مطابقة للبحث</div>
                         )
-                    }
-                    </>
-                    :
-                    ""
                     }
                     <div className="flex justify-center mt-8 gap-2">
                         <button onClick={prevPage} disabled={currentPage === 1}

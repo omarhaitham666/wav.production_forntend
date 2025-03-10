@@ -65,10 +65,9 @@ const RisingForm = () => {
     const inputValidation = Yup.object({
 
         name: Yup.string()
-                .min(3, "cant be less than 3 letters")
-                .required("name is invalid")
-                .max(20, "cant be more than 20"),
-
+            .min(3, "cant be less than 3 letters")
+            .required("name is invalid")
+            .max(20, "cant be more than 20"),
 
 
         email: Yup.string()
@@ -77,10 +76,10 @@ const RisingForm = () => {
             .required("this is invalid"),
 
 
-            message: Yup.string()
-        .min(10, "يجب ألا يقل عن 10 أحرف")
-        .max(500, "يجب ألا يزيد عن 500 حرف")
-        .required("رسالة المشروع مطلوبة"),
+        message: Yup.string()
+            .min(10, "يجب ألا يقل عن 10 أحرف")
+            .max(500, "يجب ألا يزيد عن 500 حرف")
+            .required("رسالة المشروع مطلوبة"),
 
 
     });
@@ -185,10 +184,8 @@ const RisingForm = () => {
                             <input className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
                                 type="text"
                                 placeholder="Your name"
-                                
                                 name='name'
                                 onChange={formik.handleChange} value={formik.values.name}
-                                
                             />
                             {formik.touched.name && formik.errors.name ? (
                                 <small className='text-red-500'>{formik.errors.name}</small>
@@ -214,7 +211,6 @@ const RisingForm = () => {
                             {formik.touched.message && formik.errors.message ? (
                                 <small className='text-red-500'>{formik.errors.message}</small>
                             ) : null}
-                             
                             <button className='bg-[#1F1A23] text-white font-bold rounded-full p-4 mt-4 text-2xl hover:bg-[#2F00AC] transition'
                                 type='submit'
                             >Send message</button>

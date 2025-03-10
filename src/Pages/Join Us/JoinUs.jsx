@@ -59,10 +59,12 @@ const JoinUs = () => {
 
             number: Yup.string()
                 .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
+                .test("isNumeric", "يجب أن يحتوي على أرقام فقط", (value) => /^\d+$/.test(value))
                 .required("رقم الهاتف مطلوب"),
 
             whatsapp_number: Yup.string()
                 .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
+                .test("isNumeric", "يجب أن يحتوي على أرقام فقط", (value) => /^\d+$/.test(value))
                 .required("رقم الهاتف مطلوب"),
 
             details: Yup.string()
@@ -86,8 +88,8 @@ const JoinUs = () => {
                 }),
         }),
 
-        validateOnChange: true, 
-    validateOnBlur: true, 
+        validateOnChange: true,
+        validateOnBlur: true,
         onSubmit: async (values) => {
             const token = localStorage.getItem("token");
 
@@ -194,12 +196,14 @@ const JoinUs = () => {
                 .email("enter the correct email")
                 .required("this is invalid"),
 
-            famous_number: Yup.string()
+            number: Yup.string()
                 .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
+                .test("isNumeric", "يجب أن يحتوي على أرقام فقط", (value) => /^\d+$/.test(value))
                 .required("رقم الهاتف مطلوب"),
 
-            famous_whatsapp_number: Yup.string()
+            whatsapp_number: Yup.string()
                 .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
+                .test("isNumeric", "يجب أن يحتوي على أرقام فقط", (value) => /^\d+$/.test(value))
                 .required("رقم الهاتف مطلوب"),
 
             famous_details: Yup.string()
@@ -441,7 +445,7 @@ const JoinUs = () => {
                             >Next</button>}
                     </form>
                     {
-                        selectedType === "Rising" && (
+                        (selectedType === "famous" || selectedType === "Rising") && (
 
                             <>
                                 {/* <RisingForm /> */}
@@ -495,7 +499,7 @@ const JoinUs = () => {
                                                                 id="Number"
                                                                 onBlur={formik.handleBlur}
                                                                 onInput={(e) => {
-                                                                    e.target.value = e.target.value.replace(/\d/g, "");
+                                                                    e.target.value = e.target.value.replace(/\D/g, "");
                                                                 }}
                                                                 className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Number' />
                                                             {formik.touched.number && formik.errors.number ? (
@@ -510,7 +514,7 @@ const JoinUs = () => {
                                                                 id="Number"
                                                                 onBlur={formik.handleBlur} // تشغيل التحقق عند فقدان التركيز
                                                                 onInput={(e) => {
-                                                                    e.target.value = e.target.value.replace(/\d/g, "");
+                                                                    e.target.value = e.target.value.replace(/\D/g, "");
                                                                 }}
                                                                 className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='whatsapp Number' />
                                                             {formik.touched.whatsapp_number && formik.errors.whatsapp_number ? (
@@ -604,7 +608,7 @@ const JoinUs = () => {
                             </>
                         )
                     }
-                    {
+                    {/* {
                         selectedType === "famous" && (
                             <>
                                 {showForm === true ?
@@ -781,7 +785,7 @@ const JoinUs = () => {
                                 }
                             </>
                         )
-                    }
+                    } */}
                 </div>
             </div >
         </>
