@@ -4,37 +4,21 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-const OrderVideoModal = ({ orderInfo, handleClose }) => {
+
+const JoinUsVideoModal = ({ handleClose }) => {
     const [agree, setAgree] = useState(false);
-
-
 
     const formik = useFormik({
         initialValues: {
-            name: "",
-            email: "",
-            number: "",
-            mas: "",
+            price: null,
+            details: "",
         },
         validationSchema: Yup.object({
-            name: Yup.string()
-                .min(3, "cant be less than 3 letters")
-                .max(20, "cant be more than 20 letters")
-                .required("name is invalid"),
-
-            email: Yup.string()
-                .min(15, "يجب أن لا يقل عن 15 حرف")
-                .email("enter the correct email")
-                .required("this is invalid"),
-
-            number: Yup.string()
-                .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
-                .required("رقم الهاتف مطلوب"),
-
-            mas: Yup.string()
-                .min(10, "يجب ألا يقل عن 10 أحرف")
-                .max(500, "يجب ألا يزيد عن 500 حرف")
-                .required("الوصف مطلوب"),
+            price: Yup.number()
+                .required("السعر مطلوب")
+                .min(2, "السعر يجب ان يكون 2 حروف على الاقل"),
+            details: Yup.string()
+                .min(2, "الوصف يجب ان يكون 2 حروف على الاقل"),
         }),
 
         onSubmit: async (values) => {
@@ -64,16 +48,12 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
 
             try {
                 const formData = new FormData();
-                formData.append("order_name", values.name);
-                formData.append("order_email", values.email);
-                formData.append("order_number", values.number);
-                formData.append("order_mas", values.mas);
-                formData.append("order_type", orderInfo?.videoType);
-                formData.append("order_artistName", orderInfo?.artistName);
+                formData.append("price", values.price);
+                formData.append("details", values.details);
+                const token = localStorage.getItem("token");
 
 
-
-                const response = await axios.post("http://127.0.0.1:8000/api/order", formData, {
+                const response = await axios.post("http://127.0.0.1:8000/api/Join-Video", formData, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",
@@ -138,46 +118,28 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                             formik.handleSubmit
                         }>
                             <div className='mb-6'>
-                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
-                                <input type="name"
-                                    onChange={formik.handleChange} value={formik.values.name}
-                                    name="name"
-                                    id="name"
-                                    placeholder="Your name"
+                                <label htmlFor="price" className="block mb-2 text-sm font-medium text-[#522ED3]">Your price</label>
+                                <input type="number"
+                                    onChange={formik.handleChange} value={formik.values.price}
+                                    name="price"
+                                    id="price"
+                                    placeholder="Your price $"
                                     className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
-                                {formik.touched.name && formik.errors.name ? (
-                                    <small className='text-red-500'>{formik.errors.name}</small>
+                                {formik.touched.price && formik.errors.price ? (
+                                    <small className='text-red-500'>{formik.errors.price}</small>
                                 ) : null}
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
-                                <input type="email"
-                                    onChange={formik.handleChange} value={formik.values.email}
-                                    name="email"
-                                    id="email"
-                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your email' />
-                                {formik.touched.email && formik.errors.email ? (
-                                    <small className='text-red-500'>{formik.errors.email}</small>
+                                <label htmlFor="details" className="block mb-2 text-sm font-medium text-[#522ED3]">More Details</label>
+                                <input type="text"
+                                    onChange={formik.handleChange} value={formik.values.details}
+                                    name="details"
+                                    id="details"
+                                    placeholder="Your details"
+                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
+                                {formik.touched.details && formik.errors.details ? (
+                                    <small className='text-red-500'>{formik.errors.details}</small>
                                 ) : null}
-                            </div>
-                            <div className='mb-6'>
-                                <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Number</label>
-                                <input type="tel"
-                                    onChange={formik.handleChange} value={formik.values.number}
-                                    name="number"
-                                    id="Number"
-                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Number' />
-                                {formik.touched.number && formik.errors.number ? (
-                                    <small className='text-red-500'>{formik.errors.number}</small>
-                                ) : null}
-                            </div>
-                            <div className='mb-6'>
-                                <label htmlFor="text" className="block mb-2 text-sm font-medium text-[#522ED3]">Write your Text</label>
-                                <textarea
-                                    onChange={formik.handleChange} value={formik.values.mas}
-                                    name="mas"
-                                    id="mas"
-                                    className="border rounded-xl border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5 h-[150px] resize-y" placeholder='Write your Text' />
                             </div>
 
                             <div className='flex items-center mt-4'>
@@ -195,4 +157,4 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
     );
 }
 
-export default OrderVideoModal;
+export default JoinUsVideoModal;

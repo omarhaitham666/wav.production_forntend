@@ -5,7 +5,7 @@ import { Route, Router, Routes } from 'react-router-dom';
 
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-import logo from "../public/logo.svg"
+import logo from "/logo.svg"
 import { HelmetProvider } from "react-helmet-async";
 
 import AOS from "aos";
@@ -26,6 +26,7 @@ const Playing = lazy(() => import("./Pages/Playing/Playing"));
 const OrderVideo = lazy(() => import("./Pages/OrderVideo/OrderVideo"));
 const Album = lazy(() => import("./Pages/Albums/album"));
 const Artist = lazy(() => import("./Pages/Artists/artist"));
+const Star = lazy(() => import("./Pages/Stars/star"));
 const Upload = lazy(() => import("./Pages/Upload/upload"));
 const Services = lazy(() => import("./Pages/Services/Services"));
 const Terms = lazy(() => import("./Pages/Terms/Terms"));
@@ -72,6 +73,7 @@ function App() {
           <Route path="/OrderVideo/:categ" element={<Layout ><OrderVideo /></Layout>} />
           <Route path="/Albums/:albumId" element={<Layout ><Album /></Layout>} />
           <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
+          <Route path="/Stars/:name" element={<Layout ><Star /></Layout>} />
           <Route path="/upload" element={<Layout ><Upload /></Layout>} />
           <Route path="/Services" element={<Layout ><Services /></Layout>} />
           <Route path="/Terms/:type" element={<Layout ><Terms /></Layout>} />
