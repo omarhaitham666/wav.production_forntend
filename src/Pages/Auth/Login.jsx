@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
 import { AppContext } from '../../Context/AppContext';
 import { Helmet } from 'react-helmet-async';
+import { API_ENDPOINT } from '../../App';
 
 
 const Login = () => {
@@ -44,7 +45,7 @@ const Login = () => {
     onSubmit: async (values) => {
       try {
 
-        const response = await axios.post('http://localhost:8000/api/login', {
+        const response = await axios.post((`${API_ENDPOINT}/login`), {
           email: values.email,
           password: values.password,
         });

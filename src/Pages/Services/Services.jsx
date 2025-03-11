@@ -38,12 +38,6 @@ const Services = () => {
             icon: <RiThreadsLine />,
             price: "15"
         },
-        {
-            title: 'Provide likes and followers',
-            description: 'We help you provide likes and followers on platforms like Facebook, Instagram, Twitter',
-            icon: <AiFillLike />,
-            price: "10"
-        },
     ]
 
     const initValues = {
@@ -224,7 +218,7 @@ const Services = () => {
     return (
         <>
             <Helmet>
-                <title>Services | Could.wav</title>
+                <title>Services Social Madia | Could.wav</title>
             </Helmet>
             <div className="py-24">
                 <div className="container mx-auto">

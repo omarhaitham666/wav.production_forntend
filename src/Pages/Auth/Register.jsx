@@ -9,6 +9,7 @@ import groupM from "../../assets/Img/Group 43.png";
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../Context/AppContext';
 import { Helmet } from 'react-helmet-async';
+import { API_ENDPOINT } from '../../App';
 
 function Register() {
 
@@ -64,7 +65,7 @@ function Register() {
       }
       try {
 
-        const response = await axios.post('http://localhost:8000/api/register', {
+        const response = await axios.post((`${API_ENDPOINT}/register`), {
           name: values.name,
           email: values.email,
           password: values.password,

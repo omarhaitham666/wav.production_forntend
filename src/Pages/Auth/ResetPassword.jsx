@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../Context/AppContext';
 import { Helmet } from 'react-helmet-async';
+import { API_ENDPOINT } from '../../App';
 
 const ResetPassword = () => {
   const { token, setToken } = useContext(AppContext);
@@ -55,7 +56,7 @@ const ResetPassword = () => {
     onSubmit: async (values) => {
 
       try {
-        const response = await axios.post('http://localhost:8000/api/reset-password', {
+        const response = await axios.post((`${API_ENDPOINT}/reset-password`), {
           verification_code: values.verification_code,
           email: values.email,
           password: values.password,

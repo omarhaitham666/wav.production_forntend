@@ -6,6 +6,8 @@ import { useAudioPlayer } from '../../../Context/AudioPlayerContext';
 import { addFavorite, downloadSong } from '../../../actions/songsActions';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { getArtists } from '../../../actions/getArtists';
+import { getTrendingAlbums } from '../../../actions/getSongs';
 const PlayingList = ({ filters }) => {
     const { loadSong, togglePlayPause, playing, currentSong, playSong, PlayingList } = useAudioPlayer();
 
@@ -47,20 +49,14 @@ const PlayingList = ({ filters }) => {
 
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/Artists")
-            .then((response) => {
-                setArtists(response.data);
-            })
-            .catch((error) => console.error("Error fetching artists", error));
+        const Artists = getArtists()
+        setArtists(Artists);
     }, []);
 
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/albums")
-            .then(response => {
-                setAlbums(response.data);
-            })
-            .catch(error => console.error("Error fetching albums:", error));
+        const Albums = getTrendingAlbums()
+        setAlbums(Albums);
     }, []);
 
 
@@ -116,6 +112,7 @@ const PlayingList = ({ filters }) => {
         ],
     };
 
+    console.log(filters)
 
 
     useEffect(() => {
@@ -143,6 +140,13 @@ const PlayingList = ({ filters }) => {
         setLoading(false)
     }, [filters])
 
+
+    useEffect(() => {
+
+        const filteredSongs = songs.filter((song) => song.division.includes(genresFilter));
+        setSongs(filteredSongs);
+
+    }, []);
 
 
     return (

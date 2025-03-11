@@ -143,7 +143,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                     onChange={formik.handleChange} value={formik.values.name}
                                     name="name"
                                     id="name"
-                                    placeholder="Your name"
+                                    placeholder="Your Name"
                                     className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
                                 {formik.touched.name && formik.errors.name ? (
                                     <small className='text-red-500'>{formik.errors.name}</small>
@@ -155,7 +155,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                     onChange={formik.handleChange} value={formik.values.email}
                                     name="email"
                                     id="email"
-                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your email' />
+                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='YourMail@gmail.com' />
                                 {formik.touched.email && formik.errors.email ? (
                                     <small className='text-red-500'>{formik.errors.email}</small>
                                 ) : null}
@@ -166,7 +166,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                     onChange={formik.handleChange} value={formik.values.number}
                                     name="number"
                                     id="Number"
-                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Number' />
+                                    className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='01012345678' />
                                 {formik.touched.number && formik.errors.number ? (
                                     <small className='text-red-500'>{formik.errors.number}</small>
                                 ) : null}
