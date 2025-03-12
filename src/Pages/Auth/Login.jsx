@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
-import logo from "../../assets/Img/logo.png";
+import logo from "/logo.svg";
 import Hero from "../../assets/Img/Hero Section.png";
 import * as Yup from 'yup';
 import axios from 'axios';

@@ -4,7 +4,7 @@ import { MdCloseFullscreen, MdOpenInFull } from "react-icons/md";
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from "react-icons/tb";
 import WaveSurfer from "wavesurfer.js";
 import { downloadSong } from "../actions/songsActions";
-import logo from "../assets/Img/logo.png"
+import logo from "/logo.svg"
 
 const AudioPlayerContext = createContext();
 

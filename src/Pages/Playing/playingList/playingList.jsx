@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight, FaDownload, FaHeart, FaPlay } from 'react-icons/fa';
-import logo from '../../../assets/Img/logo.png'
+import logo from '/logo.svg'
 import { useAudioPlayer } from '../../../Context/AudioPlayerContext';
 import { addFavorite, downloadSong } from '../../../actions/songsActions';
 import axios from 'axios';

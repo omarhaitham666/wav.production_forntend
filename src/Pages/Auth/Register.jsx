@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
-import logo from "../../assets/Img/logo.png";
+import logo from "/logo.svg";
 import map from "../../assets/Img/g42.png";
 import groupM from "../../assets/Img/Group 43.png";
 import { useNavigate } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "../../assets/Img/logo.png"
+import logo from "/logo.svg"
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 

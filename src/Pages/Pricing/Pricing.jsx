@@ -1,175 +1,117 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import PlansBox from '../../Components/PlansBox';
-import { getPlans } from '../../actions/getPlans';
-import Swal from 'sweetalert2';
-import { Formik, useFormik } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
 
 const Pricing = () => {
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.language === 'ar'; // التحقق مما إذا كانت اللغة عربية
 
     const [selectedPlan, setSelectedPlan] = useState();
-    const [period, setPeriod] = useState('Monthly')
+    const [period, setPeriod] = useState('Monthly');
 
-    // const plans= getPlans()
     const plans = {
         monthly: [
             {
-                name: 'Free Plan',
+                name: 'free_plan',
                 price: 0,
                 priceYearly: 10,
-                features: ['5 songs and profiles', 'Basic analytics', 'Standard support'],
+                features: ['feature_1', 'feature_2', 'feature_3'],
             },
             {
-                name: 'Pro Plan',
+                name: 'pro_plan',
                 price: 119,
                 priceYearly: 20,
-                features: ['25 songs and profiles', 'Advanced analytics', 'Priority support'],
+                features: ['feature_4', 'feature_5', 'feature_6'],
             },
             {
-                name: 'Enterprise Plan',
+                name: 'enterprise_plan',
                 price: 499,
                 priceYearly: 30,
-                features: ['Unlimited songs and profiles', 'Custom analytics and reporting', 'Dedicated account manager'],
+                features: ['feature_7', 'feature_8', 'feature_9'],
             }
         ],
         yearly: [
             {
-                name: 'Basic',
+                name: 'basic_plan',
                 price: 99.99,
                 priceMonthly: 100,
-                features: ['Feature 1', 'Feature 2', 'Feature 3'],
+                features: ['feature_1', 'feature_2', 'feature_3'],
             },
             {
-                name: 'Premium',
+                name: 'premium_plan',
                 price: 199.99,
                 priceMonthly: 200,
-                features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
+                features: ['feature_4', 'feature_5', 'feature_6', 'feature_10'],
             },
             {
-                name: 'Pro',
+                name: 'pro_plan',
                 price: 299.99,
                 priceMonthly: 300,
-                features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4', 'Feature 5'],
+                features: ['feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11'],
             }
         ]
-    }
-
-    const initValues = {
-        email: "",
-        name: "",
-        massage: "",
-
     };
 
-
-    const inputValidation = Yup.object({
-        email: Yup.string()
-            .min(15, "يجب أن لا يقل عن 15 حرف")
-            .email("enter the correct email")
-            .required("this is invalid"),
-    });
-
-    const formik = useFormik({
-        initialValues: initValues,
-        validationSchema: inputValidation,
-        onSubmit: async (values) => {
-            try {
-                const response = await axios.post('http://localhost:8000/api/UserPlan', {
-                    plan: selectedPlan,
-                    Name: values.name,
-                    Email: values.email,
-                    massage: values.massage
-                });
-
-            } catch (error) {
-                let message = 'حدث خطأ أثناء التسجيل';
-
-
-                if (error.response && error.response.status === 422) {
-                    const errorMessages = error.response.data.errors;
-                    message = Object.values(errorMessages).flat().join(' ');
-                } else if (error.request) {
-                    message = 'لم يتم استلام أي استجابة من الخادم. حاول مرة أخرى لاحقًا.';
-                } else {
-                    message = `حدث خطأ في إعداد الطلب: ${error.message}`;
-                }
-
-                Swal.fire({
-                    title: 'خطأ',
-                    text: message,
-                    icon: 'error',
-                });
-            }
-        }
-    });
-
-
-
     return (
-                <>
-                    <Helmet>
-                        <title>Pricing | Could.wav</title>
-                    </Helmet>
-        <div className='py-20'>
-            <div className="container m-auto">
-                <div className="flex items-center flex-col">
-                    <h1 className="text-4xl font-bold text-center">Pricing Plan</h1>
-                    <p className="text-center text-lg text-black mt-8">Choose the perfect plan that fits your needs, and unlock the full potential of your career right now</p>
-                    <div className="flex justify-center items-center mt-12">
-                        <div className={`rounded-l-2xl border-l cursor-pointer transition border-[#B0E4D5] px-8 py-4 text-xl font-bold
-                    ${period === 'Monthly' ? 'bg-[#2F00AC] text-white' : 'bg-[#B0E4D5] text-[#2F00AC]'}`}
-                            onClick={
-                                () => setPeriod('Monthly')
+        <>
+            <Helmet>
+                <title>{t("pricing_title")}</title>
+            </Helmet>
+            <div className='py-20' style={{ direction: isRTL ? 'rtl' : 'ltr' }}>
+                <div className="container m-auto">
+                    <div className="flex items-center flex-col">
+                        <h1 className="text-4xl font-bold text-center">{t("pricing_title")}</h1>
+                        <p className="text-center text-lg text-black mt-8">{t("pricing_subtitle")}</p>
+
+                        {/* زر اختيار المدة */}
+                        <div className="flex justify-center items-center mt-12">
+                            <div className={`cursor-pointer transition border px-8 py-4 text-xl font-bold 
+                                ${period === 'Monthly' ? 'bg-[#2F00AC] text-white' : 'bg-[#B0E4D5] text-[#2F00AC]'}
+                                ${isRTL ? 'rounded-r-2xl' : 'rounded-l-2xl'}`}
+                                onClick={() => setPeriod('Monthly')}
+                            >
+                                {t("monthly")}
+                            </div>
+                            <div className={`cursor-pointer transition border px-8 py-4 text-xl font-bold 
+                                ${period === 'Yearly' ? 'bg-[#2F00AC] text-white' : 'bg-[#B0E4D5] text-[#2F00AC]'}
+                                ${isRTL ? 'rounded-l-2xl' : 'rounded-r-2xl'}`}
+                                onClick={() => setPeriod('Yearly')}
+                            >
+                                {t("yearly")}
+                            </div>
+                        </div>
+
+                        {/* صناديق الخطط */}
+                        <div className={`grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 ${isRTL ? 'text-right' : 'text-left'}`}>
+                            {period === "Monthly" ? 
+                                plans.monthly.map((plan, index) => (
+                                    <PlansBox
+                                        key={index}
+                                        planName={t(plan.name)}
+                                        MainPrice={plan.price}
+                                        addPrice={plan.priceYearly}
+                                        Features={plan.features.map(feature => t(feature))}
+                                        select={() => setSelectedPlan(plan.name)}
+                                    />
+                                ))
+                                :
+                                plans.yearly.map((plan, index) => (
+                                    <PlansBox
+                                        key={index}
+                                        planName={t(plan.name)}
+                                        MainPrice={plan.price}
+                                        addPrice={plan.priceMonthly}
+                                        Features={plan.features.map(feature => t(feature))}
+                                    />
+                                ))
                             }
-                        >Monthly</div>
-                        <div className={`rounded-r-2xl border-r cursor-pointer transition border-[#B0E4D5] px-8 py-4 text-xl font-bold
-                    ${period === 'Yearly' ? 'bg-[#2F00AC] text-white' : 'bg-[#B0E4D5] text-[#2F00AC]'}`}
-                            onClick={
-                                () => setPeriod('Yearly')
-                            }
-                        >Yearly</div>
-                    </div>
-                    <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
-                        {period === "Monthly" ?
-                            plans.monthly?.map((plan) => (
-                                <PlansBox
-                                    planName={plan.name}
-                                    MainPrice={plan.price}
-                                    addPrice={plan.priceYearly}
-                                    Features={
-                                        plan.features.map((feature) =>
-                                            (feature)
-                                        )
-                                    }
-                                    select={
-                                        () => {
-                                            setSelectedPlan(plan.name)
-                                        }
-                                    }
-                                />
-                            ))
-                            :
-                            plans.yearly?.map((plan) => (
-                                <PlansBox
-                                    planName={plan.name}
-                                    MainPrice={plan.price}
-                                    addPrice={plan.priceMonthly}
-                                    Features={
-                                        plan.features.map((feature) =>
-                                            (feature)
-                                        )
-                                    }
-                                />
-                            ))
-                        }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </>
     );
-}
+};
 
 export default Pricing;

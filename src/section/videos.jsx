@@ -7,8 +7,10 @@ import { getTop4 } from '../actions/getTop4';
 import OrderVideoModal from '../Pages/OrderVideo/OrderVideoModal';
 import { Link } from 'react-router-dom';
 import JoinUsVideoModal from '../Components/joinUsVideoModal';
+import { useTranslation } from 'react-i18next';
 
 const Videos = () => {
+    const { t } = useTranslation();
     // const [videosOrder, setVideosOrder] = useState([]);
     // const [top4, setTop4] = useState([]);
     const [orderInfo, setOrderInfo] = useState();
@@ -72,32 +74,32 @@ const Videos = () => {
     const StarsCateg = [
         {
             id: 1,
-            name: 'Actors',
+            name: t("Actors"),
             imgScr: "https://i.imgur.com/6Q6Zz4B.jpg",
             link: "Actors"
         },
         {
             id: 2,
-            name: 'Musicians',
+            name: t("Musicians"),
             imgScr: "https://i.imgur.com/c858xO1.jpg",
             link: "Musicians"
         },
         {
             id: 3,
-            name: 'Content creators',
+            name: t("Content_creators"),
             imgScr: "https://i.imgur.com/g7Y40lO.jpg",
             link: "Content"
         },
         {
             id: 4,
-            name: 'youtubers ',
+            name: t("youtubers"),
             imgScr: "https://i.imgur.com/F8o1Z5o.jpg",
             link: "Youtubers"
 
         },
         {
             id: 5,
-            name: 'Athletes',
+            name: t("Athletes"),
             imgScr: "https://i.imgur.com/e6aYd0R.jpg",
             link: "Athletes"
         },
@@ -260,10 +262,10 @@ const Videos = () => {
         <div className={`pt-20 pb-40 bg-cover bg-[#30B7971A]`}>
             <div className="container m-auto">
                 <div className="flex flex-col">
-                    <h1 className='text-center text-5xl font-bold text-black mb-12'>Personalized videos from your favorite stars</h1>
+                    <h1 className='text-center text-5xl font-bold text-black mb-12'>{t("Personalized")}</h1>
                     <div className='flex flex-row justify-center' >
                         <Link to="/OrderVideo/All" className="flex flex-row items-center text-2xl gap-4 px-10 py-4 rounded-full font-bold bg-white text-black hover:bg-[#30B797] hover:text-white transition">
-                            Order now
+                        {t("Order_now")}
                             <FaChevronRight />
                         </Link>
                     </div>
@@ -289,10 +291,10 @@ const Videos = () => {
                             </div>
                             <button
                                 className='text-black font-bold my-2 text-2xl underline text-center'
-                            >join us</button>
+                            >{t("joinus")}</button>
                         </div>
                     </div>
-                    <div data-aos="zoom-in" className='slider-container relative mt-16'>
+                    <div data-aos="zoom-in" className='slider-container relative mt-16' dir='ltr'>
                         <h2 className='text-start text-3xl font-bold mb-12'>VIP</h2>
                         <Slider {...settings}>
                             {
@@ -321,7 +323,7 @@ const Videos = () => {
                                                 >
                                                     <button
                                                         className={`${openPopUp === i.id ? 'text-[#30B797] bg-white' : "text-white"} w-full justify-center bg-[#30B797]  font-bold p-2 rounded-full border border-[#30B797] hover:text-[#30B797] hover:bg-white transition-all flex flex-row items-center gap-2 text-lg`}>
-                                                        Order Now
+                                                        {t("Order_now")}
                                                         {openPopUp === i.id ?
                                                             <FaAngleUp /> :
                                                             <FaAngleRight />}
@@ -337,7 +339,7 @@ const Videos = () => {
                                                                     )
                                                                 }}
                                                                 className='order-popupBtn flex flex-row gap-2 items-center py-4 font-bold px-2 text-lg hover:bg-[#4D39CF] hover:text-white'>
-                                                                Personal video
+                                                                {t("Personal_video")}
                                                                 <span className='text-[#30B797]'>60 EGP</span>
                                                                 <span className='text-[#4D39CF]'><FaAngleRight /></span>
                                                             </button>
@@ -349,7 +351,7 @@ const Videos = () => {
                                                                     })
                                                                 }}
                                                                 className='order-popupBtn flex flex-row gap-2 items-center py-4 font-bold px-2 text-lg hover:bg-[#4D39CF] hover:text-white'>
-                                                                Business Work
+                                                                {t("Business_Work")}
                                                                 <span className='text-[#30B797]'>40 EGP</span>
                                                                 <span className='text-[#4D39CF]'><FaAngleRight /></span>
                                                             </button>
@@ -401,7 +403,7 @@ const Videos = () => {
                                             >
                                                 <button
                                                     className={`${openPopUp === i.name ? 'text-[#30B797] bg-white' : "text-white"} w-full justify-center bg-[#30B797]  font-bold p-2 rounded-b-xl hover:text-[#30B797] hover:bg-white transition-all flex flex-row items-center gap-2 text-lg`}>
-                                                    Order Now
+                                                        {t("Order_now")}
                                                     {openPopUp === i.name ?
                                                         <FaAngleUp /> :
                                                         <FaAngleRight />}
@@ -417,7 +419,7 @@ const Videos = () => {
                                                                 )
                                                             }}
                                                             className='order-popupBtn flex flex-row gap-2 items-center py-4 font-bold px-2 text-lg hover:bg-[#4D39CF] hover:text-white'>
-                                                            Personal video
+                                                            {t("Personal_video")}
                                                             <span className='text-[#30B797]'>60 EGP</span>
                                                             <span className='text-[#4D39CF]'><FaAngleRight /></span>
                                                         </button>
@@ -429,7 +431,7 @@ const Videos = () => {
                                                                 })
                                                             }}
                                                             className='order-popupBtn flex flex-row gap-2 items-center py-4 font-bold px-2 text-lg hover:bg-[#4D39CF] hover:text-white'>
-                                                            Business Work
+                                                            {t("Business_Work")}
                                                             <span className='text-[#30B797]'>40 EGP</span>
                                                             <span className='text-[#4D39CF]'><FaAngleRight /></span>
                                                         </button>

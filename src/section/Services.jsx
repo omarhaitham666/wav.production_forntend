@@ -9,16 +9,18 @@ import programming from '../assets/Img/programming.png'
 import ServicesBox from '../Components/servicesBox';
 
 import { getServices } from '../actions/getServices';
+import { useTranslation } from 'react-i18next';
 
 
 
 const Services = () => {
+    const {t} =useTranslation()
 
     const ServicesD = [
         {
-            "id": 1,
-            title: "Music distribution",
-            description: "We ensure your music reaches the right audience, wherever they are in the world.",
+            id: 1,
+            name: t('services_1'),
+            description: t("services_1p"),
             img: MusicDistributionImg,
             link: "https://servicesLInk",
             bg: "#6017DC",
@@ -26,24 +28,24 @@ const Services = () => {
         },
         {
             "id": 2,
-            title: "Platform Management",
-            description: "Seamlessly upload your tracks, albums, and visuals to all major platforms.",
+            title: t('services_2'),
+            description: t('services_2p'),
             img: PlatformManagement,
             link: "/Services",
             bg: "#DFF7EA",
         },
         {
             "id": 3,
-            title: "Social media",
-            description: "Creative posts and stories that showcase your style and connect with fans.",
+            title: t('services_3'),
+            description: t('services_3p'),
             img: Socialmedia,
             link: "/Services",
             bg: "#6017DC",
         },
         {
             "id": 4,
-            title: "Clothes Store",
-            description: "Shop trendy, high-quality fashion with fast delivery and easy returns.",
+            title: t('services_4'),
+            description: t('services_4p'),
             img: clothing,
             link: "",
             facebook_Link:"/jj",
@@ -53,8 +55,8 @@ const Services = () => {
         },
         {
             "id": 5,
-            title: "Programming services",
-            description: "Expert web, app, and software development tailored to your needs.",
+            title: t('services_5'),
+            description: t('services_5p'),
             img: programming,
             link: "/",
             bg: "#6017DC",
@@ -62,8 +64,8 @@ const Services = () => {
         },
         {
             "id": 6,
-            title: "TikTok agency",
-            description: "Easily share your content and campaigns on TikTok to reach your fans",
+            title: t('services_6'),
+            description: t('services_6p'),
             img: TikTokAgencyImg,
             link: "https://servicesLInk",
             bg: "#29A49F",
@@ -100,12 +102,12 @@ const Services = () => {
     return (
         <div className={`py-20 bg-cover bg-white`}>
             <div data-aos="zoom-in" className="container m-auto">
-                <p className='text-center font-bold text-xl text-[#29A49F] mb-4'>Satisfy Solution</p>
-                <h2 className='text-center text-4xl font-bold mb-6'>The Best Services we provide</h2>
+                <p className='text-center font-bold text-xl text-[#29A49F] mb-4'>{t("Satisfy_Solution")}</p>
+                <h2 className='text-center text-4xl font-bold mb-6'>{t("Satisfy_Solutionp")}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-12">
                     {/* replace ServicesD  */}
                     {ServicesD.map((service, index) => (
-                        <div key={index}>
+                        <div key={index} dir='ltr'>
                             <ServicesBox
                                 bgColor={service.bg}
                                 textColor={getTextColor(service.bg)}

@@ -3,9 +3,11 @@ import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 
 const JoinUsVideoModal = ({ handleClose }) => {
+        const { t } = useTranslation();
     const [agree, setAgree] = useState(false);
     const [image, setImage] = useState("");
     const [imagePreview, setImagePreview] = useState("");
@@ -182,19 +184,19 @@ const JoinUsVideoModal = ({ handleClose }) => {
                             formik.handleSubmit
                         }>
                             <div className='mb-6'>
-                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
+                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("{Your_name}")}</label>
                                 <input type="name"
                                     onChange={formik.handleChange} value={formik.values.name}
                                     name="name"
                                     id="name"
-                                    placeholder="Your Name"
+                                    placeholder={t("{Your_name}")}
                                     className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
                                 {formik.touched.name && formik.errors.name ? (
                                     <small className='text-red-500'>{formik.errors.name}</small>
                                 ) : null}
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Your_email")}</label>
                                 <input type="email"
                                     onChange={formik.handleChange} value={formik.values.email}
                                     name="email"
@@ -205,7 +207,7 @@ const JoinUsVideoModal = ({ handleClose }) => {
                                 ) : null}
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Number</label>
+                                <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Your_Number")}</label>
                                 <input type="tel"
                                     onChange={formik.handleChange} value={formik.values.number}
                                     name="number"
@@ -217,7 +219,7 @@ const JoinUsVideoModal = ({ handleClose }) => {
                             </div>
                             <div className="flex flex-col lg:flex-row lg:gap-8">
                                 <div className='mb-6 lg:w-1/2'>
-                                    <label htmlFor="personal_price" className="block mb-2 text-sm font-medium text-[#522ED3]">Personal video price</label>
+                                    <label htmlFor="personal_price" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Personal_video_price")}</label>
                                     <input type="number"
                                         onChange={formik.handleChange} value={formik.values.Personal_price}
                                         name="personal_price"
@@ -228,7 +230,7 @@ const JoinUsVideoModal = ({ handleClose }) => {
                                     ) : null}
                                 </div>
                                 <div className='mb-6 lg:w-1/2'>
-                                    <label htmlFor="Business_price" className="block mb-2 text-sm font-medium text-[#522ED3]">Business video price</label>
+                                    <label htmlFor="Business_price" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Business_video_price")}</label>
                                     <input type="number"
                                         onChange={formik.handleChange} value={formik.values.Business_price}
                                         name="Business_price"
@@ -240,17 +242,17 @@ const JoinUsVideoModal = ({ handleClose }) => {
                                 </div>
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="division" className="block mb-2 text-sm font-medium text-[#522ED3]">Artist Division</label>
+                                <label htmlFor="division" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Artist_Division")}</label>
                                 <select id="Division"
                                     name="division"
                                     onChange={formik.handleChange} value={formik.values.division}
                                     className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5">
-                                    <option value="">Select Division</option>
-                                    <option value="Mahraganat">Mahraganat</option>
-                                    <option value="rap">Rap</option>
-                                    <option value="pop">pop</option>
-                                    <option value="jazz">jazz</option>
-                                    <option value="rock">rock</option>
+                                    <option value="">{t("Select_Division")}</option>
+                                    <option value="Mahraganat">{t("Mahraganat")}</option>
+                                    <option value="rap">{t("Rap")}</option>
+                                    <option value="pop">{t("pop")}</option>
+                                    <option value="jazz">{t("jazz")}</option>
+                                    <option value="rock">{t("rock")}</option>
                                 </select>
                                 {formik.touched.division && formik.errors.division ? (
                                     <small className='text-red-500'>{formik.errors.division}</small>
@@ -258,19 +260,19 @@ const JoinUsVideoModal = ({ handleClose }) => {
 
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="social_links" className="block mb-2 text-sm font-medium text-[#522ED3]">Social media links</label>
+                                <label htmlFor="social_links" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Social_media_links")}</label>
                                 <input type="text"
                                     onChange={formik.handleChange} value={formik.values.Personal_social_links}
                                     name="Personal_social_links"
                                     id="links"
-                                    className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your social media links' />
+                                    className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder={t("Social_media_links")} />
                                 {formik.touched.Personal_social_links && formik.errors.Personal_social_links ? (
                                     <small className='text-red-500'>{formik.errors.Personal_social_links}</small>
                                 ) : null}
                             </div>
                             <div className='mb-6'>
                                 <label htmlFor="Personal_profile_image" className="block mb-2 text-sm font-medium text-[#522ED3]">
-                                    Your Image
+                                    {t("Your_Image")}
                                 </label>
                                 <input
                                     type="file"
@@ -300,7 +302,7 @@ const JoinUsVideoModal = ({ handleClose }) => {
                             </div>
                             <div className='mb-6'>
                                 <label htmlFor="ID_image" className="block mb-2 text-sm font-medium text-[#522ED3]">
-                                    We want proof of identity
+                                    {t("We_want_proof_of_identity")}
                                 </label>
                                 <input
                                     type="file"
@@ -332,10 +334,10 @@ const JoinUsVideoModal = ({ handleClose }) => {
                             <div className='flex items-center mt-4'>
                                 <input type="checkbox" id="terms" checked={agree} onChange={() => setAgree(!agree)} className='mr-2' />
                                 <label htmlFor="terms" className='text-sm'>
-                                    أوافق على <a href="/Terms" className='text-[#2F00AC] underline'>الشروط والأحكام</a>
+                                    {t("accpt")} <a href="/Terms" className='text-[#2F00AC] underline'>{t("trams")}</a>
                                 </label>
                             </div>
-                            <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
+                            <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">{t("Send_Now")}</button>
                         </form>
                     </div>
                 </div>

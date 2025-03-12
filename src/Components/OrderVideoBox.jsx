@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { FaAngleRight, FaAngleUp, FaInstagram, FaSnapchat, FaTiktok } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const OrderVideoBox = (props) => {
+    const { t } = useTranslation();
     const [openPopUp, setOpenPopUp] = useState(false);
+
     return (
-        <div kay={props.kay} className='p-4 bg-white border border-[#00000026] shadow-2xl rounded-2xl'>
+        <div key={props.key} className='p-4 bg-white border border-[#00000026] shadow-2xl rounded-2xl'>
             <div className='flex justify-between items-start mb-4 relative'>
                 <img src={props.image} className='rounded-full w-16 h-16' alt="" />
                 <div className='relative'
@@ -12,24 +15,21 @@ const OrderVideoBox = (props) => {
                     onMouseLeave={() => setOpenPopUp(false)}
                 >
                     <button
-                        className={`${openPopUp ? 'text-[#30B797] bg-white' : "text-white"} bg-[#30B797]  font-bold p-2 rounded-full border border-[#30B797] hover:text-[#30B797] hover:bg-white transition-all flex flex-row items-center gap-2 text-lg`}>
-                        Order Now
-                        {openPopUp ?
-                            <FaAngleUp /> :
-                            <FaAngleRight />}
+                        className={`${openPopUp ? 'text-[#30B797] bg-white' : "text-white"} bg-[#30B797] font-bold p-2 rounded-full border border-[#30B797] hover:text-[#30B797] hover:bg-white transition-all flex flex-row items-center gap-2 text-lg`}>
+                        {t("order_now")}
+                        {openPopUp ? <FaAngleUp /> : <FaAngleRight />}
                     </button>
-                    {openPopUp ?
+                    {openPopUp && (
                         <div className='rounded-sm bg-white shadow-sm absolute top-10 right-0 w-max'>
                             <button
                                 onClick={() => {
                                     props.handleVideoClick({
                                         artistName: props.artistName,
                                         videoType: "Personal"
-                                    }
-                                    )
+                                    })
                                 }}
                                 className='order-popupBtn flex flex-row gap-2 items-center py-4 font-bold px-2 text-lg hover:bg-[#4D39CF] hover:text-white'>
-                                Personal video
+                                {t("personal_video")}
                                 <span className='text-[#30B797]'>60 EGP</span>
                                 <span className='text-[#4D39CF]'><FaAngleRight /></span>
                             </button>
@@ -41,12 +41,12 @@ const OrderVideoBox = (props) => {
                                     })
                                 }}
                                 className='order-popupBtn flex flex-row gap-2 items-center py-4 font-bold px-2 text-lg hover:bg-[#4D39CF] hover:text-white'>
-                                Business Work
+                                {t("business_video")}
                                 <span className='text-[#30B797]'>40 EGP</span>
                                 <span className='text-[#4D39CF]'><FaAngleRight /></span>
                             </button>
-                        </div> :
-                        ""}
+                        </div>
+                    )}
                 </div>
             </div>
             <h2 className='font-bold text-xl'>{props.artistName}</h2>
@@ -65,7 +65,7 @@ const OrderVideoBox = (props) => {
                     <span>10M</span>
                 </div>
             </div>
-            <p className='text-[#43625B] text-lg'>Average video price/
+            <p className='text-[#43625B] text-lg'>{t("average_video_price")} /
                 <span className='font-bold'>{props.price}</span>
             </p>
         </div>

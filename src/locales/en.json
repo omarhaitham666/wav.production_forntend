@@ -1,0 +1,272 @@
+{
+    "login": "Login",
+    "SignUp": "Sign Up",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Submit",
+    "intro": "Unleash your sound, the world is tuned in",
+    "Home": "Home",
+    "joinus": "Join Us",
+    "service": "Services",
+    "pricing": "Pricing",
+    "faqs": "FAQs",
+    "videos": "Videos",
+    "aboutus": "About Us",
+    "contactus": "Contact",
+    "playing": "Start Playing",
+    "joinush": "Join Us and Take Your Music Career to the Next Level! 🎵",
+    "joinusp": "Are you an aspiring artist or an established star looking for a platform to support your journey and expand your reach? We are here to be your trusted partner and agent for success!",
+    "joinNow": "Join Us Now",
+    "joinus1": "Good Exclusive Features",
+    "joinus1p": "We provide cutting-edge advertising solutions and exclusive tools, including AI-driven strategies and modern promotional",
+    "joinus2": "Artist Support",
+    "joinus2p": "Our 24/7 support ensures you're never alone. We provide multiple channels for assistance, including email and WhatsApp, to address all your needs.",
+    "joinus3": "Platforms Management",
+    "joinus3p": "We professionally manage your platforms, ensuring seamless operations and growth throughout the contract period.",
+    "joinus4": "Earnings and Copyright Protection",
+    "joinus4p": "We protect your content, secure your rights, and ensure you receive your earnings.",
+    "Satisfy_Solution": "Satisfy Solution",
+    "Satisfy_Solutionp": "The Best Services we provide",
+    "services_1": "Music distribution",
+    "services_1p": "We ensure your music reaches the right audience, wherever they are in the world.",
+    "services_2": "Platform Management",
+    "services_2p": "Seamlessly upload your tracks, albums, and visuals to all major platforms.",
+    "services_3": "Social media",
+    "services_3p": "Creative posts and stories that showcase your style and connect with fans.",
+    "services_4": "Clothes Store",
+    "services_4p": "Shop trendy, high-quality fashion with fast delivery and easy returns.",
+    "services_5": "Programming services",
+    "services_5p": "Expert web, app, and software development tailored to your needs.",
+    "services_6": "TikTok agency",
+    "services_6p": "Easily share your content and campaigns on TikTok to reach your fans",
+    "Personalized": "Personalized videos from your favorite stars",
+    "Order_now": "Order Now",
+    "Actors": "Actors",
+    "Musicians": "Musicians",
+    "Content_creators": "Content Creators",
+    "youtubers": "Youtubers",
+    "Athletes": "Athletes",
+    "Personal_video": "Personal video",
+    "Business_Work": "Business Work",
+    "Your_name": "Your name",
+    "Your_email": "Your email",
+    "Your_Number": "Your Number",
+    "Write_your_Text": "Write your text",
+    "accept": "Agree with",
+    "terms": "Terms and Conditions",
+    "Send_Now": "Send Now",
+    "Personal_video_price": "Personal video price",
+    "Business_video_price": "Business video price",
+    "Artist_Division": "Artist Division",
+    "Select_Division": "Select Division",
+    "Mahraganat": "Mahraganat",
+    "Rap": "Rap",
+    "Pop": "Pop",
+    "Jazz": "Jazz",
+    "Rock": "Rock",
+    "Social_media_links": "Social media links",
+    "Your_Image": "Your Image",
+    "We_want_proof_of_identity": "We want proof of identity",
+    "learn_more": "Learn More",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_use": "Terms of Use",
+    "cookie_settings": "Cookie Settings",
+    "policy": "Policy",
+    "contact_us": "Contact Us",
+    "office": "Office",
+    "social": "Social",
+    "all_rights_reserved": "All Rights Reserved",
+    "order_now": "Order Now",
+    "personal_video": "Personal Video",
+    "business_video": "Business Work",
+    "average_video_price": "Average video price",
+    "get_started": "Get Started",
+    "yearly_price": "or ${{price}} yearly",
+    "basic_plan": "Basic Plan",
+    "standard_plan": "Standard Plan",
+    "premium_plan": "Premium Plan",
+    "feature1": "Unlimited Storage",
+    "feature2": "24/7 Support",
+    "feature3": "Advanced Analytics",
+    "pricing_title": "Pricing Plan",
+    "pricing_subtitle": "Choose the perfect plan that fits your needs, and unlock the full potential of your career right now",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "free_plan": "Free Plan",
+    "pro_plan": "Pro Plan",
+    "enterprise_plan": "Enterprise Plan",
+    "feature_1": "5 songs and profiles",
+    "feature_2": "Basic analytics",
+    "feature_3": "Standard support",
+    "feature_4": "25 songs and profiles",
+    "feature_5": "Advanced analytics",
+    "feature_6": "Priority support",
+    "feature_7": "Unlimited songs and profiles",
+    "feature_8": "Custom analytics and reporting",
+    "feature_9": "Dedicated account manager",
+    "feature_10": "Exclusive webinars",
+    "feature_11": "Personalized recommendations",
+    "music_platform": "The music platform",
+    "join_our_platform": "Join Our Platform!",
+    "platform_description": "Our platform helps singers create profiles, share their songs, and connect with fans worldwide to elevate their careers.",
+    "join_now": "Join us now",
+    "playing_alt": "Playing music image",
+    "browse": "Browse",
+    "home": "Home",
+    "genres": "Genres",
+    "all_genres": "All Genres",
+    "Trending_songs": "Trending Songs",
+    "Trending_Albums": "Trending Albums",
+    "Recently_Supported": "Recently Supported",
+    "Recently_Added": "Recently Added",
+    "Accounts_for_You": "Accounts for You",
+    "Hip_hop": "Hip Hop",
+    "Electronic": "Electronic",
+    "Classical": "Classical",
+    "Mheraganat": "Mheraganat",
+    "Upload": "Upload",
+    "Play": "Play",
+    "Processing": "Processing...",
+    "Following": "Following",
+    "Follow": "Follow",
+    "contact": {
+        "title": "Contact Us",
+        "header": "Contact Information",
+        "subHeader": "Say something to start a live chat!",
+        "address": "22 Al-Sawah Street, Zeitoun, Cairo, Egypt.",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "message": "Message",
+        "messagePlaceholder": "Write your message here...",
+        "sendButton": "Send Message"
+    },
+    "validation": {
+        "minLength": "Email must be at least 15 characters.",
+        "correctEmail": "Please enter a valid email address.",
+        "required": "This field is required."
+    },
+    "errors": {
+        "title": "Error!",
+        "default": "Something went wrong. Please try again.",
+        "noResponse": "No response from server. Check your connection.",
+        "requestError": "Request error:"
+    },
+    "faq": {
+        "title": "FAQ | Could.wav",
+        "heading": "FAQs",
+        "description": "Find answers to frequently asked questions about CloudWav Production's services and solutions.",
+        "still_have_question": "Still have a question?",
+        "assistance_text": "Our team is ready to assist you in any way possible and provide the information you need.",
+        "contact_us": "Contact Us",
+        "questions": {
+            "1": {
+                "question": "What is CloudWav Production?",
+                "answers": [
+                    "CloudWav Production is a digital platform offering professional services, including advertising, clothing, sales through other platforms, social media services, artistic and music production, platform management, and professional video services. We provide comprehensive solutions for individuals and businesses to enhance their digital presence and achieve their creative and commercial goals."
+                ]
+            },
+            "2": {
+                "question": "How can I create an account on the website?",
+                "answers": [
+                    "Click the register button on the homepage.",
+                    "Enter your basic information such as email and password.",
+                    "Choose your account type (Rising Artist, Famous Artist, Regular User).",
+                    "Agree to the terms and conditions.",
+                    "Confirm your account via the email sent to you."
+                ]
+            },
+            "3": {
+                "question": "What is the difference between a Rising Artist and a Famous Artist account?",
+                "answers": [
+                    "Rising Artist Account allows you to upload and showcase your songs on digital streaming platforms.",
+                    "Famous Artist Account gives you full control over publishing and managing your works."
+                ]
+            },
+            "4": {
+                "question": "How can I request a gift video or advertisement from an artist?",
+                "answers": [
+                    "Browse the list of available artists in the paid video section.",
+                    "Choose the artist from whom you want to request a video.",
+                    "Select the type of video (advertisement, personal gift, greeting, product promotion).",
+                    "Add the required details such as name, message, and specific instructions.",
+                    "Complete the payment process, and your request will be delivered on time."
+                ]
+            },
+            "5": {
+                "question": "Can I book an artist for an event or occasion?",
+                "answers": [
+                    "Yes, you can request an artist for a special event via the platform by browsing the available artists and submitting a booking request."
+                ]
+            },
+            "6": {
+                "question": "How can I pay for services?",
+                "answers": [
+                    "We offer several secure payment methods, including credit and debit cards, Vodafone Cash, and bank transfers."
+                ]
+            },
+            "7": {
+                "question": "How can I sign a contract with CloudWav Production as an artist?",
+                "answers": [
+                    "1. Fill out the application form on the website.",
+                    "2. Submit your personal details and previous works.",
+                    "3. Your request will be reviewed, and we will contact you regarding the contract."
+                ]
+            },
+            "8": {
+                "question": "How can I contact technical support?",
+                "answers": [
+                    "If you are facing an issue with your account or need assistance, you can contact us via email, the contact form on the website, or live chat."
+                ]
+            },
+            "9": {
+                "question": "What happens if my account is suspended?",
+                "answers": [
+                    "Your account may be suspended if you violate the terms of use.",
+                    "You can submit an appeal request to review your case."
+                ]
+            },
+            "10": {
+                "question": "💡 Tips for using CloudWav Production professionally:",
+                "answers": [
+                    "Always check your registered email for important updates.",
+                    "Make use of music production, paid videos, and social media management services to achieve the best results for your project."
+                ]
+            }
+        }
+    },
+    "modal": {
+        "title": "Service Request",
+        "name": "Your Name",
+        "email": "Your Email",
+        "number": "Your Number",
+        "whatsapp_number": "WhatsApp Number",
+        "social_links": "Social Media Links",
+        "details": "Details",
+        "send": "Send Now",
+        "close": "Close Modal"
+    },
+    "servisespage" :{
+        "title": "Social Media Specialist",
+        "description": "Here is the reality: having a strong Social Media presence is essential for Whether you are managing a local startup or a large-scale enterprise, social media is the bridge that connects your brand to your audience. It is more than just posting—it is about sharing valuable, engaging, and meaningful content that resonates with your customers. A well-executed social media strategy helps you boost brand awareness, build trust, enhance your online visibility, and make your business more memorable in a competitive digital landscape. Social media isn it just an option; it is the foundation for building lasting connections with your audience.",
+        "Get_started": "Get started",
+        "text1":"How it works",
+        "text2":"We believe that the best way to create successful marketing campaigns is to work closely with our clients to understand their goals and challenges.",
+        "Get_it_now":"Get it now",
+        "text3":"Lets talk for something Special",
+        "text4":"Our white-label technology consulting company has become one of the most sought-after Custom Web Development Services in a very short period. It is famous for its unique techniques and practical results."
+        
+    
+    },
+    "Get_started":"Get started",
+    "Send_message":"Send message",
+     "Get_it_now": "Get it now",
+    "Prices_start_from": "Prices start from",
+    "Creating_and_documenting_platforms": "Creating and documenting platforms",
+    "Creating_and_documenting_platforms_desc": "We help you create and manage social media platforms like Facebook, Instagram, Twitter, LinkedIn, and Pinterest, as well as social media apps like TikTok, YouTube, and Snapchat.",
+    "Recover_closed_accounts": "Recover closed accounts",
+    "Recover_closed_accounts_desc": "We help you recover closed accounts, reactivate deactivated accounts, and restore deleted accounts.",
+    "Create_sponsored_ads": "Create sponsored ads",
+    "Create_sponsored_ads_desc": "We help you create sponsored ads on platforms like Google Ads, Facebook Ads, and Google My Business, as well as on social media apps like TikTok, YouTube, and Snapchat."
+}

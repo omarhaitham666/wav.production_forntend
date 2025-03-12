@@ -10,8 +10,10 @@ import { addFavorite, downloadSong } from '../../actions/songsActions';
 import { swap } from 'formik';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 const Artist = () => {
+    const { t } = useTranslation();
     const { loadSong, togglePlayPause, playing, currentSong, playSong, PlayingList } = useAudioPlayer();
 
     const { artistId } = useParams();
@@ -177,28 +179,28 @@ const Artist = () => {
                                 <img src={artistData.image} alt={artistData.name} className='object-cover w-52 h-52 rounded-full' />
                                 <h2 className='text-2xl font-bold first-letter:uppercase'>{artistData.name}</h2>
                             </div>
-                            {user.main ?
+                            {user.role === "artist" ? (
+                                <Link to={"/upload"} className='flex flex-row items-center justify-center gap-1.5 text-lg py-2 px-4 rounded-full bg-[#30B797] text-white border border-[#30B797] hover:text-[#30B797] hover:bg-white transition-all'>
+                                    <span>{t("Upload")}</span>
+                                    <FaUpload />
+                                </Link>
+                            ) : (
                                 <div className="flex flex-row items-center justify-center gap-4 font-bold">
                                     <button className='flex flex-row items-center gap-1.5 text-lg py-2 px-4 rounded-full bg-[#30B797] text-white border border-[#30B797] hover:text-[#30B797] hover:bg-white transition-all'>
-                                        <span>Play</span>
+                                        <span>{t("Play")}</span>
                                         <FaPlay />
                                     </button>
                                     <button
                                         onClick={handleFollow}
                                         disabled={loading}
                                         className={`px-4 py-2 rounded-full text-lg transition-all 
-                                ${isFollowing ? "bg-[#777777] text-white" : "bg-[#30B797] text-white"} 
-                                ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+            ${isFollowing ? "bg-[#777777] text-white" : "bg-[#30B797] text-white"} 
+            ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                                     >
-                                        {loading ? "Processing..." : isFollowing ? "Following" : "Follow"}
+                                        {loading ? t("Processing...") : isFollowing ? t("Following") : t("Follow")}
                                     </button>
                                 </div>
-                                :
-                                <Link to={"/upload"} className='flex flex-row items-center justify-center gap-1.5 text-lg py-2 px-4 rounded-full bg-[#30B797] text-white border border-[#30B797] hover:text-[#30B797] hover:bg-white transition-all'>
-                                    <span>Upload</span>
-                                    <FaUpload />
-                                </Link>
-                            }
+                            )}
                         </div>
                         <div className="w-full lg:w-2/3">
                             <div className='slider-container relative'>

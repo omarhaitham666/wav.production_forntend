@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const OrderVideoModal = ({ orderInfo, handleClose }) => {
     const [agree, setAgree] = useState(false);
@@ -113,6 +114,8 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
             }
         }
     })
+        const { t } = useTranslation();
+    
 
 
     return (
@@ -138,7 +141,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                             formik.handleSubmit
                         }>
                             <div className='mb-6'>
-                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
+                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Your_name")}</label>
                                 <input type="name"
                                     onChange={formik.handleChange} value={formik.values.name}
                                     name="name"
@@ -150,7 +153,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                 ) : null}
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Your_email")}</label>
                                 <input type="email"
                                     onChange={formik.handleChange} value={formik.values.email}
                                     name="email"
@@ -161,7 +164,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                 ) : null}
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Number</label>
+                                <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Your_Number")}</label>
                                 <input type="tel"
                                     onChange={formik.handleChange} value={formik.values.number}
                                     name="number"
@@ -172,7 +175,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                 ) : null}
                             </div>
                             <div className='mb-6'>
-                                <label htmlFor="text" className="block mb-2 text-sm font-medium text-[#522ED3]">Write your Text</label>
+                                <label htmlFor="text" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Write_your_Text")}</label>
                                 <textarea
                                     onChange={formik.handleChange} value={formik.values.mas}
                                     name="mas"
@@ -183,7 +186,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                             <div className='flex items-center mt-4'>
                                 <input type="checkbox" id="terms" checked={agree} onChange={() => setAgree(!agree)} className='mr-2' />
                                 <label htmlFor="terms" className='text-sm'>
-                                    أوافق على <a href="/Terms/VideosOrder" className='text-[#2F00AC] underline'>الشروط والأحكام</a>
+                                    {t("accpt")} <a href="/Terms/VideosOrder" className='text-[#2F00AC] underline'>{t("trams")}</a>
                                 </label>
                             </div>
                             <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>

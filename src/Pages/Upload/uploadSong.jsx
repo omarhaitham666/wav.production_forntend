@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useCallback, useState, useRef } from "react";
 import { FaAlignRight, FaArrowLeft, FaCamera, FaPlusCircle } from 'react-icons/fa';
 import { useDropzone } from 'react-dropzone';
-import logo from "../../assets/Img/logo.png"
+import logo from "/logo.svg"
 import { FaArrowRight } from 'react-icons/fa6';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

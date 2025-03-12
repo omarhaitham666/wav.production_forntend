@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "../../assets/Img/logo.png"
+import logo from "/logo.svg"
 import { Helmet } from 'react-helmet-async';
 
 const TermsofUse = () => {
