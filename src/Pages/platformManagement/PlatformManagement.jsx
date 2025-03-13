@@ -3,7 +3,7 @@ import React from 'react'
 const PlatformManagement = () => {
     return (
         <div className=" p-6 flex justify-center">
-          <div className="max-w-6xl mt-22 h-[100%] bg-white p-10 rounded-lg shadow-lg w-full">
+          <div className="max-w-6xl mt-22 h-[100%] bg-white p-10 rounded-lg  w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div>
                 <h1 className="text-3xl font-bold mb-4">platforms management</h1>
@@ -33,7 +33,7 @@ const PlatformManagement = () => {
             </div>
             
             
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mt-10">
               {[
                 { title: "artist profile", desc: "Customize an artist profile on our platform" },
                 { title: "Providing real job", desc: "Providing real job opportunities through our platform" },
