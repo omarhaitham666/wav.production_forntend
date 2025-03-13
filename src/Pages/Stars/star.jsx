@@ -90,6 +90,18 @@ const Star = () => {
                         </div>
                     </div>
                     <div className="w-full lg:w-2/3">
+                    <div className="flex flex-col gap-4">
+                            <h2 className='font-bold text-3xl'>About {starInfo.name}</h2>
+                            <p className='text-[#30B797] text-xl'>{starInfo.description}</p>
+                            <div className="flex flex-row gap-4 items-center font-bold mt-6">
+                                {starInfo.genres.map((genre, index) => (
+                                    <span key={index} className='text-[#4D39CF]  px-4 py-2 rounded-2xl bg-[#cbc8da] text-lg'>{genre}</span>
+                                ))}
+                            </div>
+                            <div className="flex items-center justify-center mt-6 w-full bg-black rounded-3xl h-60">
+                                Video
+                            </div>
+                    </div>
                     </div>
                 </div>
             </div>

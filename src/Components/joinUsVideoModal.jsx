@@ -556,7 +556,7 @@ const JoinUsVideoModal = ({ handleClose }) => {
                             formik.handleSubmit
                         }>
                             <div className='mb-6'>
-                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
+                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Name</label>
                                 <input type="text"
                                     onChange={formik.handleChange} value={formik.values.name}
                                     name="name"
@@ -569,7 +569,7 @@ const JoinUsVideoModal = ({ handleClose }) => {
                             </div>
 
                             <div className='mb-6'>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Email</label>
                                 <input type="email"
                                     onChange={formik.handleChange} value={formik.values.email}
                                     name="email"

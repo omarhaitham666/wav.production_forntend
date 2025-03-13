@@ -1,6 +1,6 @@
 import React from 'react';
 import comingSoon from '../assets/Img/comming Soon.png'
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 
 const ServicesBox = (props) => {
@@ -22,15 +22,13 @@ const ServicesBox = (props) => {
                         <a className='hover:text-[#6017DC] transition-all' href={props.instagram_Link}>
                             <FaInstagram />
                         </a>
-                        <a className='hover:text-[#6017DC] transition-all' href={props.twitter_Link}>
-                            <FaTwitter />
+                        <a className='hover:text-[#6017DC] transition-all' href={props.tiktok_Link}>
+                            <FaTiktok />
                         </a>
-
-
                     </div>
                     :
                     !props.comingSoon ?
-                        <a href={props.link} className="rounded-full py-3 px-6 bg-white text-black font-bold border border-white hover:bg-transparent hover:text-white transition">Read More</a>
+                        <a href={`Services${props.link}`} className="rounded-full py-3 px-6 bg-white text-black font-bold border border-white hover:bg-transparent hover:text-white transition">Read More</a>
                         : <span className="rounded-full py-3 px-6 bg-white text-black font-bold border border-white cursor-default">Coming Soon..</span>
                 }
             </div>

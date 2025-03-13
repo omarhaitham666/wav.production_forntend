@@ -469,24 +469,24 @@ const JoinUs = () => {
                                                 <div className="p-4 md:p-5">
                                                     <form className="space-y-4" action="#" onSubmit={formik.handleSubmit}>
                                                         <div className='mb-6'>
-                                                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
+                                                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Name</label>
                                                             <input type="name"
                                                                 onChange={formik.handleChange} value={formik.values.name}
                                                                 name="name"
                                                                 id="name"
-                                                                placeholder="Your name"
+                                                                placeholder="Your Name"
                                                                 className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
                                                             {formik.touched.name && formik.errors.name ? (
                                                                 <small className='text-red-500'>{formik.errors.name}</small>
                                                             ) : null}
                                                         </div>
                                                         <div className='mb-6'>
-                                                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
+                                                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Email</label>
                                                             <input type="email"
                                                                 onChange={formik.handleChange} value={formik.values.email}
                                                                 name="email"
                                                                 id="email"
-                                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your email' />
+                                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Email' />
                                                             {formik.touched.email && formik.errors.email ? (
                                                                 <small className='text-red-500'>{formik.errors.email}</small>
                                                             ) : null}
@@ -633,26 +633,26 @@ const JoinUs = () => {
                                                         {step === 1 && (
                                                             <>
                                                                 <div className='mb-6'>
-                                                                    <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your name</label>
+                                                                    <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Name</label>
                                                                     <input type="name"
                                                                         name="famous_name"
                                                                         id="Name"
                                                                         value={famousformik.values.famous_name}
                                                                         onChange={famousformik.handleChange}
                                                                         onBlur={famousformik.handleBlur}
-                                                                        placeholder="Your name"
+                                                                        placeholder="Your Name"
                                                                         className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
                                                                     {famousformik.touched.famous_name && famousformik.errors.famous_name ? (
                                                                         <small className='text-red-500'>{famousformik.errors.famous_name}</small>
                                                                     ) : null}
                                                                 </div>
                                                                 <div className='mb-6'>
-                                                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your email</label>
+                                                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Email</label>
                                                                     <input type="email"
                                                                         onChange={famousformik.handleChange} value={famousformik.values.famous_email}
                                                                         name="famous_email"
                                                                         id="email"
-                                                                        className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your email' />
+                                                                        className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Email' />
                                                                     {famousformik.touched.famous_email && famousformik.errors.famous_email ? (
                                                                         <small className='text-red-500'>{famousformik.errors.famous_email}</small>
                                                                     ) : null}

@@ -14,7 +14,7 @@
     "aboutus": "About Us",
     "contactus": "Contact",
     "playing": "Start Playing",
-    "joinush": "Join Us and Take Your Music Career to the Next Level! 🎵",
+    "joinush": "Join Us and Take Your Music Career to the Next Level!",
     "joinusp": "Are you an aspiring artist or an established star looking for a platform to support your journey and expand your reach? We are here to be your trusted partner and agent for success!",
     "joinNow": "Join Us Now",
     "joinus1": "Good Exclusive Features",
@@ -48,8 +48,8 @@
     "Athletes": "Athletes",
     "Personal_video": "Personal video",
     "Business_Work": "Business Work",
-    "Your_name": "Your name",
-    "Your_email": "Your email",
+    "Your_name": "Your Name",
+    "Your_email": "Your Email",
     "Your_Number": "Your Number",
     "Write_your_Text": "Write your text",
     "accept": "Agree with",
@@ -247,26 +247,96 @@
         "send": "Send Now",
         "close": "Close Modal"
     },
-    "servisespage" :{
+    "servisespage": {
         "title": "Social Media Specialist",
         "description": "Here is the reality: having a strong Social Media presence is essential for Whether you are managing a local startup or a large-scale enterprise, social media is the bridge that connects your brand to your audience. It is more than just posting—it is about sharing valuable, engaging, and meaningful content that resonates with your customers. A well-executed social media strategy helps you boost brand awareness, build trust, enhance your online visibility, and make your business more memorable in a competitive digital landscape. Social media isn it just an option; it is the foundation for building lasting connections with your audience.",
         "Get_started": "Get started",
-        "text1":"How it works",
-        "text2":"We believe that the best way to create successful marketing campaigns is to work closely with our clients to understand their goals and challenges.",
-        "Get_it_now":"Get it now",
-        "text3":"Lets talk for something Special",
-        "text4":"Our white-label technology consulting company has become one of the most sought-after Custom Web Development Services in a very short period. It is famous for its unique techniques and practical results."
-        
-    
+        "text1": "How it works",
+        "text2": "We believe that the best way to create successful marketing campaigns is to work closely with our clients to understand their goals and challenges.",
+        "Get_it_now": "Get it now",
+        "text3": "Lets talk for something Special",
+        "text4": "Our white-label technology consulting company has become one of the most sought-after Custom Web Development Services in a very short period. It is famous for its unique techniques and practical results."
     },
-    "Get_started":"Get started",
-    "Send_message":"Send message",
-     "Get_it_now": "Get it now",
+    "Get_started": "Get started",
+    "Send_message": "Send message",
+    "Get_it_now": "Get it now",
     "Prices_start_from": "Prices start from",
     "Creating_and_documenting_platforms": "Creating and documenting platforms",
     "Creating_and_documenting_platforms_desc": "We help you create and manage social media platforms like Facebook, Instagram, Twitter, LinkedIn, and Pinterest, as well as social media apps like TikTok, YouTube, and Snapchat.",
     "Recover_closed_accounts": "Recover closed accounts",
     "Recover_closed_accounts_desc": "We help you recover closed accounts, reactivate deactivated accounts, and restore deleted accounts.",
     "Create_sponsored_ads": "Create sponsored ads",
-    "Create_sponsored_ads_desc": "We help you create sponsored ads on platforms like Google Ads, Facebook Ads, and Google My Business, as well as on social media apps like TikTok, YouTube, and Snapchat."
+    "Create_sponsored_ads_desc": "We help you create sponsored ads on platforms like Google Ads, Facebook Ads, and Google My Business, as well as on social media apps like TikTok, YouTube, and Snapchat.",
+    "platforms_management": "Platforms Management",
+    "platforms_management_desc": "A service for creating and managing all platforms for independent artists, protecting content ownership, and securing their earnings through a monthly or yearly subscription with the company.",    "start_free_trial": "Start Your Free Trial Now",
+    "request_demo": "Request a Demo",
+    "platform_illustration": "Platform Illustration",
+    "artist_profile": "Artist Profile",
+    "artist_profile_desc": "Customize an artist profile on our platform",
+    "providing_real_job": "Providing Real Job",
+    "providing_real_job_desc": "Providing real job opportunities through our platform",
+    "direct_download": "Direct Download",
+    "direct_download_desc": "Direct download with fast and secure access.",
+    "data_security": "Data Security",
+    "data_security_desc": "Protecting content and intellectual property rights during the contract terms.",
+    "ensuring_successful": "Ensuring Successful",
+    "ensuring_successful_desc": "Ensuring the successful receipt of profits in a timely and secure manner.",
+    "header": {
+        "title": "Release your music with us now, and it will remain available forever!",
+        "description": "Our Artist Support team ensures your tracks go live within 48 hours, helping you reach your audience faster."
+    },
+    "buttons": {
+        "pricing": "See plans & pricing",
+        "contact": "Contact us",
+        "send": "Send message"
+    },
+    "features": {
+        "title": "Release with confidence",
+        "feature1": {
+            "title": "We'll never take your music down",
+            "desc": "Keep earning, even if you cancel."
+        },
+        "feature2": {
+            "title": "We'll support you along the way",
+            "desc": "Our distribution specialists are here to help."
+        },
+        "feature3": {
+            "title": "We'll pass along the perks",
+            "desc": "Enjoy instant profile verification for distributing with us."
+        },
+        "feature4": {
+            "title": "We'll help you make connections",
+            "desc": "We curate industry pros that you can hire to take your career further."
+        }
+    },
+    "contactend": {
+        "title": "Let's talk for something special",
+        "description": "Our white-label technology consulting company is highly sought after for its unique techniques.",
+        "name": "Your Name",
+        "email": "Your Email",
+        "message": "Project details"
+    },
+    "error": {
+        "title": "Error",
+        "general": "An error occurred while submitting the form.",
+        "server": "No response received from the server. Try again later."
+    },
+    "plans": {
+        "get_started": "Get Started",
+        "or_yearly": "or ${{price}} yearly",
+        "starter": "Starter",
+        "pro_tune": "Pro Tune",
+        "features": {
+            "content_protection": "Content protection and copyright security during the contract period",
+            "revenue_security": "Ensuring successful revenue access",
+            "artist_platform_protection": "Protecting and developing the artist's platforms",
+            "artist_profile": "Customizing an artist profile on our platform",
+            "real_job_opportunities": "Providing real job opportunities through our platform",
+            "exclusive_marketing": "Uploading content to all our official platforms (Exclusive marketing service)",
+            "no_ads": "No ads",
+            "easy_browsing": "Easier browsing"
+        }
+    },
+        "public_figure":"Public Figure",
+    "Tiktokers":"Tiktokers"
 }

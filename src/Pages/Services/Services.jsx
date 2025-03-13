@@ -19,28 +19,28 @@ const Services = () => {
     const [selectedService, setSelectedService] = useState("");
     const [modalOpen, setModalOpen] = useState(false)
 
-        const { t } = useTranslation();
-    
-        const SocialMediaServices = [
-            {
-                title: t('Creating_and_documenting_platforms'),
-                description: t('Creating_and_documenting_platforms_desc'),
-                icon: <MdCamera />,
-                price: "50"
-            },
-            {
-                title: t('Recover_closed_accounts'),
-                description: t('Recover_closed_accounts_desc'),
-                icon: <IoMdRedo />,
-                price: "25"
-            },
-            {
-                title: t('Create_sponsored_ads'),
-                description: t('Create_sponsored_ads_desc'),
-                icon: <RiThreadsLine />,
-                price: "15"
-            },
-        ];
+    const { t } = useTranslation();
+
+    const SocialMediaServices = [
+        {
+            title: t('Creating_and_documenting_platforms'),
+            description: t('Creating_and_documenting_platforms_desc'),
+            icon: <MdCamera />,
+            price: "20"
+        },
+        {
+            title: t('Recover_closed_accounts'),
+            description: t('Recover_closed_accounts_desc'),
+            icon: <IoMdRedo />,
+            price: "30"
+        },
+        {
+            title: t('Create_sponsored_ads'),
+            description: t('Create_sponsored_ads_desc'),
+            icon: <RiThreadsLine />,
+            price: "15"
+        },
+    ];
 
     const initValues = {
         email: "",
@@ -233,6 +233,10 @@ const Services = () => {
                             <button
                                 className="py-2 px-8 text-lg bg-[#30B797] text-white border border-[#30B797] cursor-pointer hover:text-[#30B797] font-bold rounded-2xl hover:bg-white transition-all"
                                 href="#Sevrvices"
+                                onClick={() =>
+                                    setModalOpen(true)
+                                }
+
                             >
                                 {t("Get_started")}
                             </button>
@@ -252,32 +256,32 @@ const Services = () => {
                             <img src={lamp} className='mt-12' alt="" />
                         </div>
                         <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                        <ul className="mb-8">
-            {SocialMediaServices.map((service, index) => (
-                <li key={index} className='flex md:flex-row flex-col items-center gap-6 mb-6'>
-                    <div className="flex items-center justify-center bg-[#30B797] p-8 rounded-2xl text-4xl text-white">
-                        {service.icon}
-                    </div>
-                    <div className="flex flex-col text-center md:text-start">
-                        <h2 className="text-3xl mb-2 font-bold">{t(service.title)}</h2>
-                        <p className='text-sm'>{t(service.description)}</p>
-                        <div className="flex md:flex-row flex-col items-center font-bold gap-2">
-                            <p className="font-bold">{t("Prices_start_from")} ${service.price}</p>
-                            <button
-                                className="flex flex-row items-center text-lg text-[#30B797] cursor-pointer hover:text-[#488b7c] font-bold transition-all"
-                                onClick={() => {
-                                    setModalOpen(true);
-                                    setSelectedService(service.title);
-                                }}
-                            >
-                                {t("Get_it_now")}
-                                <FaChevronRight />
-                            </button>
-                        </div>
-                    </div>
-                </li>
-            ))}
-        </ul>
+                            <ul className="mb-8">
+                                {SocialMediaServices.map((service, index) => (
+                                    <li key={index} className='flex md:flex-row flex-col items-center gap-6 mb-6'>
+                                        <div className="flex items-center justify-center bg-[#30B797] p-8 rounded-2xl text-4xl text-white">
+                                            {service.icon}
+                                        </div>
+                                        <div className="flex flex-col text-center md:text-start">
+                                            <h2 className="text-3xl mb-2 font-bold">{t(service.title)}</h2>
+                                            <p className='text-sm'>{t(service.description)}</p>
+                                            <div className="flex md:flex-row flex-col items-center font-bold gap-2">
+                                                <p className="font-bold">{t("Prices_start_from")} ${service.price}</p>
+                                                <button
+                                                    className="flex flex-row items-center text-lg text-[#30B797] cursor-pointer hover:text-[#488b7c] font-bold transition-all"
+                                                    onClick={() => {
+                                                        setModalOpen(true);
+                                                        setSelectedService(service.title);
+                                                    }}
+                                                >
+                                                    {t("Get_it_now")}
+                                                    <FaChevronRight />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                     <div className="pt-20 flex flex-col lg:flex-row justify-center gap-10">
@@ -293,7 +297,7 @@ const Services = () => {
                             <form action="" onSubmit={formik.handleSubmit}>
                                 <input className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
                                     type="text"
-                                    placeholder="Your name"
+                                    placeholder="Your Name"
 
                                     name='name'
                                     onChange={formik.handleChange} value={formik.values.name}
@@ -305,7 +309,7 @@ const Services = () => {
                                 <input
                                     className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4 mt-4'
                                     type="email"
-                                    placeholder="Your email"
+                                    placeholder="Your Email"
                                     name='email'
                                     id='email'
                                     onChange={formik.handleChange} value={formik.values.email}
@@ -328,7 +332,7 @@ const Services = () => {
                                     type='submit'
                                 >{t("Send_message")}</button>
                             </form>
-                           
+
                         </div>
                     </div>
                 </div>

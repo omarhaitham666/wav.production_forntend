@@ -183,7 +183,7 @@ const RisingForm = () => {
                         <form action="" onSubmit={formik.handleSubmit}>
                             <input className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4'
                                 type="text"
-                                placeholder="Your name"
+                                placeholder="Your Name"
                                 name='name'
                                 onChange={formik.handleChange} value={formik.values.name}
                             />
@@ -193,7 +193,7 @@ const RisingForm = () => {
                             <input
                                 className=' mb-4 text-[#919499] border border-[#1F1A234D] shadow-xl focus:outline focus:outline-[#2F00AC] rounded-[14px] w-full p-4 mt-4'
                                 type="email"
-                                placeholder="Your email"
+                                placeholder="Your Email"
                                 name='email'
                                 id='email'
                                 onChange={formik.handleChange} value={formik.values.email}

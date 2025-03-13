@@ -196,7 +196,7 @@ const OrderVideo = () => {
                             type="text"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="rounded-sm border-0 outline-0 bg-[#F4F5F7]"
+                            className="rounded-sm w-full border-0 outline-0 bg-[#F4F5F7]"
                         />
                     </div>
                     {displayedorders.length > 0 ?
