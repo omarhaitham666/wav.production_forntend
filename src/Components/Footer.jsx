@@ -68,16 +68,16 @@ function Footer() {
               <h2 className="mb-6 text-sm font-bold text-white uppercase">{t("social")}</h2>
               <ul className="text-gray-500 font-medium">
                 <li className="mb-4 flex flex-row gap-4 items-center">
-                  <a href="#" className="hover:underline text-2xl hover:text-[#29a49f]">
+                  <a href="https://www.facebook.com/share/18i8rogaB7/?mibextid=qi2Omg" className="hover:underline text-2xl hover:text-[#29a49f]" target="_blank" rel="noopener noreferrer"> 
                     <AiFillFacebook />
                   </a>
-                  <a href="#" className="hover:underline text-2xl hover:text-[#29a49f]">
+                  <a href="https://www.instagram.com/cloud.wav.production" className="hover:underline text-2xl hover:text-[#29a49f]" target="_blank" rel="noopener noreferrer">
                     <AiFillInstagram />
                   </a>
-                  <a href="#" className="hover:underline text-2xl hover:text-[#29a49f]">
+                  <a href="https://x.com/cloudwavpr" className="hover:underline text-2xl hover:text-[#29a49f]" target="_blank" rel="noopener noreferrer">
                     <AiFillTwitterCircle />
                   </a>
-                  <a href="#" className="hover:underline text-2xl hover:text-[#29a49f]">
+                  <a href="https://youtube.com/@cloudwavproduction?si=L0uXUZSaJ5iGwOaI" className="hover:underline text-2xl hover:text-[#29a49f]" target="_blank" rel="noopener noreferrer">
                     <AiFillYoutube />
                   </a>
                 </li>

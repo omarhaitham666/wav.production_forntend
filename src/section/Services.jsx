@@ -31,7 +31,8 @@ const Services = () => {
             title: t('services_2'),
             description: t('services_2p'),
             img: PlatformManagement,
-            link: "/Services",
+            // link: "/Services",
+            link: "/PlatformManagement",
             bg: "#DFF7EA",
         },
         {
