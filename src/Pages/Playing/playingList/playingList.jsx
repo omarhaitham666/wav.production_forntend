@@ -48,15 +48,34 @@ const PlayingList = ({ filters }) => {
 
 
 
+    // useEffect(() => {
+    //     const Artists = getArtists()
+    //     setArtists(Artists);
+    // }, []);
+
+
+    // useEffect(() => {
+    //     const Albums = getTrendingAlbums()
+    //     setAlbums(Albums);
+    // }, []);
+
+    
+
     useEffect(() => {
-        const Artists = getArtists()
-        setArtists(Artists);
+        axios.get("http://127.0.0.1:8000/api/Artists")
+            .then((response) => {
+                setArtists(response.data);
+            })
+            .catch((error) => console.error("Error fetching artists", error));
     }, []);
 
 
     useEffect(() => {
-        const Albums = getTrendingAlbums()
-        setAlbums(Albums);
+        axios.get("http://127.0.0.1:8000/api/albums")
+            .then(response => {
+                setAlbums(response.data);
+            })
+            .catch(error => console.error("Error fetching albums:", error));
     }, []);
 
 
