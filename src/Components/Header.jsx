@@ -46,7 +46,7 @@ function Header({ isScrolled }) {
               {user ?
                 <li className="nav-item relative">
                   <Link to={"/Profile"} className="w-14 h-14 rounded-full">
-                    <img src={user.img} alt="user" />
+                    {/* <img src={user.img} alt="user" /> */}
                   </Link>
                 </li>
                 : <>

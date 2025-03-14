@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { AppContext } from '../../Context/AppContext';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 const UploadSong = () => {
@@ -93,7 +94,7 @@ const UploadSong = () => {
                 Data.append('description', values.Description);
 
 
-                const response = await axios.post("http://127.0.0.1:8000/api/UploadSong", Data, {
+                const response = await axios.post("http://127.0.0.1:8000/api/songs/upload", Data, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",

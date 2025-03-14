@@ -10,6 +10,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import UploadSong from "./Pages/Upload/uploadSong";
 
 
 
@@ -67,7 +68,7 @@ function App() {
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/Playing" element={<Layout ><Playing /></Layout>} />
-          <Route path="/join us" element={<Layout ><JoinUs /></Layout>} />
+          <Route path="/join-us" element={<Layout ><JoinUs /></Layout>} />
           <Route path="/Pricing" element={<Layout ><Pricing /></Layout>} />
           <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
           <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
@@ -80,6 +81,9 @@ function App() {
           <Route path="/Terms/:type" element={<Layout ><Terms /></Layout>} />
           <Route path="/Terms-of-Use" element={<Layout ><TermsofUse /></Layout>} />
           <Route path="/PlatformManagement" element={<Layout ><PlatformManagement /></Layout>} />
+          <Route path="/uploadSong" element={<Layout ><UploadSong /></Layout>} />
+          {/* <Route path="/upload" element={<Layout ><UploadSong /></Layout>} /> */}
+
 
 
         </Routes>
