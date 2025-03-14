@@ -25,20 +25,20 @@ const Artist = () => {
     const [trendingSongs, setTrendingSongs] = useState([]);
     const [trendingAlbums, setTrendingAlbums] = useState([]);
 
-    const user = {
-        id: '123',
-        main: false,
-        username: 'testUser',
-        email: 'test@test.com',
-        followers: 1000,
-        following: 500,
-        isAdmin: false,
-        isPremium: false,
-        avatar: 'https://example.com/avatar.jpg',
-        bio: 'Hello, I am a test user.',
-        created_at: '2021-01-01T12:00:00Z',
-        updated_at: '2021-01-01T12:00:00Z',
-    }
+    // const user = {
+    //     id: '123',
+    //     main: false,
+    //     username: 'testUser',
+    //     email: 'test@test.com',
+    //     followers: 1000,
+    //     following: 500,
+    //     isAdmin: false,
+    //     isPremium: false,
+    //     avatar: 'https://example.com/avatar.jpg',
+    //     bio: 'Hello, I am a test user.',
+    //     created_at: '2021-01-01T12:00:00Z',
+    //     updated_at: '2021-01-01T12:00:00Z',
+    // }
 
     // const [artistData, setArtistData] = useState([]);
 

@@ -169,7 +169,7 @@ const TrendingSongs = () => {
 
 <LuDownload size={24}
     className='text-2xl text-black hover:text-[#30B797] transition-all'
-    onClick={() => downloadSong(song.audio_url)}
+    onClick={() => downloadSong(song.id)}
 />
                                      <button onClick={() => handleLike(song.id)}>
                                         {likedSongs[song.id] ? (
