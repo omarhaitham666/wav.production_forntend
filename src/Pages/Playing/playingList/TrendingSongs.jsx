@@ -188,7 +188,7 @@ const TrendingSongs = () => {
                             setCurrentWaveSurfer={setCurrentWaveSurfer} 
                             currentWaveSurfer={currentWaveSurfer} 
                         /> */}
-                         <Waveform url={song.url} song={song} setCurrentWaveSurfer={setCurrentWaveSurfer} currentWaveSurfer={currentWaveSurfer} />
+                         <Waveform url={song.audio_url} song={song} setCurrentWaveSurfer={setCurrentWaveSurfer} currentWaveSurfer={currentWaveSurfer} />
                     </div>
                 ))
             )}
