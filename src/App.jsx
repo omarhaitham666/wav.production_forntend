@@ -75,7 +75,7 @@ function App() {
           <Route path="/FAQs" element={<Layout ><FAQs /></Layout>} />
           <Route path="/Contact" element={<Layout ><Contact /></Layout>} />
           <Route path="/OrderVideo/:categ" element={<Layout ><OrderVideo /></Layout>} />
-          <Route path="/Albums/:id" element={<Layout ><Album /></Layout>} />
+          <Route path="/albums/:id" element={<Layout ><Album /></Layout>} />
           <Route path="/Artists/:id" element={<Layout ><Artist /></Layout>} />
           <Route path="/Stars/:name" element={<Layout ><Star /></Layout>} />
           <Route path="/upload" element={<Layout ><Upload /></Layout>} />

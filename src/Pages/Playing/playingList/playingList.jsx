@@ -73,6 +73,7 @@ const PlayingList = ({ filters }) => {
     useEffect(() => {
         axios.get("http://127.0.0.1:8000/api/albums")
             .then(response => {
+                console.log("Fetched albums:", response.data);
                 setAlbums(response.data);
             })
             .catch(error => console.error("Error fetching albums:", error));
@@ -241,7 +242,7 @@ const PlayingList = ({ filters }) => {
 
                                             <img className='w-36 h-36 rounded-xl' src={`http://127.0.0.1:8000/storage/${album.album_cover}`} alt={album.title} />
                                             <div className='flex flex-col'>
-                                                <Link to={`/albums/${album.name}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>
+                                                <Link to={`/albums/${album.id}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>
                                                     {album.title}
                                                 </Link>
 
