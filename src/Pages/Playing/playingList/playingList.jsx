@@ -271,7 +271,8 @@ const PlayingList = ({ filters }) => {
                                             <div className='relative ArtistsBox'>
                                                 <img className='w-36 h-36 rounded-xl' src={song.cover_url} alt={song.title} />
                                                 <span
-                                                    onClick={() => {
+                                                    onClick={(e) => {
+                                                        e.stopPropagation()
                                                         if (currentSong?.song_url !== song.song_url) {
                                                             playSong(song);
                                                         } else {

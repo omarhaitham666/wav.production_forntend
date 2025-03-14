@@ -25,20 +25,20 @@ const Artist = () => {
     const [trendingSongs, setTrendingSongs] = useState([]);
     const [trendingAlbums, setTrendingAlbums] = useState([]);
 
-    // const user = {
-    //     id: '123',
-    //     main: false,
-    //     username: 'testUser',
-    //     email: 'test@test.com',
-    //     followers: 1000,
-    //     following: 500,
-    //     isAdmin: false,
-    //     isPremium: false,
-    //     avatar: 'https://example.com/avatar.jpg',
-    //     bio: 'Hello, I am a test user.',
-    //     created_at: '2021-01-01T12:00:00Z',
-    //     updated_at: '2021-01-01T12:00:00Z',
-    // }
+    const user = {
+        id: '123',
+        main: false,
+        username: 'testUser',
+        email: 'test@test.com',
+        followers: 1000,
+        following: 500,
+        isAdmin: false,
+        isPremium: false,
+        avatar: 'https://example.com/avatar.jpg',
+        bio: 'Hello, I am a test user.',
+        created_at: '2021-01-01T12:00:00Z',
+        updated_at: '2021-01-01T12:00:00Z',
+    }
 
     // const [artistData, setArtistData] = useState([]);
 
@@ -179,7 +179,7 @@ const Artist = () => {
                                 <img src={artistData.image} alt={artistData.name} className='object-cover w-52 h-52 rounded-full' />
                                 <h2 className='text-2xl font-bold first-letter:uppercase'>{artistData.name}</h2>
                             </div>
-                            {user.role === "artist" ? (
+                            {user?.role === "artist" ? (
                                 <Link to={"/upload"} className='flex flex-row items-center justify-center gap-1.5 text-lg py-2 px-4 rounded-full bg-[#30B797] text-white border border-[#30B797] hover:text-[#30B797] hover:bg-white transition-all'>
                                     <span>{t("Upload")}</span>
                                     <FaUpload />

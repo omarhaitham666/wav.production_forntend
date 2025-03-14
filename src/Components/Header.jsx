@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import logo from '../../public/logo.svg'
+import logo from '/logo.svg'
 import { MdMenu, MdClose } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';

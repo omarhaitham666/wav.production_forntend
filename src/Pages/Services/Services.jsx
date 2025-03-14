@@ -162,13 +162,14 @@ const Services = () => {
 
             try {
                 const formData = new FormData();
-                formData.append("selectedService", selectedService);
+                formData.append("type", selectedService);
                 formData.append("name", values.name);
                 formData.append("email", values.email);
                 formData.append("number", values.number);
                 formData.append("whatsapp_number", values.whatsapp_number);
                 formData.append("details", values.details);
                 formData.append("social_links", values.social_links);
+                formData.append("token", token);
 
 
                 const response = await axios.post("http://127.0.0.1:8000/api/servicesOrder", formData, {

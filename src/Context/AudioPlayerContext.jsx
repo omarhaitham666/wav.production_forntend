@@ -30,7 +30,7 @@ export const AudioPlayerProvider = ({ children }) => {
 
 
     useEffect(() => {
-        if (!waveformRef.current) return; 
+        if (!waveformRef.current) return;
         if (wavesurfer.current) {
             wavesurfer.current.destroy();
         }
@@ -70,40 +70,51 @@ export const AudioPlayerProvider = ({ children }) => {
                 wavesurfer.current = null;
             }
         };
-    }, [currentIndex, playlist]);
+    }, [currentIndex]);
 
     useEffect(() => {
         if (playlist.length > 0 && currentIndex >= 0 && wavesurfer.current) {
             loadSong(playlist[currentIndex]?.url);
         }
-    }, [currentIndex, playlist]);
+    }, [currentIndex]);
 
 
     const loadSong = (url) => {
-        setIsLoading(true);
-        console.log("Loading song:")
-        if (wavesurfer.current.isPlaying()) {
-            wavesurfer.current.stop();
-        }
-        wavesurfer.current.empty();
 
-        wavesurfer.current.load(url);
 
-        setPlaying(false);
-        setCurrentTime(0);
+            setIsLoading(true);
+            console.log("Loading song:")
+            if (wavesurfer.current.isPlaying()) {
+                wavesurfer.current.stop();
+            }
+            wavesurfer.current.empty();
 
-        wavesurfer.current.once("ready", () => {
-            setDuration(wavesurfer.current.getDuration());
-            setCurrentSong(playlist[currentIndex]);
+            wavesurfer.current.load(url);
 
-            wavesurfer.current.play();
-            setPlaying(true);
-            setIsLoading(false);
-        });
-        wavesurfer.current.on("error", (error) => {
-            console.error("❌ WaveSurfer Error:", error);
-        });
+            setPlaying(false);
+            setCurrentTime(0);
+
+            wavesurfer.current.once("ready", () => {
+                if (wavesurfer.current.getDuration() !== duration) {
+                    setDuration(wavesurfer.current.getDuration());
+                }
+                if (currentSong !== playlist[currentIndex]) {
+                    setCurrentSong(playlist[currentIndex]);
+                }
+                wavesurfer.current.play();
+                setPlaying(true);
+                setIsLoading(false);
+            });
+            wavesurfer.current.on("error", (error) => {
+                console.error("❌ WaveSurfer Error:", error);
+            });
     };
+
+    useEffect(() => {
+        if (playlist.length > 0 && currentIndex >= 0) {
+            loadSong(playlist[currentIndex]?.url);
+        }
+    }, [playlist, currentIndex]);
 
 
     const playSong = (song) => {
@@ -168,13 +179,9 @@ export const AudioPlayerProvider = ({ children }) => {
             playPlaylist, //  متاح للاستخدام في أي مكون
         }}>
             {children}
-            {!currentSong ? null :(
             <div className={`${isInFullScreen ? "flex top-0 h-screen flex-col justify-end pt-44 pb-56" : "flex-row bg-[#1D212E]"} fixed z-[1000] bottom-0 left-0 w-full shadow-lg p-4 flex  gap-8 text-white `}
                 style={{
                     background: currentSong ? currentSong.imgScr : "#1D212E"
-                }}
-                onClick={()=>{
-                    setIsInFullScreen(true)
                 }}
             >
                 <>
@@ -232,7 +239,6 @@ export const AudioPlayerProvider = ({ children }) => {
                     <img src={logo} className={isInFullScreen ? "absolute top-20 left-10 w-20 md:top-40 md:left-20 md:w-44" : "hidden"} alt="" />
                 </>
             </div>
-            )}
         </AudioPlayerContext.Provider>
     );
 };
