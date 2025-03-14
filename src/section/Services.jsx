@@ -19,20 +19,18 @@ const Services = () => {
     const ServicesD = [
         {
             id: 1,
-            name: t('services_1'),
+            title: t("services_1"),
             description: t("services_1p"),
             img: MusicDistributionImg,
-            link: "https://servicesLInk",
+            link: "/Music_distribution",
             bg: "#6017DC",
-            comingSoon: true
         },
         {
             "id": 2,
             title: t('services_2'),
             description: t('services_2p'),
             img: PlatformManagement,
-            // link: "/Services",
-            link: "/PlatformManagement",
+            link: "/Platform_Management",
             bg: "#DFF7EA",
         },
         {
@@ -40,7 +38,7 @@ const Services = () => {
             title: t('services_3'),
             description: t('services_3p'),
             img: Socialmedia,
-            link: "/Services",
+            link: "/Social_media",
             bg: "#6017DC",
         },
         {
@@ -49,9 +47,9 @@ const Services = () => {
             description: t('services_4p'),
             img: clothing,
             link: "",
-            facebook_Link:"/jj",
-            instagram_Link:"/jj",
-            twitter_Link:"/jj",
+            facebook_Link:"https://m.facebook.com/61573739062609/",
+            instagram_Link:"https://www.instagram.com/black_8_bear",
+            tiktok_Link:"https://www.tiktok.com/@_blackbear",
             bg: "#DFF7EA",
         },
         {
@@ -119,7 +117,7 @@ const Services = () => {
                                 comingSoon={service.comingSoon}
                                 facebook_Link={service.facebook_Link}
                                 instagram_Link={service.instagram_Link}
-                                twitter_Link={service.twitter_Link}
+                                tiktok_Link={service.tiktok_Link}
                             />
                         </div>
                     ))

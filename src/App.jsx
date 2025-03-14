@@ -33,6 +33,8 @@ const Services = lazy(() => import("./Pages/Services/Services"));
 const Terms = lazy(() => import("./Pages/Terms/Terms"));
 const TermsofUse = lazy(() => import("./Pages/Terms/TermsofUse"));
 const PlatformManagement = lazy(() => import("./Pages/platformManagement/PlatformManagement"));
+const MusicDistribution = lazy(() => import("./Pages/Music distribution/MusicDistribution"));
+
 
 
 // const Player = lazy(() => import("./Components/player"));
@@ -77,12 +79,17 @@ function App() {
           <Route path="/Artists/:artistId" element={<Layout ><Artist /></Layout>} />
           <Route path="/Stars/:name" element={<Layout ><Star /></Layout>} />
           <Route path="/upload" element={<Layout ><Upload /></Layout>} />
-          <Route path="/Services" element={<Layout ><Services /></Layout>} />
+          <Route path="/Services/Social_media" element={<Layout ><Services /></Layout>} />
+          <Route path="/Services/Platform_Management" element={<Layout ><PlatformManagement /></Layout>} />
+          <Route path="/Services/Music_distribution" element={<Layout ><MusicDistribution /></Layout>} />
           <Route path="/Terms/:type" element={<Layout ><Terms /></Layout>} />
           <Route path="/Terms-of-Use" element={<Layout ><TermsofUse /></Layout>} />
+
           <Route path="/PlatformManagement" element={<Layout ><PlatformManagement /></Layout>} />
           <Route path="/uploadSong" element={<Layout ><UploadSong /></Layout>} />
           {/* <Route path="/upload" element={<Layout ><UploadSong /></Layout>} /> */}
+
+
 
 
 

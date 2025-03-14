@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaAngleRight, FaAngleUp, FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa';
+import { FaAngleRight, FaAngleUp, FaArrowRight, FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
 import Slider from 'react-slick';
 import { getVideosOrder } from '../actions/getVideosOrder';
@@ -19,6 +19,57 @@ const Videos = () => {
     const [openJoin, setOpenJoin] = useState(false);
 
 
+    const StarsCategsettings = {
+        dots: false,
+        arrows: true,
+        nextArrow:
+            <div>
+                <FaChevronRight />
+            </div>
+        ,
+        prevArrow:
+            <div>
+                <FaChevronLeft />
+            </div>
+        ,
+        slidesToShow: 5,
+        slidesToScroll: 2,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        infinite: true,
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 5,
+                },
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                },
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                },
+            }
+        ],
+    };
     const settings = {
         dots: false,
         arrows: true,
@@ -103,6 +154,19 @@ const Videos = () => {
             imgScr: "https://i.imgur.com/e6aYd0R.jpg",
             link: "Athletes"
         },
+        {
+            id: 5,
+            name: t("Tiktokers"),
+            imgScr: "https://i.imgur.com/e6aYd0R.jpg",
+            link: "Tiktokers"
+        },
+        {
+            id: 5,
+            name: t("public_figure"),
+            imgScr: "https://i.imgur.com/e6aYd0R.jpg",
+            link: "public figure"
+        },
+
     ]
 
     const videosOrder = [
@@ -265,33 +329,34 @@ const Videos = () => {
                     <h1 className='text-center text-5xl font-bold text-black mb-12'>{t("Personalized")}</h1>
                     <div className='flex flex-row justify-center' >
                         <Link to="/OrderVideo/All" className="flex flex-row items-center text-2xl gap-4 px-10 py-4 rounded-full font-bold bg-white text-black hover:bg-[#30B797] hover:text-white transition">
-                        {t("Order_now")}
+                            {t("Order_now")}
                             <FaChevronRight />
                         </Link>
                     </div>
                     <div className="flex justify-around items-center gap-8 flex-wrap mt-16">
-                        {
-                            StarsCateg.map((i, index) => {
-                                return (
-                                    <div key={index} className='flex flex-col items-center'>
-                                        <img className='w-48 h-48 rounded-full' src={i.imgScr} />
-                                        <Link to={
-                                            `/OrderVideo/${i.link}`
-                                        } className='text-black font-bold my-2 text-2xl underline text-center'>{i.name}</Link>
-                                    </div>
-                                )
-                            }
-                            )
-                        }
-                        <div className='flex flex-col items-center' onClick={() => {
-                            setOpenJoin(true)
-                        }}>
-                            <div className='w-48 h-48 rounded-full hover:bg-[#30B797] transition bg-[#484848] text-white flex items-center justify-center text-8xl'>
-                                <FiPlus />
-                            </div>
-                            <button
-                                className='text-black font-bold my-2 text-2xl underline text-center'
-                            >{t("joinus")}</button>
+                        <div data-aos="zoom-in" className='slider-container relative mt-16' dir='ltr'>
+                            <button className='flex flex-row items-center gap-2 cursor-pointer text-start py-2 px-4 rounded-2xl bg-[#30B797] border border-[#30B797] text-white hover:text-[#30B797] hover:bg-white transition-all text-xl font-bold mb-12' onClick={() => {
+                                setOpenJoin(true)
+                            }}>{t("joinus")}
+                            <FaArrowRight />
+                            </button>
+                            <Slider {...StarsCategsettings}>
+                                {
+                                    StarsCateg.map((i, index) => {
+                                        return (
+                                            <div key={index}>
+                                                <div className='flex flex-col items-center'>
+                                                    <img className='w-48 h-48 rounded-full' src={i.imgScr} />
+                                                    <Link to={
+                                                        `/OrderVideo/${i.link}`
+                                                    } className='text-black font-bold my-2 text-2xl underline text-center'>{i.name}</Link>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                    )
+                                }
+                            </Slider>
                         </div>
                     </div>
                     <div data-aos="zoom-in" className='slider-container relative mt-16' dir='ltr'>
@@ -403,7 +468,7 @@ const Videos = () => {
                                             >
                                                 <button
                                                     className={`${openPopUp === i.name ? 'text-[#30B797] bg-white' : "text-white"} w-full justify-center bg-[#30B797]  font-bold p-2 rounded-b-xl hover:text-[#30B797] hover:bg-white transition-all flex flex-row items-center gap-2 text-lg`}>
-                                                        {t("Order_now")}
+                                                    {t("Order_now")}
                                                     {openPopUp === i.name ?
                                                         <FaAngleUp /> :
                                                         <FaAngleRight />}

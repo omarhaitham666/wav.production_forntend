@@ -39,9 +39,6 @@ function Footer() {
                 <li className="mb-4">
                   <a href="/Terms-of-Use" className="hover:underline">{t("terms_of_use")}</a>
                 </li>
-                <li className="mb-4">
-                  <a href="/Cookie" className="hover:underline">{t("cookie_settings")}</a>
-                </li>
                 <li>
                   <a href="/Policy" className="hover:underline">{t("policy")}</a>
                 </li>

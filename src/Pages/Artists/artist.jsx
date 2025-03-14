@@ -171,7 +171,7 @@ const Artist = () => {
                             type="text"
                             // value={searchTerm}
                             // onChange={(e) => setSearchTerm(e.target.value)}
-                            className="rounded-sm border-0 outline-0 bg-[#F4F5F7]" />
+                            className="rounded-sm border-0 w-full outline-0 bg-[#F4F5F7]" />
                     </div>
                     <div className="flex flex-col items-center lg:flex-row lg:items-start gap-8 mt-12">
                         <div className="w-full lg:w-1/3 lg:mr-20 flex flex-col gap-4">
