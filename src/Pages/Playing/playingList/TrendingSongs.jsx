@@ -91,7 +91,7 @@ const TrendingSongs = () => {
                             </div>
                         </div>
                         {/* ✅ مكون Waveform الآن مستقل ويمكن تشغيله بشكل متزامن */}
-                        <Waveform url={song.url} song={song} />
+                        {/* <Waveform url={song.url} song={song} /> */}
                     </div>
                 ))
             )}

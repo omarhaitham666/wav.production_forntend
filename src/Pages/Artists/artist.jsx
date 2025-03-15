@@ -16,7 +16,7 @@ const Artist = () => {
     const { t } = useTranslation();
     const { loadSong, togglePlayPause, playing, currentSong, playSong, PlayingList } = useAudioPlayer();
 
-    const { artistId } = useParams();
+    const { id } = useParams();
     const { token, setToken } = useContext(AppContext);
     const [artist, setArtist] = useState();
     const [isFollowing, setIsFollowing] = useState(false);
