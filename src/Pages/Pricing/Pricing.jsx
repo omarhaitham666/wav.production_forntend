@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PlansBox from '../../Components/PlansBox';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const Pricing = () => {
     const { t, i18n } = useTranslation();

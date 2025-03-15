@@ -7,7 +7,7 @@ import { LuDownload } from 'react-icons/lu';
 import { FaPause, FaPlay, FaRegHeart } from 'react-icons/fa';
 import { MdOutlineReplay } from 'react-icons/md';
 import { useAudioPlayer } from '../../Context/AudioPlayerContext';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import Artist from '../Artists/artist';
 

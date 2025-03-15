@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { Data } from './FAQsData';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const FAQs = () => {
     const { t } = useTranslation();

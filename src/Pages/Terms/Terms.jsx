@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "/logo.svg"
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const Terms = () => {
     const { type } = useParams();

@@ -8,7 +8,7 @@ import map from "../../assets/Img/g42.png";
 import groupM from "../../assets/Img/Group 43.png";
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../Context/AppContext';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { API_ENDPOINT } from '../../App';
 
 function Register() {

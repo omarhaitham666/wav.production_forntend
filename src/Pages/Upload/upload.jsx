@@ -5,7 +5,7 @@ import songImg from '../../assets/Img/song.png'
 import albumImg from '../../assets/Img/album.png'
 import { FaCheck } from 'react-icons/fa';
 import UploadSong from './uploadSong';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 
 const Upload = () => {

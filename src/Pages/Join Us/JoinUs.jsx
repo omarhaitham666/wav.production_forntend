@@ -8,7 +8,7 @@ import RisingForm from './RisingForm';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 
 const JoinUs = () => {

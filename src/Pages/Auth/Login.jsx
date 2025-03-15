@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
 import { AppContext } from '../../Context/AppContext';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { API_ENDPOINT } from '../../App';
 
 

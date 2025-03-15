@@ -9,7 +9,7 @@ import { useAudioPlayer } from '../../Context/AudioPlayerContext';
 import { addFavorite, downloadSong } from '../../actions/songsActions';
 import { swap } from 'formik';
 import Swal from 'sweetalert2';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 
 const Artist = () => {

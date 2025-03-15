@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../Context/AppContext';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { API_ENDPOINT } from '../../App';
 
 const ResetPassword = () => {

@@ -4,7 +4,7 @@ import { FcNext, FcPrevious } from 'react-icons/fc';
 import { FaSearch } from 'react-icons/fa';
 import { getVideosOrder } from '../../actions/getVideosOrder';
 import OrderVideoModal from './OrderVideoModal';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import { useDebounce } from "../../hooks/useDebounce";
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import PlayingHero from "../../Components/PlayingHero";
 import Sidebar from "../../Components/sidebar";
 import PlayingList from "./playingList/playingList";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 
 

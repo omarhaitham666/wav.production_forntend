@@ -6,7 +6,7 @@ import { Route, Router, Routes } from 'react-router-dom';
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import logo from "/logo.svg"
-import { HelmetProvider } from "react-helmet-async";
+// import { HelmetProvider } from "react-helmet";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -61,7 +61,7 @@ function App() {
       <img src={logo} className='w-80 mb-10 animate-pulse' alt="" />
       <span className="text-center text-3xl font-bold animate-pulse">Loading...</span>
     </div>}>
-      <HelmetProvider>
+      {/*<HelmetProvider>*/}
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -94,7 +94,7 @@ function App() {
 
 
         </Routes>
-      </HelmetProvider>
+      {/*</HelmetProvider>*/}
     </Suspense>
 
   )
