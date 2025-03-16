@@ -11,11 +11,11 @@ export default function AppProvider({ children }) {
 
     const getUser = async () => {
         try {
-            const res = await axios.get('api/user', {
+            const res = await axios.get('https://api.cloudwavproduction.com/api/user', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
-                withCredentials: true, 
+                withCredentials: false, 
             });
             setUser(res.data);
             setAuthError(null);

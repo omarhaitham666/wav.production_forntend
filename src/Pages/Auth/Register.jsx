@@ -199,7 +199,7 @@ function Register() {
                                         const token = response.credential;
 
                                         try {
-                                            const res = await axios.post("http://localhost:5000/auth/google", { token });
+                                            const res = await axios.post("https://api.cloudwavproduction.com/auth/google", { token });
                                             if (res.data.success) {
                                                 localStorage.setItem("jwt", res.data.token);
                                                 console.log("User Logged In:", res.data.user);

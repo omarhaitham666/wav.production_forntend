@@ -7,7 +7,7 @@ import { isValidEmail, isValidPassword, isValidUsername } from "./authUtils";
  */
 export const checkIfUserExists = async (email, username) => {
     try {
-        const response = await fetch('http://localhost:5000/api/check-user', {
+        const response = await fetch('https://api.cloudwavproduction.com/api/check-user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export const registerUser = async (userData) => {
 
 
     try {
-        const response = await fetch('http://localhost:5000/api/register', {
+        const response = await fetch('https://api.cloudwavproduction.com/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export const registerUser = async (userData) => {
  */
 export const login = async (email, password) => {
     try {
-        const response = await fetch('http://localhost:5000/api/Login', {
+        const response = await fetch('https://api.cloudwavproduction.com/api/Login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ export const login = async (email, password) => {
  */
 export const fetchUserData = async (token) => {
     try {
-        const response = await fetch('http://localhost:5000/api/users', {
+        const response = await fetch('https://api.cloudwavproduction.com/api/users', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,

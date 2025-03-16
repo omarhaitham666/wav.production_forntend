@@ -24,7 +24,7 @@ const MusicDistribution = () => {
         validationSchema: inputValidation,
         onSubmit: async (values) => {
             try {
-                await axios.post('https://api.cloudwavproduction.com//api/', values);
+                await axios.post('https://api.cloudwavproduction.com/api/', values);
                 Swal.fire({ title: t("success.title"), text: t("success.message"), icon: 'success' });
             } catch (error) {
                 let message = t("error.general");

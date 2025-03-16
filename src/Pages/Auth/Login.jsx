@@ -150,7 +150,7 @@ const Login = () => {
                                             const token = response.credential
 
                                             try {
-                                                const response = await axios.post("http://localhost:5000/auth/google", {
+                                                const response = await axios.post("https://api.cloudwavproduction.com/auth/google", {
                                                     token,
                                                 });
                                                 console.log("Server Response:", response.data);

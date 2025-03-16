@@ -32,7 +32,7 @@ const Contact = () => {
         validationSchema: inputValidation,
         onSubmit: async (values) => {
             try {
-                await axios.post('https://api.cloudwavproduction.com//api/contact', {
+                await axios.post('https://api.cloudwavproduction.com/api/contact', {
                     FirstName: values.firstName,
                     LastName: values.lastName,
                     PhoneNumber: values.phoneNumber,

@@ -78,7 +78,7 @@ const Services = () => {
         validationSchema: inputValidation,
         onSubmit: async (values) => {
             try {
-                const response = await axios.post('https://api.cloudwavproduction.com//api/', {
+                const response = await axios.post('https://api.cloudwavproduction.com/api/', {
                     name: values.name,
                     email: values.email,
                     message: values.message

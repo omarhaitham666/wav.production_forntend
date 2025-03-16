@@ -102,4 +102,4 @@ function App() {
 
 export default App
 
-export const API_ENDPOINT = 'https://api.cloudwavproduction.com//api'
+export const API_ENDPOINT = 'https://api.cloudwavproduction.com/api'
