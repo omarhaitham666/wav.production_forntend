@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoPauseCircleOutline, IoPlayCircleOutline } from "react-icons/io5";
 import WaveSurfer from "wavesurfer.js";
 import { useAudioPlayer } from "../Context/AudioPlayerContext";
