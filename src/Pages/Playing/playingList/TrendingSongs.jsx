@@ -43,7 +43,7 @@ const TrendingSongs = () => {
         if (likedSongs[id]) return; // ✅ تجنب الإرسال المتكرر
 
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/api/songs/${id}/like`, {}, {
+            const response = await axios.post(`https://api.cloudwavproduction.com/api/songs/${id}/like`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

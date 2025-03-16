@@ -78,7 +78,7 @@ const Services = () => {
         validationSchema: inputValidation,
         onSubmit: async (values) => {
             try {
-                const response = await axios.post('http://localhost:8000/api/', {
+                const response = await axios.post('https://api.cloudwavproduction.com//api/', {
                     name: values.name,
                     email: values.email,
                     message: values.message
@@ -177,7 +177,7 @@ const Services = () => {
     //             formData.append("token", token);
 
 
-    //             const response = await axios.post("http://127.0.0.1:8000/api/services", formData, {
+    //             const response = await axios.post("https://api.cloudwavproduction.com/api/services", formData, {
     //                 headers: {
     //                     "Authorization": `Bearer ${token}`,
     //                     "Content-Type": "multipart/form-data",
@@ -286,7 +286,7 @@ const Services = () => {
     //             formData.append("token", token);
 
 
-    //             const response = await axios.post("http://127.0.0.1:8000/api/services", formData, {
+    //             const response = await axios.post("https://api.cloudwavproduction.com/api/services", formData, {
     //                 headers: {
     //                     "Authorization": `Bearer ${token}`,
     //                     "Content-Type": "multipart/form-data",
@@ -399,7 +399,7 @@ const Services = () => {
                 formData.append("data[platform]", values.platform);
                 formData.append("token", token);
     
-                const response = await axios.post("http://127.0.0.1:8000/api/services", formData, {
+                const response = await axios.post("https://api.cloudwavproduction.com/api/services", formData, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",
@@ -522,7 +522,7 @@ const Services = () => {
                 formData.append("data[social_media_account]", values.social_media_account);
                 formData.append("token", token);
     
-                const response = await axios.post("http://127.0.0.1:8000/api/services", formData, {
+                const response = await axios.post("https://api.cloudwavproduction.com/api/services", formData, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",

@@ -1,6 +1,6 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import './App.css'
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 
 import Header from './Components/Header'
@@ -102,4 +102,4 @@ function App() {
 
 export default App
 
-export const API_ENDPOINT = 'http://localhost:8000/api'
+export const API_ENDPOINT = 'https://api.cloudwavproduction.com//api'

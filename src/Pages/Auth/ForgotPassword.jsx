@@ -35,7 +35,7 @@ const ForgotPassword = () => {
     onSubmit: async (values) => {
       try {
        
-        const response = await axios.post('http://localhost:8000/api/forgot-password', {
+        const response = await axios.post('https://api.cloudwavproduction.com//api/forgot-password', {
           email: values.email,
           
         });

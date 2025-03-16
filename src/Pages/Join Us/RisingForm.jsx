@@ -89,7 +89,7 @@ const RisingForm = () => {
         validationSchema: inputValidation,
         onSubmit: async (values) => {
             try {
-                const response = await axios.post('http://localhost:8000/api/', {
+                const response = await axios.post('https://api.cloudwavproduction.com//api/', {
                     // plan: selectedPlan,
                     name: values.name,
                     email: values.email,

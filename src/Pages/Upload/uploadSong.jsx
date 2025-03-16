@@ -94,7 +94,7 @@ const UploadSong = () => {
                 Data.append('description', values.Description);
 
 
-                const response = await axios.post("http://127.0.0.1:8000/api/songs/upload", Data, {
+                const response = await axios.post("https://api.cloudwavproduction.com/api/songs/upload", Data, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",

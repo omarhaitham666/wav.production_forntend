@@ -279,7 +279,7 @@ const Artist = () => {
                                     {trendingAlbums.map((album) => (
                                         <div key={album.id}>
                                             <div className='flex flex-col relative ArtistsBox'>
-                                                <img className='w-36 h-36 rounded-xl' src={`http://127.0.0.1:8000/storage/${album.album_cover}`} alt={album.title} />
+                                                <img className='w-36 h-36 rounded-xl' src={`https://api.cloudwavproduction.com/storage/${album.album_cover}`} alt={album.title} />
                                                 <div className='flex flex-col'>
                                                     <Link to={`/albums/${album.name}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>
                                                         {album.title}

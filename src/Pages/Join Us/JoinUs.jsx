@@ -129,7 +129,7 @@ const JoinUs = () => {
                     formData.append("profile_image", values.profile_image);
                 }
 
-                const response = await axios.post("http://127.0.0.1:8000/api/artist-requests", formData, {
+                const response = await axios.post("https://api.cloudwavproduction.com/api/artist-requests", formData, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",
@@ -273,7 +273,7 @@ const JoinUs = () => {
                     formData.append("famous_profile_image", values.famous_profile_image);
                 }
 
-                const response = await axios.post("http://127.0.0.1:8000/api/famous-artist-requests", formData, {
+                const response = await axios.post("https://api.cloudwavproduction.com/api/famous-artist-requests", formData, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",

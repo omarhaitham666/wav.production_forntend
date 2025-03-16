@@ -31,7 +31,7 @@ const PlayingList = ({ filters }) => {
 
     useEffect(() => {
         axios
-            .get("http://127.0.0.1:8000/api/Songs")
+            .get("https://api.cloudwavproduction.com/api/Songs")
             .then(response => {
                 const formattedSongs = response.data.map(song => ({
                     id: song.id,
@@ -62,7 +62,7 @@ const PlayingList = ({ filters }) => {
     
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/Artists")
+        axios.get("https://api.cloudwavproduction.com/api/Artists")
             .then((response) => {
                 setArtists(response.data);
             })
@@ -71,7 +71,7 @@ const PlayingList = ({ filters }) => {
 
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/albums")
+        axios.get("https://api.cloudwavproduction.com/api/albums")
             .then(response => {
                 console.log("Fetched albums:", response.data);
                 setAlbums(response.data);
@@ -188,7 +188,7 @@ const PlayingList = ({ filters }) => {
                                         return (
                                             <div key={artist.id} data-current-slide={currentSlide}>
                                                 <div className='flex flex-col items-center justify-center relative ArtistsBox'>
-                                                    <img className='w-36 h-36 rounded-full' src={`http://127.0.0.1:8000/storage/${artist.profile_image}`} alt={artist.name} />
+                                                    <img className='w-36 h-36 rounded-full' src={`https://api.cloudwavproduction.com/storage/${artist.profile_image}`} alt={artist.name} />
                                                     <Link to={`/Artists/${artist.name}`} className='text-2xl mt-2 font-bold'>{artist.name}</Link>
                                                     <span onClick={() => {
                                                         setCurrentArtist(
@@ -240,7 +240,7 @@ const PlayingList = ({ filters }) => {
                                     <div key={album.id}>
                                         <div className='flex flex-col relative ArtistsBox'>
 
-                                            <img className='w-36 h-36 rounded-xl' src={`http://127.0.0.1:8000/storage/${album.album_cover}`} alt={album.title} />
+                                            <img className='w-36 h-36 rounded-xl' src={`https://api.cloudwavproduction.com/storage/${album.album_cover}`} alt={album.title} />
                                             <div className='flex flex-col'>
                                                 <Link to={`/albums/${album.id}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>
                                                     {album.title}

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useRef, useState, useEffect } from "react";
+import { createContext, useContext, useRef, useState, useEffect } from "react";
 import { FaDownload, FaPause, FaPlay, FaRedo } from "react-icons/fa";
 import { MdCloseFullscreen, MdOpenInFull } from "react-icons/md";
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from "react-icons/tb";

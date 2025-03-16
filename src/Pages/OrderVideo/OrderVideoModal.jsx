@@ -74,7 +74,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
 
 
 
-                const response = await axios.post("http://127.0.0.1:8000/api/order", formData, {
+                const response = await axios.post("https://api.cloudwavproduction.com/api/order", formData, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",

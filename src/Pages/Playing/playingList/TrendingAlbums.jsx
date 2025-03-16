@@ -8,7 +8,7 @@ const TrendingAlbums = () => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/trending-albums") 
+        axios.get("https://api.cloudwavproduction.com/api/trending-albums") 
             .then((response) => {
                 console.log("Data received:", response.data);
                 setAlbums(response.data);
@@ -70,7 +70,7 @@ const TrendingAlbums = () => {
             <div className="flex flex-wrap items-center justify-center gap-10">
                 {albums.map(album  => (
                     <div key={album .id} className='flex flex-col relative ArtistsBox'>
-                        <img className='w-46 h-46 rounded-xl' src={`http://127.0.0.1:8000/storage/${album.album_cover}`}  />
+                        <img className='w-46 h-46 rounded-xl' src={`https://api.cloudwavproduction.com/storage/${album.album_cover}`}  />
                         <div className='flex flex-col'>
                             <Link to={`/Albums/${album.id}`} className='text-start hover:text-[#30B797] transition-all text-2xl mt-2 font-bold'>{album.title}</Link>
                             <Link to={`/Artist/${album.artist}`} className='text-start hover:text-[#30B797] transition-all text-sm text-gray-400'>{album.artist.name}</Link>

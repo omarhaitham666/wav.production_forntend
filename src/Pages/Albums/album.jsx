@@ -94,7 +94,7 @@ const Album = () => {
 
     // }, [albumId]);
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/albums/${id}`)
+        axios.get(`https://api.cloudwavproduction.com/api/albums/${id}`)
             .then(response => {
                 console.log("Album Response:", response.data);
                 console.log("Album Response:", response.data.album);
@@ -117,7 +117,7 @@ const Album = () => {
             <div className="py-12">
                 <div className="container mx-auto">
                     <div className='flex flex-row gap-4'>
-                    {album && <img src={`http://127.0.0.1:8000/storage/${album.album_cover}`} className='rounded-xl w-48 h-48' alt="song" />}
+                    {album && <img src={`https://api.cloudwavproduction.com/storage/${album.album_cover}`} className='rounded-xl w-48 h-48' alt="song" />}
                     <div className='flex flex-col justify-around'>
                             <div className='first-letter:uppercase'>
                                 {/* <h3 className='font-bold text-2xl mb-1'>{album.title}</h3> */}

@@ -82,7 +82,7 @@ const PlatformManagement = () => {
         formData.append("social_links", values.social_links);
 
 
-        const response = await axios.post("http://127.0.0.1:8000/api/servicesOrder", formData, {
+        const response = await axios.post("https://api.cloudwavproduction.com/api/servicesOrder", formData, {
           headers: {
             "Authorization": `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
