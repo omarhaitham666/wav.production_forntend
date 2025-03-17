@@ -34,6 +34,7 @@ const Terms = lazy(() => import("./Pages/Terms/Terms"));
 const TermsofUse = lazy(() => import("./Pages/Terms/TermsofUse"));
 const PlatformManagement = lazy(() => import("./Pages/platformManagement/PlatformManagement"));
 const MusicDistribution = lazy(() => import("./Pages/Music distribution/MusicDistribution"));
+const Policy = lazy(() => import("./Pages/Policy/Policy"));
 
 
 
@@ -84,6 +85,7 @@ function App() {
           <Route path="/Services/Music_distribution" element={<Layout ><MusicDistribution /></Layout>} />
           <Route path="/Terms/:type" element={<Layout ><Terms /></Layout>} />
           <Route path="/Terms-of-Use" element={<Layout ><TermsofUse /></Layout>} />
+          <Route path="/Policy" element={<Layout ><Policy /></Layout>} />
 
           <Route path="/PlatformManagement" element={<Layout ><PlatformManagement /></Layout>} />
           <Route path="/uploadSong" element={<Layout ><UploadSong /></Layout>} />
