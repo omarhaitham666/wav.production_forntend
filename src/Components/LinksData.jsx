@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
 
-const useLinksData = () => {
+const 
+useLinksData = () => {
     const { t } = useTranslation();
 
     return [
@@ -48,7 +49,7 @@ const useLinksData = () => {
                         {
                             icon: <FaTiktok />,
                             title:"Tiktok Account",
-                            iconLink:"https://www.tiktok.com/@_blackbear",
+                            iconLink:"https://www.tiktok.com/@___blackbear",
                         },
                     ]
                 },

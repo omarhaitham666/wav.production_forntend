@@ -1,218 +1,81 @@
-import React from 'react'
-import logo from "/logo.svg"
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import logo from "/logo.svg";
 
 const Policy = () => {
-  return (
-    <>
-
-   <div className="flex flex-col gap-10 mt-28">
-                        <img src={logo} alt='Logo' className='object-contain w-56  h-auto m-auto' />
-                        </div>
-<div id='' className='py-8'>
-                                <h2 className='text-4xl font-black my-6 mt-5 text-center'>سياسة شركة CloudWav Production     
-                                </h2>
-                                <p className='text-lg pl-4 mt-3 text-center font-black'>
-                                17/3/2025:آخر تحديث
-
-                                </p>
-                                <p className='text-lg mt-3 pl-4 text-center font-black '>
-                                cloud wav production : المالك
-                                </p>
-                                <p className='pl-4 text-lg mt-4 text-center'>
-                                مرحبًا بك في CloudWav Production، الشركة المتخصصة في الموسيقى والخدمات الاحترافية، الإعلانات، الوساطة، الذكاء الاصطناعي، الملابس، البيع عبر مواقع أخرى، خدمات السوشيال ميديا، البرمجة، الإنتاج الفني والمرئي، التعاقدات، الشراكات، وغيرها من الخدمات المتنوعة. نحن نقدم حلولًا متكاملة تدعم المبدعين، الفنانين، وصناع المحتوى، مع ضمان حماية الحقوق الرقمية وتقديم فرص ترويجية متطورة.
-                                </p>
-                            </div>
-                            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-                            <div className='py-8'>
-                                <p className='text-lg pl-4 mt-3 text-center font-black'>
-
-1. معلومات عن خدماتنا
-
-الموسيقى والخدمات الاحترافية
-
-إنتاج وتوزيع الموسيقى رقميًا على أكثر من 200 منصة عالمية.
-
-منصة الأغاني التي تتيح للفنانين نشر أعمالهم للجمهور.
-
-إهداءات الفنانين، حيث يمكن للعملاء طلب فيديو إعلاني أو إهداء من الفنانين.
-
-حجز الفنانين للحفلات والإعلانات عبر نظام مخصص داخل المنصة.
-
-
-الإعلانات والوساطة
-
-إدارة وتنفيذ الحملات الإعلانية الرقمية.
-
-الوساطة بين العلامات التجارية والفنانين لتسهيل التعاون.
-
-تحليل البيانات باستخدام الذكاء الاصطناعي لتقديم استراتيجيات تسويقية فعالة.
-
-
-الإنتاج الفني والبرمجة
-
-احترافي.
-
-تصميم وتطوير مواقع إلكترونية وتطبيقات مخصصة للمبدعين والشركات.
-
-
-التعاقدات والشراكات
-
-إدارة التعاقدات مع الفنانين والمبدعين لضمان حقوق جميع الأطراف.
-
-الشراكات المدفوعة بين الأفراد والشركات لخلق فرص عمل رقمية جديدة.
-
-
-حماية الحقوق الرقمية وإدارة المنصات
-
-إذا كنت فنانًا أو صانع محتوى وتريد حماية حقوق أعمالك، يمكنك:
-
-الاشتراك في خدمة إدارة المنصات (محدود) لحماية المحتوى خلال فترة الاشتراك.
-
-تقديم طلب للشركة (غير محدود، حسب الاتفاق) للحصول على حماية شاملة.
-
-    إنتاج الكليبات والإعلانات المرئية بمستوى   
-</p>
-</div>
-
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-
-2. البيانات التي نجمعها
-
-عند استخدامك لخدماتنا، قد نقوم بجمع البيانات التالية:
-
-المعلومات الشخصية: الاسم، البريد الإلكتروني، رقم الهاتف، بيانات الحساب.
-
-معلومات الدفع: عند الاشتراك في الخدمات المدفوعة (نحن لا نخزن بيانات البطاقات مباشرة).
-
-بيانات الاستخدام: مثل الصفحات التي تزورها، نوع الجهاز، الموقع الجغرافي التقريبي.
-
-
-لا نقوم حاليًا باستخدام ملفات تعريف الارتباط (Cookies).
-
-
-    </p>
-</div>
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-    
-3. كيف نستخدم بياناتك؟
-
-نستخدم بياناتك للأغراض التالية:
-
-تقديم الخدمات، مثل نشر الموسيقى، إدارة المحتوى، والترويج الرقمي.
-
-تحسين تجربة المستخدم من خلال تحليل سلوك المستخدمين لتطوير المنصة والخدمات.
-
-الإعلانات والتسويق، حيث نعرض محتوى مخصص بناءً على اهتماماتك.
-
-الأمان وحماية الحقوق، وذلك بالكشف عن الأنشطة المشبوهة ومنع الاحتيال.
-
-
-    </p>
-</div>
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-
-4. حماية الحقوق الرقمية والمحتوى
-
-جميع الأعمال الفنية والموسيقية المنشورة عبر منصتنا محمية بحقوق الملكية الفكرية.
-
-نستخدم تقنيات متقدمة لمنع القرصنة والانتهاك، مع توفير حلول لحماية المحتوى الرقمي.
-
-يمكن للفنانين الاشتراك في إدارة المنصات أو تقديم طلب للشركة لضمان الحماية الكاملة لأعمالهم
-    </p>
-</div>
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-
-
-    5. الإعلانات والشراكات المدفوعة
-
-نعرض إعلانات مستهدفة ولكن لا نشارك بياناتك مع أطراف خارجية بدون موافقتك.
-
-الشراكات المدفوعة متاحة للشركات والأفراد الراغبين في التعاون مع المبدعين والفنانين.
-
-جميع التعاملات المالية المتعلقة بالشراكات تتم عبر عقود رسمية لضمان الشفافية والحقوق.
-
-    </p>
-</div>
-
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-
-
-  
-6. حقوقك كمستخدم
-
-يمكنك طلب:
-
-الوصول إلى بياناتك الشخصية.
-
-تصحيح أي معلومات غير صحيحة.
-
-طلب حذف بياناتك في بعض الحالات.
-
-إلغاء الاشتراك في النشرات البريدية والإعلانات المستهدفة.
-
-
-للتواصل بشأن بياناتك، يمكنك مراسلتنا عبر البريد الإلكتروني: support@cloudwavproduction.com
-    </p>
-</div>
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-
-
-  
-
-    7. حماية البيانات والأمان
-
-نستخدم أحدث تقنيات الأمان لحماية بيانات المستخدمين من أي اختراق أو انتهاك.
-
-جميع عمليات الدفع تتم عبر مزودين آمنين، ولا نقوم بتخزين بيانات البطاقات.
-
-لا نشارك بياناتك مع أي طرف ثالث بدون إذنك، إلا في حالات قانونية أو لحماية حقوقنا.
-
-    </p>
-</div>
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-    8. التعديلات على السياسة
-
-قد يتم تحديث هذه السياسة من وقت لآخر، وسيتم إخطار المستخدمين بأي تغييرات جوهرية.
-
-استمرار استخدامك لخدماتنا يعني موافقتك على السياسة الجديدة بعد تحديثها.
-
-    </p>
-</div>
-<hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
-<div className='py-8'>
-    <p className='text-lg pl-4 mt-3 text-center font-black'>
-  
-9. التواصل معنا
-
-CloudWav Production – جميع الحقوق محفوظة
-
-بريد الدعم: support@cloudwavproduction.com
-
-للتواصل العام: contact@cloudwavproduction.com
-
-الموقع الرسمي: cloudwavproduction.com
-
-
-شكراً لاختيارك CloudWav Production، نحن هنا لدعم إبداعك وحماية أعمالك وتحقيق نجاحك بأفضل الوسائل التقنية.
-    </p>
-</div>
-    </>
-  )
+    const { t } = useTranslation();
+
+    return (
+        <>
+            <div className="flex flex-col gap-10 mt-28">
+                <img src={logo} alt='Logo' className='object-contain w-56 h-auto m-auto' />
+            </div>
+            <div className='py-8'>
+                <h2 className='text-4xl font-black my-6 mt-5 text-center'>{t('policy.title')}</h2>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.lastUpdate')}</p>
+                <p className='text-lg mt-3 pl-4 text-center font-black'>{t('policy.owner')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.introduction')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.services.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.services.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.dataCollection.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.dataCollection.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.dataUsage.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.dataUsage.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.rightsProtection.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.rightsProtection.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.adsPartnerships.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.adsPartnerships.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.userRights.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.userRights.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.security.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.security.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <div className='py-8'>
+                <p className='text-lg pl-4 mt-3 text-center font-black'>{t('policy.policyUpdates.title')}</p>
+                <p className='pl-4 text-lg mt-4 text-center'>{t('policy.policyUpdates.content')}</p>
+            </div>
+
+            <hr className="border-t-4 border-blue-500 w-3/4 mx-auto my-4" />
+            <h3 className='text-2xl font-bold text-center mt-5'>
+                {t("policy.contact.title")}
+            </h3>
+            <div className="text-lg text-center mt-3 py-8">
+                {t("policy.contact.content", { returnObjects: true }).map((line, index) => (
+                    <p key={index} className="mt-2">{line}</p>
+                ))}
+            </div>
+        </>
+    );
 }
 
 export default Policy;

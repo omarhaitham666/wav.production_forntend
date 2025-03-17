@@ -31,14 +31,14 @@ const FAQs = () => {
                                     <button type="button"
                                         onClick={() => toggleItem(item.id)}
                                         className="flex items-center cursor-pointer justify-between w-full text-2xl p-5 font-bold text-white border-gray-200 transition-all">
-                                        <span>{t(`faq.questions.${item.id}.question`)}</span>
+                                        <span>{t(item.question)}</span>
                                         {openItems[item.id] ? <FaMinus /> : <FaPlus />}
                                     </button>
                                 </h2>
                                 <div id="accordion-collapse-body" className={`${openItems[item.id] ? 'block' : 'hidden'} p-4 transition-all`}>
                                 <ul className='text-white text-lg pl-8'>
                                         {item.answers.map((answer, index) => (
-                                            <li key={index} className='mb-2'>{t(`faq.questions.${item.id}.answers.${index}`)}</li>
+                                            <li key={index} className='mb-2'>{t(answer)}</li>
                                         ))}
                                     </ul>
                                 </div>

@@ -13,43 +13,54 @@ const Pricing = () => {
     const plans = {
         monthly: [
             {
-                name: 'free_plan',
-                price: 0,
-                priceYearly: 10,
-                features: ['feature_1', 'feature_2', 'feature_3'],
+                name: 'plans.starter',
+                price: 20,
+                priceYearly: 200,
+                features: [
+                    'plans.features.content_protection',
+                    'plans.features.revenue_security',
+                    'plans.features.artist_platform_protection',
+                    'plans.features.artist_profile',
+                    'plans.features.real_job_opportunities',
+                    'plans.features.no_ads',
+                    'plans.features.easy_browsing',
+                ],
             },
             {
-                name: 'pro_plan',
-                price: 119,
-                priceYearly: 20,
-                features: ['feature_4', 'feature_5', 'feature_6'],
+                name: 'plans.pro_tune',
+                price: 40,
+                priceYearly: 425,
+                features: [
+                    'plans.features.content_protection',
+                    'plans.features.revenue_security',
+                    'plans.features.artist_platform_protection',
+                    'plans.features.artist_profile',
+                    'plans.features.real_job_opportunities',
+                    'plans.features.exclusive_marketing',
+                    'plans.features.no_ads',
+                    'plans.features.easy_browsing',
+                ],
             },
-            {
-                name: 'enterprise_plan',
-                price: 499,
-                priceYearly: 30,
-                features: ['feature_7', 'feature_8', 'feature_9'],
-            }
         ],
         yearly: [
-            {
-                name: 'basic_plan',
-                price: 99.99,
-                priceMonthly: 100,
-                features: ['feature_1', 'feature_2', 'feature_3'],
-            },
-            {
-                name: 'premium_plan',
-                price: 199.99,
-                priceMonthly: 200,
-                features: ['feature_4', 'feature_5', 'feature_6', 'feature_10'],
-            },
-            {
-                name: 'pro_plan',
-                price: 299.99,
-                priceMonthly: 300,
-                features: ['feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11'],
-            }
+            // {
+            //     name: 'basic_plan',
+            //     price: 99.99,
+            //     priceMonthly: 100,
+            //     features: ['feature_1', 'feature_2', 'feature_3'],
+            // },
+            // {
+            //     name: 'premium_plan',
+            //     price: 199.99,
+            //     priceMonthly: 200,
+            //     features: ['feature_4', 'feature_5', 'feature_6', 'feature_10'],
+            // },
+            // {
+            //     name: 'pro_plan',
+            //     price: 299.99,
+            //     priceMonthly: 300,
+            //     features: ['feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11'],
+            // }
         ]
     };
 
@@ -83,8 +94,8 @@ const Pricing = () => {
                         </div>
 
                         {/* صناديق الخطط */}
-                        <div className={`grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 ${isRTL ? 'text-right' : 'text-left'}`}>
-                            {period === "Monthly" ? 
+                        <div className={`grid gap-10 grid-cols-1 md:grid-cols-2 justify-center mt-12 ${isRTL ? 'text-right' : 'text-left'}`}>
+                            {period === "Monthly" ?
                                 plans.monthly.map((plan, index) => (
                                     <PlansBox
                                         key={index}

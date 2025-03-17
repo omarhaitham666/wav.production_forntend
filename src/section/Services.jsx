@@ -49,7 +49,7 @@ const Services = () => {
             link: "",
             facebook_Link:"https://m.facebook.com/61573739062609/",
             instagram_Link:"https://www.instagram.com/black_8_bear",
-            tiktok_Link:"https://www.tiktok.com/@_blackbear",
+            tiktok_Link:"https://www.tiktok.com/@___blackbear",
             bg: "#DFF7EA",
         },
         {

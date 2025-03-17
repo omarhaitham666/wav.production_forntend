@@ -115,7 +115,7 @@ const Artist = () => {
     const handleFollow = async () => {
         setLoading(true);
         try {
-            const response = await fetch("https://your-api.com/follow", {
+            const response = await fetch("https://api.cloudwavproduction.com/api/follow", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -40,7 +40,7 @@ function Header({ isScrolled }) {
             <ul className={`lg:flex flex-wrap items-center list-none ml-auto hidden ${isNavOpen ? "showMenuNav" : "hideMenuNav"}`}>
               {links?.map((link) => {
                 return (
-                  <li key={link.id} className="nav-item relative">
+                  <li key={link.id} className="nav-item relative text-white">
                     {link.menu ? (
                       <div
                         onMouseEnter={() => setMenuOpen(true)}
@@ -52,7 +52,7 @@ function Header({ isScrolled }) {
                         </button>
 
                         {isMenuOpen && (
-                          <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg w-72 text-lg">
+                          <div className="lg:absolute top-full left-0 mt-2 lg:bg-white shadow-lg rounded-lg w-72 text-lg">
                             <ul className="flex flex-col pt-2">
                               {link.menu.map((submenu) => (
                                 <li
@@ -68,7 +68,7 @@ function Header({ isScrolled }) {
                                   ) : (
                                     submenu.SocialLnks ?
                                       <div
-                                        className="flex flex-row justify-between items-center px-4 py-2 hover:bg-gray-100"
+                                        className="flex flex-row justify-between items-center px-4 py-2  lg:hover:bg-gray-100"
                                       >
                                         {submenu.title}
                                         {submenu.SocialLnks &&
@@ -78,17 +78,17 @@ function Header({ isScrolled }) {
                                       :
                                       <Link
                                         to={submenu.to}
-                                        className="flex flex-row justify-between px-4 py-2 hover:bg-gray-100"
+                                        className="flex flex-row justify-between px-4 py-2 lg:hover:bg-gray-100"
                                       >
                                         {submenu.title}
                                       </Link>
                                   )}
 
                                   {submenu.SocialLnks && openSubMenu === submenu.id && (
-                                    <div className="absolute left-full top-0 bg-white shadow-lg rounded-lg w-48">
+                                    <div className="lg:absolute left-full w-full top-0 bg-white shadow-lg rounded-lg lg:w-48">
                                       <ul className="flex flex-col pt-2">
                                         {submenu.SocialLnks.map((social, index) => (
-                                          <li key={index} className="p-2 hover:bg-gray-100">
+                                          <li key={index} className="p-2 lg:hover:bg-gray-100">
                                             <a href={social.iconLink} className="text-lg flex flex-row justify-between text-gray-500 hover:text-[#30B797]">
                                               {social.icon}
                                               {social.title}

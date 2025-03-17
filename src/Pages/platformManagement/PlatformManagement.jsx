@@ -177,11 +177,8 @@ const PlatformManagement = () => {
                   setSelectedService("Platform Management Free Trial");
                 }}
               >
-                {t("start_free_trial")}
+                {t("Custom_Plan")}
               </button>
-              <Link to={"#plans"} className="border text-[#2F00AC] hover:text-white hover:bg-[#2F00AC] border-[#2F00AC] transition-all duration-300 ease-in-out px-6 py-2 rounded-lg font-semibold">
-                {t("request_demo")}
-              </Link>
             </div>
           </div>
           <div className="relative flex justify-center">

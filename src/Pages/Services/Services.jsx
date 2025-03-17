@@ -11,7 +11,7 @@ import { Formik, useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useState } from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import { useTranslation } from 'react-i18next';
 
 
@@ -346,34 +346,34 @@ const Services = () => {
                 .min(3, "cant be less than 3 letters")
                 .max(20, "cant be more than 20 letters")
                 .required("name is invalid"),
-    
+
             email: Yup.string()
                 .min(15, "يجب أن لا يقل عن 15 حرف")
                 .email("enter the correct email")
                 .required("this is invalid"),
             platform: Yup.string()
                 .required("this is invalid"),
-    
+
             phone: Yup.string()
                 .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
                 .required("رقم الهاتف مطلوب"),
-    
+
             whatsapp_number: Yup.string()
                 .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
                 .required("رقم الهاتف مطلوب"),
-    
+
             details: Yup.string()
                 .min(10, "cant be less than 10 letters")
                 .max(500, "cant be more than 500 letters"),
-    
+
             social_links: Yup.string()
                 .url("enter the correct url")
                 .required("social links is required"),
-    
+
         }),
         onSubmit: async (values) => {
             const token = localStorage.getItem("token");
-    
+
             if (!token) {
                 Swal.fire({
                     title: "يجب تسجيل الدخول",
@@ -383,10 +383,10 @@ const Services = () => {
                 }).then(() => {
                     window.location.href = "/Register";
                 });
-    
+
                 return;
             }
-    
+
             try {
                 const formData = new FormData();
                 formData.append("type", values.type);
@@ -398,14 +398,14 @@ const Services = () => {
                 formData.append("data[social_links]", values.social_links);
                 formData.append("data[platform]", values.platform);
                 formData.append("token", token);
-    
+
                 const response = await axios.post("https://api.cloudwavproduction.com/api/services", formData, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "multipart/form-data",
                     }
                 });
-    
+
                 if (response.status === 200 || response.status === 201) {
                     Swal.fire({
                         title: "تم التسجيل بنجاح",
@@ -448,129 +448,129 @@ const Services = () => {
         }
     });
 
-    const recoverClosedAccountsFormik = useFormik({
-        initialValues: {
-            type: "recover social media account",
-            name: "",
-            email: "",
-            phone: "",
-            whatsapp_number: "",
-            details: "",
-            social_links: "",
-            platform: "",
-            social_media_account: "",
-        },
-        validationSchema: Yup.object({
-            name: Yup.string()
-                .min(3, "cant be less than 3 letters")
-                .max(20, "cant be more than 20 letters")
-                .required("name is invalid"),
-    
-            email: Yup.string()
-                .min(15, "يجب أن لا يقل عن 15 حرف")
-                .email("enter the correct email")
-                .required("this is invalid"),
-            platform: Yup.string()
-                .required("this is invalid"),
-    
-            phone: Yup.string()
-                .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
-                .required("رقم الهاتف مطلوب"),
-    
-            whatsapp_number: Yup.string()
-                .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
-                .required("رقم الهاتف مطلوب"),
-    
-            details: Yup.string()
-                .min(10, "cant be less than 10 letters")
-                .max(500, "cant be more than 500 letters"),
-    
-            social_links: Yup.string()
-                .url("enter the correct url")
-                .required("social links is required"),
-                social_media_account: Yup.string()
-                .url("enter the correct url")
-                .required("social links is required"),
-    
-        }),
-        onSubmit: async (values) => {
-            const token = localStorage.getItem("token");
-    
-            if (!token) {
-                Swal.fire({
-                    title: "يجب تسجيل الدخول",
-                    text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
-                    icon: "warning",
-                    confirmButtonText: "تسجيل الدخول",
-                }).then(() => {
-                    window.location.href = "/Register";
-                });
-    
-                return;
-            }
-    
-            try {
-                const formData = new FormData();
-                formData.append("type", values.type);
-                formData.append("data[name]", values.name);
-                formData.append("data[email]", values.email);
-                formData.append("data[phone]", values.phone); // لاحظ أنني غيرت values.number إلى values.phone هنا
-                formData.append("data[whatsapp_number]", values.whatsapp_number);
-                formData.append("data[details]", values.details);
-                formData.append("data[social_links]", values.social_links);
-                formData.append("data[platform]", values.platform);
-                formData.append("data[social_media_account]", values.social_media_account);
-                formData.append("token", token);
-    
-                const response = await axios.post("https://api.cloudwavproduction.com/api/services", formData, {
-                    headers: {
-                        "Authorization": `Bearer ${token}`,
-                        "Content-Type": "multipart/form-data",
-                    }
-                });
-    
-                if (response.status === 200 || response.status === 201) {
-                    Swal.fire({
-                        title: "تم التسجيل بنجاح",
-                        text: "تم إرسال البيانات بنجاح",
-                        icon: "success",
-                    });
-                    formik.resetForm();
-                    setImagePreview("");
-                    setShowForm(false);
-                }
-            } catch (error) {
-                if (error.response) {
-                    if (error.response.status === 409) {
-                        Swal.fire({
-                            title: "لقد قمت بالفعل بطلب هذه الخدمة مسبقًا",
-                            text: "طلبك قيد المراجعة، يرجى الانتظار حتى يتم الرد.",
-                            icon: "warning",
-                        });
-                    } else if (error.response.status === 403) {
-                        Swal.fire({
-                            title: "لقد أرسلت طلبًا بالفعل!",
-                            text: "طلبك قيد المراجعة، يرجى الانتظار حتى يتم الرد.",
-                            icon: "warning",
-                        });
-                    } else {
-                        Swal.fire({
-                            title: "خطأ",
-                            text: error.response.data.message || "حدث خطأ أثناء التسجيل",
-                            icon: "error",
-                        });
-                    }
-                } else {
-                    Swal.fire({
-                        title: "خطأ",
-                        text: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى لاحقًا.",
-                        icon: "error",
-                    });
-                }
-            }
-        }
-    });
-    
+    // const recoverClosedAccountsFormik = useFormik({
+    //     initialValues: {
+    //         type: "recover social media account",
+    //         name: "",
+    //         email: "",
+    //         phone: "",
+    //         whatsapp_number: "",
+    //         details: "",
+    //         social_links: "",
+    //         platform: "",
+    //         social_media_account: "",
+    //     },
+    //     validationSchema: Yup.object({
+    //         name: Yup.string()
+    //             .min(3, "cant be less than 3 letters")
+    //             .max(20, "cant be more than 20 letters")
+    //             .required("name is invalid"),
+
+    //         email: Yup.string()
+    //             .min(15, "يجب أن لا يقل عن 15 حرف")
+    //             .email("enter the correct email")
+    //             .required("this is invalid"),
+    //         platform: Yup.string()
+    //             .required("this is invalid"),
+
+    //         phone: Yup.string()
+    //             .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
+    //             .required("رقم الهاتف مطلوب"),
+
+    //         whatsapp_number: Yup.string()
+    //             .matches(/^(010|011|012|015)[0-9]{8}$/, "يجب أن يكون رقمًا مصريًا صحيحًا")
+    //             .required("رقم الهاتف مطلوب"),
+
+    //         details: Yup.string()
+    //             .min(10, "cant be less than 10 letters")
+    //             .max(500, "cant be more than 500 letters"),
+
+    //         social_links: Yup.string()
+    //             .url("enter the correct url")
+    //             .required("social links is required"),
+    //         social_media_account: Yup.string()
+    //             .url("enter the correct url")
+    //             .required("social links is required"),
+
+    //     }),
+    //     onSubmit: async (values) => {
+    //         const token = localStorage.getItem("token");
+
+    //         if (!token) {
+    //             Swal.fire({
+    //                 title: "يجب تسجيل الدخول",
+    //                 text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
+    //                 icon: "warning",
+    //                 confirmButtonText: "تسجيل الدخول",
+    //             }).then(() => {
+    //                 window.location.href = "/Register";
+    //             });
+
+    //             return;
+    //         }
+
+    //         try {
+    //             const formData = new FormData();
+    //             formData.append("type", values.type);
+    //             formData.append("data[name]", values.name);
+    //             formData.append("data[email]", values.email);
+    //             formData.append("data[phone]", values.phone); // لاحظ أنني غيرت values.number إلى values.phone هنا
+    //             formData.append("data[whatsapp_number]", values.whatsapp_number);
+    //             formData.append("data[details]", values.details);
+    //             formData.append("data[social_links]", values.social_links);
+    //             formData.append("data[platform]", values.platform);
+    //             formData.append("data[social_media_account]", values.social_media_account);
+    //             formData.append("token", token);
+
+    //             const response = await axios.post("https://api.cloudwavproduction.com/api/services", formData, {
+    //                 headers: {
+    //                     "Authorization": `Bearer ${token}`,
+    //                     "Content-Type": "multipart/form-data",
+    //                 }
+    //             });
+
+    //             if (response.status === 200 || response.status === 201) {
+    //                 Swal.fire({
+    //                     title: "تم التسجيل بنجاح",
+    //                     text: "تم إرسال البيانات بنجاح",
+    //                     icon: "success",
+    //                 });
+    //                 formik.resetForm();
+    //                 setImagePreview("");
+    //                 setShowForm(false);
+    //             }
+    //         } catch (error) {
+    //             if (error.response) {
+    //                 if (error.response.status === 409) {
+    //                     Swal.fire({
+    //                         title: "لقد قمت بالفعل بطلب هذه الخدمة مسبقًا",
+    //                         text: "طلبك قيد المراجعة، يرجى الانتظار حتى يتم الرد.",
+    //                         icon: "warning",
+    //                     });
+    //                 } else if (error.response.status === 403) {
+    //                     Swal.fire({
+    //                         title: "لقد أرسلت طلبًا بالفعل!",
+    //                         text: "طلبك قيد المراجعة، يرجى الانتظار حتى يتم الرد.",
+    //                         icon: "warning",
+    //                     });
+    //                 } else {
+    //                     Swal.fire({
+    //                         title: "خطأ",
+    //                         text: error.response.data.message || "حدث خطأ أثناء التسجيل",
+    //                         icon: "error",
+    //                     });
+    //                 }
+    //             } else {
+    //                 Swal.fire({
+    //                     title: "خطأ",
+    //                     text: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى لاحقًا.",
+    //                     icon: "error",
+    //                 });
+    //             }
+    //         }
+    //     }
+    // });
+
 
 
     return (
@@ -713,7 +713,7 @@ const Services = () => {
 
                                     <div className="p-4 md:p-5">
                                         <form className="space-y-4" onSubmit={accountCreationFormik.handleSubmit}>
-                                            {["name", "email", "phone", "whatsapp_number", "social_links", "details","platform"].map((field) => (
+                                            {["name", "email", "phone", "whatsapp_number", "social_links", "details", "message"].map((field) => (
                                                 <div key={field} className="mb-6">
                                                     <label htmlFor={field} className="block mb-2 text-sm font-medium text-[#522ED3]">
                                                         {t(`modal.${field}`)}
@@ -739,8 +739,8 @@ const Services = () => {
                                         </form>
 
 
-                                        <form className="space-y-4" onSubmit={recoverClosedAccountsFormik.handleSubmit}>
-                                            {["name", "email", "phone", "whatsapp_number", "social_links", "details","platform","social_media_account"].map((field) => (
+                                        {/* <form className="space-y-4" onSubmit={recoverClosedAccountsFormik.handleSubmit}>
+                                            {["name", "email", "phone", "whatsapp_number", "social_links", "details", "platform", "social_media_account"].map((field) => (
                                                 <div key={field} className="mb-6">
                                                     <label htmlFor={field} className="block mb-2 text-sm font-medium text-[#522ED3]">
                                                         {t(`modal.${field}`)}
@@ -763,9 +763,7 @@ const Services = () => {
                                             <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">
                                                 {t("modal.send")}
                                             </button>
-                                        </form>
-
-
+                                        </form> */}
 
                                     </div>
                                 </div>
