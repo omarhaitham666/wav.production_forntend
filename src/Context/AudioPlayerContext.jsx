@@ -5,6 +5,7 @@ import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from "react-icons/tb
 import WaveSurfer from "wavesurfer.js";
 import { downloadSong } from "../actions/songsActions";
 import logo from "/logo.svg"
+import axios from 'axios';
 
 const AudioPlayerContext = createContext();
 
@@ -19,6 +20,7 @@ export const AudioPlayerProvider = ({ children }) => {
 
     const staticSongsCollection = [{url:"https://api.twilio.com//2010-04-01/Accounts/AC25aa00521bfac6d667f13fec086072df/Recordings/RE6d44bc34911342ce03d6ad290b66580c.mp3",imgScr:"https://cloudwavproduction.com/assets/logo-ChUurPhX.png",name:'song test'},{url:"https://api.twilio.com//2010-04-01/Accounts/AC25aa00521bfac6d667f13fec086072df/Recordings/RE6d44bc34911342ce03d6ad290b66580c.mp3",imgScr:"https://cloudwavproduction.com/assets/logo-ChUurPhX.png",name:'song test2'}];
 
+    
     const waveformRef = useRef(null);
     const wavesurfer = useRef(null);
     const [playing, setPlaying] = useState(false);

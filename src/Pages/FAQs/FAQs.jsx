@@ -36,7 +36,7 @@ const FAQs = () => {
                                     </button>
                                 </h2>
                                 <div id="accordion-collapse-body" className={`${openItems[item.id] ? 'block' : 'hidden'} p-4 transition-all`}>
-                                    <ul className='text-white text-lg pl-8'>
+                                <ul className='text-white text-lg pl-8'>
                                         {item.answers.map((answer, index) => (
                                             <li key={index} className='mb-2'>{t(`faq.questions.${item.id}.answers.${index}`)}</li>
                                         ))}
