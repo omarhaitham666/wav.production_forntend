@@ -17,6 +17,7 @@
     "joinush": "Join Us and Take Your Music Career to the Next Level!",
     "joinusp": "Are you an aspiring artist or an established star looking for a platform to support your journey and expand your reach? We are here to be your trusted partner and agent for success!",
     "joinNow": "Join Us Now",
+    "policyf": "policy",
     "joinus1": "Good Exclusive Features",
     "joinus1p": "We provide cutting-edge advertising solutions and exclusive tools, including AI-driven strategies and modern promotional",
     "joinus2": "Artist Support",
@@ -112,7 +113,7 @@
     "playing_alt": "Playing music image",
     "browse": "Browse",
     "home": "Home",
-    "genres": "Genres",
+    "genress": "Genres",
     "all_genres": "All Genres",
     "Trending_songs": "Trending Songs",
     "Trending_Albums": "Trending Albums",
@@ -152,6 +153,8 @@
         "noResponse": "No response from server. Check your connection.",
         "requestError": "Request error:"
     },
+    "faq_title": "Frequently Asked Questions (FAQ) – CloudWav Production",
+    "faq_questions": "(For advertising, clothing, cross-site sales, social media services, artistic and music production, platform management, and professional video services.)",
     "faq": {
         "q1": "What is CloudWav Production?",
         "a1": "CloudWav Production is a digital platform that provides professional services including advertising, clothing, sales through other websites, social media services, artistic and music production, platform management, and professional video services. We offer comprehensive solutions for individuals and businesses to enhance their digital presence and achieve their creative and commercial goals.",
@@ -237,19 +240,21 @@
             "Your account may be suspended if you violate the Terms of Use or if suspicious activity is detected.",
             "Users can submit an appeal request through customer support for review.",
             "CloudWav Production reserves the right to suspend or delete violating accounts without prior notice."
-        ],
-        "tips": [
-            "Always check the email associated with your account for important updates.",
-            "Utilize music production services, paid videos, and social media management to maximize your project's success.",
-            "If you have additional inquiries, do not hesitate to contact our support team."
-        ],
-        "legal_warning": [
-            "Violating any platform policies may result in account suspension or permanent closure.",
-            "All payments are subject to a non-refund policy except for the cases mentioned in the refund policy.",
-            "CloudWav Production reserves the right to modify policies and terms according to its operational and legal needs."
-        ],
-        "not_found": "Didn't find your answer here? Contact us at support@cloudwavproduction.com, and we’ll be happy to assist you!"
+        ]
     },
+    "tipsh": "* Tips for using CloudWav Production professionally:",
+    "tips": [
+        "Always check the email associated with your account for important updates.",
+        "Utilize music production services, paid videos, and social media management to maximize your project's success.",
+        "If you have additional inquiries, do not hesitate to contact our support team."
+    ],
+    "legal_warningh": "Legal warning",
+    "legal_warning": [
+        "Violating any platform policies may result in account suspension or permanent closure.",
+        "All payments are subject to a non-refund policy except for the cases mentioned in the refund policy.",
+        "CloudWav Production reserves the right to modify policies and terms according to its operational and legal needs."
+    ],
+    "not_found": "Didn't find your answer here? Contact us at support@cloudwavproduction.com, and we’ll be happy to assist you!",
     "modal": {
         "title": "Service Request",
         "name": "Your Name",
@@ -411,5 +416,80 @@
             ]
         }
     },
-    "Custom_Plan": "Custom Plan"
+    "Custom_Plan": "Custom Plan",
+    "artists": "Artists",
+    "Albums": "Albums",
+    "songs": "Songs",
+    "Trending songs": "Trending songs",
+    "Trending Albums": "Trending Albums",
+    "Recently Supported": "Recently Supported",
+    "Recently Added": "Recently Added",
+    "Accounts for You": "Accounts for You",
+    "Rising Singer": "Rising Singer",
+    "famous Singer": "famous Singer",
+    "Next": "Next",
+    "close_modal": "Close modal",
+    "form": {
+        "name": "Your Name",
+        "name_placeholder": "Enter your name",
+        "email": "Your Email",
+        "email_placeholder": "Enter your email",
+        "number": "Your Number",
+        "number_placeholder": "Enter your number",
+        "whatsapp_number": "Whatsapp Number",
+        "whatsapp_number_placeholder": "Enter your Whatsapp number",
+        "social_links": "Social Media Links",
+        "social_links_placeholder": "Enter your social media links",
+        "details": "More Details",
+        "details_placeholder": "Enter additional details",
+        "division": "Artist Division",
+        "select_division": "Select Division",
+        "profile_image": "Your Image",
+        "agree_to": "I agree to",
+        "terms": "Terms & Conditions",
+        "submit": "Send Now"
+    },
+    "genres": {
+        "Mahraganat": "Mahraganat",
+        "rap": "Rap",
+        "pop": "Pop",
+        "jazz": "Jazz",
+        "rock": "Rock"
+    },
+    "close": "Close",
+    "name": "Your Name",
+    "email": "Your Email",
+    "number": "Your Phone",
+    "whatsapp_number": "WhatsApp Number",
+    "private_price": "Your Private Price",
+    "bussiness_price": "Your Business Price",
+    "details": "Your Details",
+    "social_links": "Your Social Links",
+    "division": "Your Division",
+    "select_division": "Select Division",
+    "Tiktok": "Tiktok",
+    "Musician": "Musician",
+    "Actor": "Actor",
+    "Content creator": "Content Creator",
+    "Youtuber": "Youtuber",
+    "Athlete": "Athlete",
+    "profile_image": "Your Profile Image",
+    "id_card": "Your ID Card Image",
+    "terms_agree": "I agree to the",
+    "terms_conditions": "Terms and Conditions",
+    "send_now": "Send Now",
+        "accpt": "I agree ",
+    "trams":"Terms",
+    "selectServ":"Choose music services",
+    "Voice_recording":"Voice Recording",
+"Songwriting":"Song Writing",
+"Music_production":"Music Production",
+"Video_filming":"Video Filming",
+"CreatingSong" :"Creating a Full Song",
+"CreatingSongclip" :"Creating a Song with a Full Clip",
+"selectServ_required": "Choose one or more services",
+"Select":"Select Are You Will Do This YourSelf?",
+"sing_it_myself" :"I Will Sing It Myself",
+"need_a_specific":"I Will Need A Specific",
+"MeOr_required":"Select One"
 }

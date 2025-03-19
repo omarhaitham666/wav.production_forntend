@@ -1,7 +1,7 @@
 import { FaAngleRight, FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import musicbg from "../../assets/Img/musicbg.png"
-import React from 'react';
+import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -9,7 +9,10 @@ import axios from 'axios';
 import { useTranslation } from "react-i18next";
 
 const MusicDistribution = () => {
+    const [agree, setAgree] = useState(false);
+
     const { t } = useTranslation();
+    const [modalOpen, setModalOpen] = useState(false);
 
     const initValues = { email: "", name: "", message: "" };
 
@@ -23,20 +26,153 @@ const MusicDistribution = () => {
         initialValues: initValues,
         validationSchema: inputValidation,
         onSubmit: async (values) => {
-            try {
-                await axios.post('https://api.cloudwavproduction.com/api/', values);
-                Swal.fire({ title: t("success.title"), text: t("success.message"), icon: 'success' });
-            } catch (error) {
-                let message = t("error.general");
-                if (error.response?.status === 422) {
-                    message = Object.values(error.response.data.errors).flat().join(' ');
-                } else if (error.request) {
-                    message = t("error.server");
-                }
-                Swal.fire({ title: t("error.title"), text: message, icon: 'error' });
+            const token = localStorage.getItem("token");
+
+            if (!agree) {
+                Swal.fire({
+                    title: 'خطأ',
+                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                    icon: 'error',
+                });
+                return;
             }
+
+            if (!token) {
+                Swal.fire({
+                    title: "يجب تسجيل الدخول",
+                    text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
+                    icon: "warning",
+                    confirmButtonText: "تسجيل الدخول",
+                }).then(() => {
+                    window.location.href = "/Register";
+                });
+
+                return;
+            }
+
+            try {
+
+                const response = await axios.post("https://api.cloudwavproduction.com/api/", values, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+
+                if (response.status === 200 || response.status === 201) {
+                    Swal.fire({
+                        title: "تم التسجيل بنجاح",
+                        text: "تم إرسال البيانات بنجاح",
+                        icon: "success",
+                    });
+                    formik.resetForm();
+                }
+            } catch (error) {
+                if (error.response) {
+                    if (error.response.status === 403) {
+                        Swal.fire({
+                            title: "لقد أرسلت طلبًا بالفعل!",
+                            text: "طلبك قيد المراجعة، يرجى الانتظار حتى يتم الرد.",
+                            icon: "warning",
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "خطأ",
+                            text: error.response.data.message || "حدث خطأ أثناء التسجيل",
+                            icon: "error",
+                        });
+                    }
+                } else {
+                    Swal.fire({
+                        title: "خطأ",
+                        text: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى لاحقًا.",
+                        icon: "error",
+                    });
+                }
+            }
+
         }
     });
+
+    const formikSer = useFormik({
+        initialValues: {
+            selectServ: [],
+            IWillDo: ""
+        },
+        validationSchema: Yup.object({
+            selectServ: Yup.array().required(t("selectServ_required")),
+            IWillDo: Yup.boolean().required(t("IWillDo_required")),
+        }),
+
+        onSubmit: async (values) => {
+            const token = localStorage.getItem("token");
+
+            if (!agree) {
+                Swal.fire({
+                    title: 'خطأ',
+                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                    icon: 'error',
+                });
+                return;
+            }
+
+            // if (!token) {
+            //     Swal.fire({
+            //         title: "يجب تسجيل الدخول",
+            //         text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
+            //         icon: "warning",
+            //         confirmButtonText: "تسجيل الدخول",
+            //     }).then(() => {
+            //         window.location.href = "/Register";
+            //     });
+
+            //     return;
+            // }
+
+            try {
+
+                const response = await axios.post("https://api.cloudwavproduction.com/api/Music_Service", values, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+
+                if (response.status === 200 || response.status === 201) {
+                    Swal.fire({
+                        title: "تم التسجيل بنجاح",
+                        text: "تم إرسال البيانات بنجاح",
+                        icon: "success",
+                    });
+                    formik.resetForm();
+                }
+            } catch (error) {
+                if (error.response) {
+                    if (error.response.status === 403) {
+                        Swal.fire({
+                            title: "لقد أرسلت طلبًا بالفعل!",
+                            text: "طلبك قيد المراجعة، يرجى الانتظار حتى يتم الرد.",
+                            icon: "warning",
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "خطأ",
+                            text: error.response.data.message || "حدث خطأ أثناء التسجيل",
+                            icon: "error",
+                        });
+                    }
+                } else {
+                    Swal.fire({
+                        title: "خطأ",
+                        text: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى لاحقًا.",
+                        icon: "error",
+                    });
+                }
+            }
+        }
+    })
+
+
 
     return (
         <div className="p-6 flex justify-center">
@@ -45,9 +181,15 @@ const MusicDistribution = () => {
                     <h1 className="text-5xl font-black mb-6">{t("header.title")}</h1>
                     <p className="text-2xl w-2/3 font-bold mt-5">{t("header.description")}</p>
                     <div className="flex flex-col sm:flex-row items-center gap-8 mt-4">
-                        <Link to={"/Pricing"} className='flex flex-row items-center gap-4 bg-[#30B797] border border-[#30B797] text-white hover:text-[#30B797] font-bold hover:bg-white rounded-full py-3 px-4 text-xl transition-all'>
+                        <button
+                            onClick={
+                                () => {
+                                    setModalOpen(true)
+                                }
+                            }
+                            className='flex flex-row items-center gap-4 bg-[#30B797] border border-[#30B797] text-white hover:text-[#30B797] font-bold hover:bg-white rounded-full py-3 px-4 text-xl transition-all'>
                             {t("buttons.pricing")} <FaAngleRight />
-                        </Link>
+                        </button>
                         <Link to={"/Contact"} className='flex flex-row items-center gap-4 bg-[#30B797] border border-[#30B797] text-white hover:text-[#30B797] font-bold hover:bg-white rounded-full py-3 px-4 text-xl transition-all'>
                             {t("buttons.contact")} <FaAngleRight />
                         </Link>
@@ -96,6 +238,104 @@ const MusicDistribution = () => {
                     </div>
                 </div>
             </div>
+            {
+                modalOpen ?
+                    <div className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[1050] justify-center items-center w-full md:inset-0 h-full max-h-full">
+                        <div className="relative p-4 w-full md:w-1/2 max-h-full">
+                            <div className="relative bg-white rounded-3xl shadow-sm">
+                                <div className="flex items-center justify-between p-4 md:p-5">
+                                    <button type="button"
+                                        onClick={
+                                            () => {
+                                                setModalOpen(false)
+                                            }
+                                        }
+                                        className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center ">
+                                        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span className="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <div className="p-4 md:p-5">
+                                    <form className="space-y-4" action="#" onSubmit={
+                                        formikSer.handleSubmit
+                                    }>
+                                        <div className='mb-6'>
+                                            <label className="block mb-2 text-sm font-medium text-[#522ED3]">{t("selectServ")}</label>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 bg-[#F8F8F8] p-4 rounded-xl border border-[#1F1A234D] shadow-md">
+                                                {[
+                                                    "Voice_recording",
+                                                    "Songwriting",
+                                                    "Music_production",
+                                                    "Video_filming",
+                                                    "CreatingSong",
+                                                    "CreatingSongclip",
+                                                ].map((option, index) => (
+                                                    <label key={index} className="flex items-center space-x-2 bg-white p-3 rounded-lg shadow-sm border border-[#522ED3] cursor-pointer transition-all hover:bg-[#522ED3] hover:text-white">
+                                                        <input
+                                                            type="checkbox"
+                                                            name="selectServ"
+                                                            value={option}
+                                                            checked={formikSer.values.selectServ.includes(option)}
+                                                            onChange={e => {
+                                                                const { value, checked } = e.target;
+                                                                formikSer.setFieldValue(
+                                                                    "selectServ",
+                                                                    checked
+                                                                        ? [...formikSer.values.selectServ, value]
+                                                                        : formikSer.values.selectServ.filter(item => item !== value)
+                                                                );
+                                                            }}
+                                                            className="w-4 h-4 text-[#522ED3] border-gray-300 focus:ring-[#522ED3]"
+                                                        />
+                                                        <span>{t(option)}</span>
+                                                    </label>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className='mb-6'>
+                                            <label className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Select")}</label>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 bg-[#F8F8F8] p-4 rounded-xl border border-[#1F1A234D] shadow-md">
+                                                <label className="flex items-center space-x-2 bg-white p-3 rounded-lg shadow-sm border border-[#522ED3] cursor-pointer transition-all hover:bg-[#522ED3] hover:text-white">
+                                                    <input
+                                                        type="radio"
+                                                        name="IWillDo"
+                                                        value="true"
+                                                        checked={formikSer.values.IWillDo === true}
+                                                        onChange={() => formikSer.setFieldValue("IWillDo", true)}
+                                                        className="w-4 h-4 text-[#522ED3] border-gray-300 focus:ring-[#522ED3]"
+                                                    />
+                                                    <span>{t("sing_it_myself")}</span>
+                                                </label>
+
+                                                <label className="flex items-center space-x-2 bg-white p-3 rounded-lg shadow-sm border border-[#522ED3] cursor-pointer transition-all hover:bg-[#522ED3] hover:text-white">
+                                                    <input
+                                                        type="radio"
+                                                        name="IWillDo"
+                                                        value="false"
+                                                        checked={formikSer.values.IWillDo === false}
+                                                        onChange={() => formikSer.setFieldValue("IWillDo", false)}
+                                                        className="w-4 h-4 text-[#522ED3] border-gray-300 focus:ring-[#522ED3]"
+                                                    />
+                                                    <span>{t("need_a_specific")}</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className='flex items-center mt-4'>
+                                            <input type="checkbox" id="terms" checked={agree} onChange={() => setAgree(!agree)} className='mr-2' />
+                                            <label htmlFor="terms" className='text-sm'>
+                                                {t("accpt")} <a href="/Terms/VideosOrder" className='text-[#2F00AC] underline'>{t("trams")}</a>
+                                            </label>
+                                        </div>
+                                        <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    : ""
+            }
         </div>
     );
 }

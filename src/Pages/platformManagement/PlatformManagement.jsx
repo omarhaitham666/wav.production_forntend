@@ -227,7 +227,7 @@ const PlatformManagement = () => {
       </div>
       {
         modalOpen ? (
-          <div aria-hidden="true" className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full">
+          <div aria-hidden="true" className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[1050] justify-center items-center w-full md:inset-0 h-full max-h-full">
             <div className="relative p-4 w-full md:w-1/2 max-h-full">
               <div className="relative bg-white rounded-3xl shadow-sm">
                 <div className="flex items-center justify-between p-4 md:p-5">

@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 
 
 const JoinUs = () => {
@@ -346,6 +347,8 @@ const JoinUs = () => {
         }
     };
 
+    const { t } = useTranslation();
+
 
     return (
         <>
@@ -359,7 +362,7 @@ const JoinUs = () => {
                         <div className="flex justify-center gap-12 flex-wrap mb-16">
                             <label htmlFor="Rising" className='flex flex-col justify-center items-center text-center p-8 bg-white border border-[#0000000D] shadow-xl rounded-xl'>
                                 <img src={selectedOption === "Rising" ? RisingActive : Rising} alt="Rising" className="w-56 h-w-56 mb-1" />
-                                <p className='text-black text-2xl font-bold mb-2'>Rising Singer</p>
+                                <p className='text-black text-2xl font-bold mb-2'>{t("Rising Singer")}</p>
                                 <input type="checkbox"
                                     id="Rising"
                                     name="Rising"
@@ -385,7 +388,7 @@ const JoinUs = () => {
                             </label>
                             <label htmlFor="famous" className='flex flex-col justify-center items-center text-center p-8 bg-white border border-[#0000000D] shadow-xl rounded-xl'>
                                 <img src={selectedOption === "famous" ? famousActive : famous} alt="famous" className="w-56 h-w-56 mb-1" />
-                                <p className='text-black text-2xl font-bold mb-2'>famous Singer</p>
+                                <p className='text-black text-2xl font-bold mb-2'>{t("famous Singer")}</p>
                                 <input type="checkbox"
                                     id="famous"
                                     name="famous"
@@ -417,7 +420,7 @@ const JoinUs = () => {
                                         event.preventDefault();
                                     }
                                 }
-                                className="text-2xl gap-4 px-12 py-4 rounded-3xl font-bold cursor-not-allowed text-black bg-[#C9C9C9] ">Next</button>
+                                className="text-2xl gap-4 px-12 py-4 rounded-3xl font-bold cursor-not-allowed text-black bg-[#C9C9C9] ">{t("Next")}</button>
                             :
                             <button
                                 onClick={
@@ -442,7 +445,7 @@ const JoinUs = () => {
                                     }
                                 }
                                 className="text-2xl gap-4 px-12 py-4 rounded-3xl font-bold border cursor-pointer border-[#30B797] text-white bg-[#30B797] hover:bg-white hover:text-[#30B797] transition"
-                            >Next</button>}
+                            >{t("Next")}</button>}
                     </form>
                     {
                         (selectedType === "famous" || selectedType === "Rising") && (
@@ -450,136 +453,93 @@ const JoinUs = () => {
                             <>
                                 {/* <RisingForm /> */}
                                 {showForm === true ?
-                                    <div aria-hidden="true" className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full">
+                                    <div
+                                        aria-hidden="true"
+                                        className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[1050] justify-center items-center w-full md:inset-0 h-full max-h-full"
+                                    >
                                         <div className="relative p-4 w-full md:w-1/2 max-h-full">
                                             <div className="relative bg-white rounded-3xl shadow-sm">
                                                 <div className="flex items-center justify-between p-4 md:p-5">
-                                                    <button type="button" onClick={
-                                                        () => {
-                                                            setShowForm(false)
-                                                            setStep(1)
-                                                        }
-                                                    } className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center ">
-                                                        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => {
+                                                            setShowForm(false);
+                                                            setStep(1);
+                                                        }}
+                                                        className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                                    >
+                                                        <svg
+                                                            className="w-5 h-5"
+                                                            aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none"
+                                                            viewBox="0 0 14 14"
+                                                        >
+                                                            <path
+                                                                stroke="currentColor"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth="2"
+                                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                                                            />
                                                         </svg>
-                                                        <span className="sr-only">Close modal</span>
+                                                        <span className="sr-only">{t("close_modal")}</span>
                                                     </button>
                                                 </div>
                                                 <div className="p-4 md:p-5">
-                                                    <form className="space-y-4" action="#" onSubmit={formik.handleSubmit}>
+                                                    <form className="space-y-4" onSubmit={formik.handleSubmit}>
+                                                        {["name", "email", "number", "whatsapp_number", "social_links", "details"].map((field) => (
+                                                            <div className="mb-6" key={field}>
+                                                                <label htmlFor={field} className="block mb-2 text-sm font-medium text-[#522ED3]">
+                                                                    {t(`form.${field}`)}
+                                                                </label>
+                                                                <input
+                                                                    type={field.includes("email") ? "email" : "text"}
+                                                                    name={field}
+                                                                    id={field}
+                                                                    onChange={formik.handleChange}
+                                                                    value={formik.values[field]}
+                                                                    onBlur={formik.handleBlur}
+                                                                    className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5"
+                                                                    placeholder={t(`form.${field}_placeholder`)}
+                                                                />
+                                                                {formik.touched[field] && formik.errors[field] ? (
+                                                                    <small className='text-red-500'>{formik.errors[field]}</small>
+                                                                ) : null}
+                                                            </div>
+                                                        ))}
                                                         <div className='mb-6'>
-                                                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Name</label>
-                                                            <input type="name"
-                                                                onChange={formik.handleChange} value={formik.values.name}
-                                                                name="name"
-                                                                id="name"
-                                                                placeholder="Your Name"
-                                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
-                                                            {formik.touched.name && formik.errors.name ? (
-                                                                <small className='text-red-500'>{formik.errors.name}</small>
-                                                            ) : null}
-                                                        </div>
-                                                        <div className='mb-6'>
-                                                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Email</label>
-                                                            <input type="email"
-                                                                onChange={formik.handleChange} value={formik.values.email}
-                                                                name="email"
-                                                                id="email"
-                                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Email' />
-                                                            {formik.touched.email && formik.errors.email ? (
-                                                                <small className='text-red-500'>{formik.errors.email}</small>
-                                                            ) : null}
-                                                        </div>
-                                                        <div className='mb-6'>
-                                                            <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Your Number</label>
-                                                            <input type="tel"
-                                                                onChange={formik.handleChange} value={formik.values.number}
-                                                                name="number"
-                                                                id="Number"
-                                                                onBlur={formik.handleBlur}
-                                                                onInput={(e) => {
-                                                                    e.target.value = e.target.value.replace(/\D/g, "");
-                                                                }}
-                                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your Number' />
-                                                            {formik.touched.number && formik.errors.number ? (
-                                                                <small className='text-red-500'>{formik.errors.number}</small>
-                                                            ) : null}
-                                                        </div>
-                                                        <div className='mb-6'>
-                                                            <label htmlFor="number" className="block mb-2 text-sm font-medium text-[#522ED3]">Whatsapp Number</label>
-                                                            <input type="tel"
-                                                                onChange={formik.handleChange} value={formik.values.whatsapp_number}
-                                                                name="whatsapp_number"
-                                                                id="Number"
-                                                                onBlur={formik.handleBlur} // تشغيل التحقق عند فقدان التركيز
-                                                                onInput={(e) => {
-                                                                    e.target.value = e.target.value.replace(/\D/g, "");
-                                                                }}
-                                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='whatsapp Number' />
-                                                            {formik.touched.whatsapp_number && formik.errors.whatsapp_number ? (
-                                                                <small className='text-red-500'>{formik.errors.whatsapp_number}</small>
-                                                            ) : null}
-                                                        </div>
-                                                        <div className='mb-6'>
-                                                            <label htmlFor="division" className="block mb-2 text-sm font-medium text-[#522ED3]">Artist Division</label>
-                                                            <select id="Division"
+                                                            <label htmlFor="division" className="block mb-2 text-sm font-medium text-[#522ED3]">
+                                                                {t("form.division")}
+                                                            </label>
+                                                            <select
+                                                                id="division"
                                                                 name="division"
-                                                                onChange={formik.handleChange} value={formik.values.division}
-                                                                className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5">
-                                                                <option value="">Select Division</option>
-                                                                <option value="Mahraganat">Mahraganat</option>
-                                                                <option value="rap">Rap</option>
-                                                                <option value="pop">pop</option>
-                                                                <option value="jazz">jazz</option>
-                                                                <option value="rock">rock</option>
+                                                                onChange={formik.handleChange}
+                                                                value={formik.values.division}
+                                                                className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5"
+                                                            >
+                                                                <option value="">{t("form.select_division")}</option>
+                                                                {["Mahraganat", "rap", "pop", "jazz", "rock"].map((genre) => (
+                                                                    <option key={genre} value={genre}>{t(`genres.${genre}`)}</option>
+                                                                ))}
                                                             </select>
-                                                            {formik.touched.division && formik.errors.division ? (
-                                                                <small className='text-red-500'>{formik.errors.division}</small>
-                                                            ) : null}
-
-                                                        </div>
-                                                        <div className='mb-6'>
-                                                            <label htmlFor="social_links" className="block mb-2 text-sm font-medium text-[#522ED3]">Social media links</label>
-                                                            <input type="text"
-                                                                onChange={formik.handleChange} value={formik.values.social_links}
-                                                                name="social_links"
-                                                                id="links"
-                                                                className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='Your social media links' />
-                                                            {formik.touched.social_links && formik.errors.social_links ? (
-                                                                <small className='text-red-500'>{formik.errors.social_links}</small>
-                                                            ) : null}
-                                                        </div>
-                                                        <div className='mb-6'>
-                                                            <label htmlFor="details" className="block mb-2 text-sm font-medium text-[#522ED3]">More Details</label>
-                                                            <input type="text"
-                                                                onChange={formik.handleChange} value={formik.values.details}
-                                                                name="details"
-                                                                id="Details"
-                                                                className="border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='More Details' />
-                                                            {formik.touched.details && formik.errors.details ? (
-                                                                <small className='text-red-500'>{formik.errors.details}</small>
-                                                            ) : null}
                                                         </div>
                                                         <div className='mb-6'>
                                                             <label htmlFor="profile_image" className="block mb-2 text-sm font-medium text-[#522ED3]">
-                                                                Your Image
+                                                                {t("form.profile_image")}
                                                             </label>
                                                             <input
                                                                 type="file"
                                                                 accept="image/*"
                                                                 onChange={(e) => {
                                                                     const file = e.target.files[0];
-                                                                    setImage(file);
                                                                     formik.setFieldValue("profile_image", file);
                                                                     const reader = new FileReader();
-                                                                    reader.onload = () => {
-                                                                        setImagePreview(reader.result);
-                                                                    };
+                                                                    reader.onload = () => setImagePreview(reader.result);
                                                                     reader.readAsDataURL(file);
                                                                 }}
                                                                 name="profile_image"
-                                                                id="image"
                                                                 className="border border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full py-10 px-2.5 rounded-2xl text-center"
                                                             />
                                                             {imagePreview && (
@@ -587,17 +547,19 @@ const JoinUs = () => {
                                                                     <img src={imagePreview} alt="Preview" className="w-32 h-32 object-cover rounded-lg mx-auto" />
                                                                 </div>
                                                             )}
-                                                            {formik.touched.profile_image && formik.errors.profile_image ? (
-                                                                <small className='text-red-500'>{formik.errors.profile_image}</small>
-                                                            ) : null}
                                                         </div>
                                                         <div className='flex items-center mt-4'>
                                                             <input type="checkbox" id="terms" checked={agree} onChange={() => setAgree(!agree)} className='mr-2' />
                                                             <label htmlFor="terms" className='text-sm'>
-                                                                أوافق على <a href={`/Terms/${selectedType}`} className='text-[#2F00AC] underline'>الشروط والأحكام</a>
+                                                                {t("form.agree_to")} <a href={`/Terms`} className='text-[#2F00AC] underline'>{t("form.terms")}</a>
                                                             </label>
                                                         </div>
-                                                        <button type="submit" className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center">Send Now</button>
+                                                        <button
+                                                            type="submit"
+                                                            className="w-full bg-[#522ED3] text-white border border-[#522ED3] hover:bg-white hover:text-[#522ED3] font-bold rounded-full px-6 py-3 text-center"
+                                                        >
+                                                            {t("form.submit")}
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>

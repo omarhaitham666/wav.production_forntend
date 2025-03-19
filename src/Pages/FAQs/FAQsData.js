@@ -217,17 +217,5 @@ export const Data = [
         id: 12,
         question: 'faq.q12',
         answers: ['faq.a12.0', 'faq.a12.1', 'faq.a12.2']
-    },
-    {
-        id: 13,
-        answers: ['tips.0', 'tips.1', 'tips.2']
-    },
-    {
-        id: 14,
-        answers: ['legal_warning.0', 'legal_warning.1', 'legal_warning.2']
-    },
-    {
-        id: 15,
-        answers: ["not_found"]
     }
 ];

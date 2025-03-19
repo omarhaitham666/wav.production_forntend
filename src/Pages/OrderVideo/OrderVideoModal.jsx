@@ -119,7 +119,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
 
 
     return (
-        <div className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full">
+        <div className="flex bg-[#000000bf] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[1050] justify-center items-center w-full md:inset-0 h-full max-h-full">
             <div className="relative p-4 w-full md:w-1/2 max-h-full">
                 <div className="relative bg-white rounded-3xl shadow-sm">
                     <div className="flex items-center justify-between p-4 md:p-5">
@@ -146,7 +146,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                     onChange={formik.handleChange} value={formik.values.name}
                                     name="name"
                                     id="name"
-                                    placeholder="Your Name"
+                                    placeholder={t("Your_name")}
                                     className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" />
                                 {formik.touched.name && formik.errors.name ? (
                                     <small className='text-red-500'>{formik.errors.name}</small>
@@ -156,7 +156,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#522ED3]">{t("Your_email")}</label>
                                 <input type="email"
                                     onChange={formik.handleChange} value={formik.values.email}
-                                    name="email"
+                                    name={t("Your_email")}
                                     id="email"
                                     className=" border-b border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5" placeholder='YourMail@gmail.com' />
                                 {formik.touched.email && formik.errors.email ? (
@@ -180,7 +180,7 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
                                     onChange={formik.handleChange} value={formik.values.mas}
                                     name="mas"
                                     id="mas"
-                                    className="border rounded-xl border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5 h-[150px] resize-y" placeholder='Write your Text' />
+                                    className="border rounded-xl border-[#522ED3] text-gray-900 text-sm outline-b focus-visible:outline-0 block w-full p-2.5 h-[150px] resize-y" placeholder={t("Write_your_Text")} />
                             </div>
 
                             <div className='flex items-center mt-4'>

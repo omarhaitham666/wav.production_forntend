@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { getArtists } from '../../../actions/getArtists';
 import { getTrendingAlbums } from '../../../actions/getSongs';
+import { useTranslation } from 'react-i18next';
 const PlayingList = ({ filters }) => {
     const { loadSong, togglePlayPause, playing, currentSong, playSong, PlayingList } = useAudioPlayer();
 
@@ -167,6 +168,8 @@ const PlayingList = ({ filters }) => {
         setSongs(filteredSongs);
 
     }, []);
+        const { t } = useTranslation();
+    
 
 
     return (
@@ -180,8 +183,8 @@ const PlayingList = ({ filters }) => {
                 </div>
                 : filtered === "All" ?
                     <>
-                        <div className='slider-container relative'>
-                            <h2 className='text-start text-3xl font-bold mb-12'>artists</h2>
+                        <div className='slider-container relative'  dir='ltr'>
+                            <h2 className='text-start text-3xl font-bold mb-12'>{t("artists")}</h2>
                             <Slider {...settings}>
                                 {
                                     artists?.map((artist) => {
@@ -206,8 +209,8 @@ const PlayingList = ({ filters }) => {
                                 }
                             </Slider>
                         </div>
-                        <div className='slider-container relative mt-16'>
-                            <h2 className='text-start text-3xl font-bold mb-12'>Albums</h2>
+                        <div className='slider-container relative mt-16'  dir='ltr'>
+                            <h2 className='text-start text-3xl font-bold mb-12'>{t("Albums")}</h2>
                             {/* <Slider {...settings}>
                                 {
                                     albums?.AlbumList?.map((i) => {
@@ -262,8 +265,8 @@ const PlayingList = ({ filters }) => {
                                 ))}
                             </Slider>
                         </div>
-                        <div className='slider-container relative mt-16'>
-                            <h2 className='text-start text-3xl font-bold mb-12'>songs</h2>
+                        <div className='slider-container relative mt-16'  dir='ltr'>
+                            <h2 className='text-start text-3xl font-bold mb-12'>{t("songs")}</h2>
                             <Slider {...settings}>
                                 {songs?.map((song) => (
                                     <div key={song.id}>

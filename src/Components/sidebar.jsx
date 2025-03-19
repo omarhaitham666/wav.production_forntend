@@ -50,7 +50,7 @@ const Sidebar = ({ filters, setFilters }) => {
             </div>
 
             <div className='py-4 border-b border-[#959595]'>
-                <h3 className="text-2xl font-bold text-[#30B797]">{t("genres")}</h3>
+                <h3 className="text-2xl font-bold text-[#30B797]">{t("genress")}</h3>
                 <div className='text-lg flex flex-wrap items-center gap-3 p-0 pt-5'>
                     <button onClick={() => setGenresFilter('')} className={`border hover:border-[#30B797] transition-all py-2 px-4 rounded-full ${genresFilter === '' ? 'border-[#30B797]' : 'border-[#252525]'}`}>
                         {t("all_genres")}

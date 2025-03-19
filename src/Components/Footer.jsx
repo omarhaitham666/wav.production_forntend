@@ -12,9 +12,9 @@ function Footer() {
   const links = useLinksData();
 
   return (
-    <footer className="bg-[#0A142F]">
+    <footer className="bg-[#0A142F] mb-12">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
+        <div className="md:flex md:justify-between gap-6">
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center justify-center md:justify-normal">
               <img src={logo} className="w-48 md:w-full me-3" alt="wav.Logo" />
@@ -43,7 +43,7 @@ function Footer() {
                   <a href="/Terms-of-Use" className="hover:underline">{t("terms_of_use")}</a>
                 </li>
                 <li>
-                  <a href="/Policy" className="hover:underline">{t("policy")}</a>
+                  <a href="/Policy" className="hover:underline">{t("policyf")}</a>
                 </li>
               </ul>
             </div>

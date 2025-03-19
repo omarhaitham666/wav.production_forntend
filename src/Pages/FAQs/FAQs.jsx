@@ -22,8 +22,8 @@ const FAQs = () => {
             </Helmet>
             <div className='py-20'>
                 <div className='container mx-auto'>
-                    <h2 className='text-4xl font-bold text-center mb-4'>{t('faq.heading')}</h2>
-                    <p className='text-center text-lg'>{t('faq.description')}</p>
+                    <h2 className='text-4xl font-bold text-center mb-4'>{t('faq_title')}</h2>
+                    <p className='text-center text-lg'>{t('faq_questions')}</p>
                     <div className='flex flex-col mt-14 gap-6 items-center'>
                         {Data.map((item) => (
                             <div key={item.id} id="accordion-collapse" className='bg-[#4D39CF] rounded-2xl w-full'>
@@ -36,7 +36,7 @@ const FAQs = () => {
                                     </button>
                                 </h2>
                                 <div id="accordion-collapse-body" className={`${openItems[item.id] ? 'block' : 'hidden'} p-4 transition-all`}>
-                                <ul className='text-white text-lg pl-8'>
+                                    <ul className='text-white text-lg pl-8'>
                                         {item.answers.map((answer, index) => (
                                             <li key={index} className='mb-2'>{t(answer)}</li>
                                         ))}
@@ -45,13 +45,24 @@ const FAQs = () => {
                             </div>
                         ))}
                         <div className='flex flex-col items-center pt-10 md:w-2/3'>
-                            <h2 className='text-black font-bold text-3xl mb-6'>{t('faq.still_have_question')}</h2>
-                            <p className='text-black text-lg mb-10'>{t('faq.assistance_text')}</p>
+                            <div className='mb-6 text-center font-bold'>
+                                <h2 className='text-black font-bold text-3xl mb-6'>{t('tipsh')}</h2>
+                                {t("tips", { returnObjects: true }).map((tip, index) => (
+                                    <p className='text-black text-lg mb-2' key={index}>{tip}</p>
+                                ))}
+                            </div>
+                            <div className='mb-6 text-center font-bold'>
+                            <h2 className='text-black font-bold text-3xl mb-6'>{t('legal_warningh')}</h2>
+                            {t("legal_warning", { returnObjects: true }).map((legal, index) => (
+                                <p className='text-black text-lg mb-2' key={index}>{legal}</p>
+                            ))}
+                            </div>
+                            <p className='text-center mb-6 text-lg'>{t("not_found")}</p>
                             <a
                                 href="/Contact"
                                 className="text-2xl px-10 py-4 rounded-2xl cursor-pointer font-bold bg-[#30B797] text-white border border-[#30B797] hover:bg-white hover:text-[#30B797] transition"
                             >
-                                {t('faq.contact_us')}
+                                {t('contact_us')}
                             </a>
                         </div>
                     </div>

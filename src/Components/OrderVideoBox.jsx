@@ -10,7 +10,7 @@ const OrderVideoBox = (props) => {
     return (
         <div key={props.key} className='p-4 bg-white border border-[#00000026] shadow-2xl rounded-2xl'>
             <div className='flex justify-between items-start mb-4 relative'>
-                <Link to={`/artists/${props.artistName}`}>
+                <Link to={`/Stars/${props.artistName}`}>
                     <img src={props.image} className='rounded-full w-16 h-16' alt="" />
                 </Link>
                 

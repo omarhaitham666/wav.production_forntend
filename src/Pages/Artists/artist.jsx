@@ -236,8 +236,8 @@ const Artist = () => {
                                     ))}
                                 </Slider>
                             </div>
-                            <div className='slider-container relative mt-16'>
-                                <h2 className='text-start text-3xl font-bold mb-12'>Trending Songs</h2>
+                            <div className='slider-container relative mt-16' dir='ltr'>
+                                <h2 className='text-start text-3xl font-bold mb-12'>{t("Trending Songs")}</h2>
                                 <Slider {...settings}>
                                     {
                                         trendingSongs?.map((song) => {
@@ -273,8 +273,8 @@ const Artist = () => {
                                     }
                                 </Slider>
                             </div>
-                            <div className='slider-container relative mt-16'>
-                                <h2 className='text-start text-3xl font-bold mb-12'>Trending Albums</h2>
+                            <div className='slider-container relative mt-16'  dir='ltr'>
+                                <h2 className='text-start text-3xl font-bold mb-12'>{t("Trending Albums")}</h2>
                                 <Slider {...settings}>
                                     {trendingAlbums.map((album) => (
                                         <div key={album.id}>
