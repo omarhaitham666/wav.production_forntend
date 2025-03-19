@@ -35,7 +35,7 @@ export const AudioPlayerProvider = ({ children }) => {
 
     //set display
 
-    const [displayPlayer,isdisplayPlayer] = useState(false);
+    const [displayPlayer,setDisplayPlayer] = useState(false);
 
     useEffect(() => {
         if (!waveformRef.current) return;
@@ -130,6 +130,7 @@ export const AudioPlayerProvider = ({ children }) => {
         setPlaylist([song]);
         setCurrentIndex(0);
         loadSong(song.url);
+        setDisplayPlayer(true)
         console.log(song)
     };
 
