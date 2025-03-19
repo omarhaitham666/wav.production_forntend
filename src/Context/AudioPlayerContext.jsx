@@ -33,6 +33,9 @@ export const AudioPlayerProvider = ({ children }) => {
     const [volume, setVolume] = useState(0.5);
     const [isLoading, setIsLoading] = useState(false);
 
+    //set display
+
+    const [displayPlayer,isdisplayPlayer] = useState(false);
 
     useEffect(() => {
         if (!waveformRef.current) return;
@@ -187,7 +190,8 @@ export const AudioPlayerProvider = ({ children }) => {
             {children}
             <div className={`${isInFullScreen ? "flex top-0 h-screen flex-col justify-end pt-44 pb-56" : "flex-row bg-[#1D212E]"} fixed z-[1000] bottom-0 left-0 w-full shadow-lg p-4 flex  gap-8 text-white `}
                 style={{
-                    background: currentSong ? currentSong.imgScr : "#1D212E"
+                    background: currentSong ? currentSong.imgScr : "#1D212E",
+                    display: displayPlayer?'block':'none'
                 }}
             >
                 <>
