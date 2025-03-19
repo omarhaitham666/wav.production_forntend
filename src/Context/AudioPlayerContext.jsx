@@ -191,7 +191,7 @@ export const AudioPlayerProvider = ({ children }) => {
             <div className={`${isInFullScreen ? "flex top-0 h-screen flex-col justify-end pt-44 pb-56" : "flex-row bg-[#1D212E]"} fixed z-[1000] bottom-0 left-0 w-full shadow-lg p-4 flex  gap-8 text-white `}
                 style={{
                     background: currentSong ? currentSong.imgScr : "#1D212E",
-                    display: displayPlayer?'block':'none'
+                    display: displayPlayer?'flex':'none'
                 }}
             >
                 <>
