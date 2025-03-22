@@ -133,7 +133,7 @@ const PlayingList = ({ filters }) => {
         ],
     };
 
-    console.log(filters)
+    // console.log(filters)
 
 
     useEffect(() => {

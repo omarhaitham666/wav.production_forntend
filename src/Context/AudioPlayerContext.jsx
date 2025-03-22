@@ -83,7 +83,7 @@ export const AudioPlayerProvider = ({ children }) => {
 
     useEffect(() => {
         if (playlist.length > 0 && currentIndex >= 0 && wavesurfer.current) {
-            loadSong(playlist[currentIndex]?.url);
+            loadSong(playlist[currentIndex]?.song_url);
         }
     }, [currentIndex]);
 
@@ -121,7 +121,7 @@ export const AudioPlayerProvider = ({ children }) => {
 
     useEffect(() => {
         if (playlist.length > 0 && currentIndex >= 0) {
-            loadSong(playlist[currentIndex]?.url);
+            loadSong(playlist[currentIndex]?.song_url);
         }
     }, [playlist, currentIndex]);
 
@@ -129,7 +129,7 @@ export const AudioPlayerProvider = ({ children }) => {
     const playSong = (song) => {
         setPlaylist([song]);
         setCurrentIndex(0);
-        loadSong(song.url);
+        loadSong(song.song_url);
         setDisplayPlayer(true)
         console.log(song)
     };
@@ -137,7 +137,7 @@ export const AudioPlayerProvider = ({ children }) => {
     const playPlaylist = (songs) => {
         setPlaylist(songs);
         setCurrentIndex(0);
-        loadSong(songs[0].url);
+        loadSong(songs[0].song_url);
     };
 
     const togglePlayPause = () => {
@@ -209,10 +209,10 @@ export const AudioPlayerProvider = ({ children }) => {
                     </div>
 
                     <div className={`${isInFullScreen ? "-order-1 flex-col md:flex-row" : "flex-row"} transition-opacity duration-500 ease-in-out opacity-100 flex items-center gap-3`}>
-                        <img src={currentSong ? currentSong.imgScr : logo} className={`${isInFullScreen ? 'w-48' : "w-0 sm:w-32"} rounded-2xl shadow-lg`} alt="song Img" />
+                        <img src={currentSong ? currentSong.cover_url : logo} className={`${isInFullScreen ? 'w-48' : "w-0 sm:w-32"} rounded-2xl shadow-lg`} alt="song Img" />
                         <div className="flex flex-col gap-2">
-                            <h1 className={`${isInFullScreen ? "lg:text-3xl md:text-2xl text-xl" : "text-lg"} font-bold line-clamp-2 mt-2`}>{currentSong ? currentSong.name : "لا يحتوي المشغل علي اي اغنية"}</h1>
-                            <p className={`${isInFullScreen ? "text-xl" : "text-sm"} text-gray-500 truncate`}>{currentSong ? currentSong.artist : "هنا اسم الفنان"}</p>
+                            <h1 className={`${isInFullScreen ? "lg:text-3xl md:text-2xl text-xl" : "text-lg"} font-bold line-clamp-2 mt-2`}>{currentSong ? currentSong.title : "لا يحتوي المشغل علي اي اغنية"}</h1>
+                            <p className={`${isInFullScreen ? "text-xl" : "text-sm"} text-gray-500 truncate`}>{currentSong ? currentSong.artist_name : "هنا اسم الفنان"}</p>
                         </div>
                     </div>
 
@@ -239,7 +239,7 @@ export const AudioPlayerProvider = ({ children }) => {
                             <FaRedo />
                         </button>
                         <button onClick={() => {
-                            downloadSong(currentSong.link)
+                            downloadSong(currentSong.song_url)
                         }} className="p-3 hover:text-[#30B797] transition-all cursor-pointer">
                             <FaDownload />
                         </button>
