@@ -43,8 +43,8 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
 
             if (!agree) {
                 Swal.fire({
-                    title: 'خطأ',
-                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                    title: t("errorM"),
+                    text: t("agree"),
                     icon: 'error',
                 });
                 return;
@@ -52,10 +52,10 @@ const OrderVideoModal = ({ orderInfo, handleClose }) => {
 
             if (!token) {
                 Swal.fire({
-                    title: "يجب تسجيل الدخول",
-                    text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
-                    icon: "warning",
-                    confirmButtonText: "تسجيل الدخول",
+                    title: t("plaseSignIn"),
+                    text: t("you must sign in first"),
+                    icon: 'error',
+                    confirmButtonText: t("SignIn"),
                 }).then(() => {
                     window.location.href = "/Register";
                 });

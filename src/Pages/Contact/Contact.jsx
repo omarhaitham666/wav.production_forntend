@@ -25,7 +25,13 @@ const Contact = () => {
             .min(15, t("validation.minLength"))
             .email(t("validation.correctEmail"))
             .required(t("validation.required")),
+        
+        phoneNumber: Yup.string()
+            .matches(/^(010|011|012|015)[0-9]{8}$/, t("validation.validPhone"))
+            .test("isNumeric", t("validation.onlyNumbers"), (value) => /^\d+$/.test(value))
+            .required(t("validation.required")),
     });
+    
 
     const formik = useFormik({
         initialValues: initValues,
@@ -102,6 +108,20 @@ const Contact = () => {
                                             <label htmlFor="lastName" className="block mb-2 text-sm font-bold text-black">{t("contact.lastName")}</label>
                                             <input type="text" name="lastName" id="lastName"
                                                 onChange={formik.handleChange} value={formik.values.lastName}
+                                                className="border-b border-[#8D8D8D] text-[#8D8D8D] text-sm block w-full p-2.5" required />
+                                        </div>
+                                    </div>
+                                    <div className='flex gap-10 flex-col md:flex-row'>
+                                        <div className='mb-6 md:w-1/2 w-full'>
+                                            <label htmlFor="email" className="block mb-2 text-sm font-bold text-black">{t("contact.Email")}</label>
+                                            <input type="email" name="email" id="email"
+                                                onChange={formik.handleChange} value={formik.values.email}
+                                                className="border-b border-[#8D8D8D] text-[#8D8D8D] text-sm block w-full p-2.5" required />
+                                        </div>
+                                        <div className='mb-6 md:w-1/2 w-full'>
+                                            <label htmlFor="phone" className="block mb-2 text-sm font-bold text-black">{t("contact.phone")}</label>
+                                            <input type="text" name="phoneNumber" id="phone"
+                                                onChange={formik.handleChange} value={formik.values.phoneNumber}
                                                 className="border-b border-[#8D8D8D] text-[#8D8D8D] text-sm block w-full p-2.5" required />
                                         </div>
                                     </div>

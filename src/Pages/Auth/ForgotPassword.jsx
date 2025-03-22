@@ -45,9 +45,9 @@ const ForgotPassword = () => {
         const message = response.data.message;
         if(message){
           Swal.fire({
-            title: 'نجاح',
-            text: 'تم التسجيل بنجاح',
-            icon: 'success',
+                        title: t("successSignIn"),
+                        text: t("you have been signed in"),
+                        icon: "success",
           }).then(() => {
             localStorage.setItem("token", token); 
             navigate("/ResetPassword");
@@ -56,8 +56,7 @@ const ForgotPassword = () => {
           });
         }else {
           Swal.fire({
-            title: 'خطأ',
-            text:"حدث خطا في التسجيل",
+            title: t("errorM"),
             icon: 'error',
           });
         }
@@ -76,7 +75,7 @@ const ForgotPassword = () => {
         }
 
         Swal.fire({
-          title: 'خطأ',
+          title: t("errorM"),
           text: message,
           icon: 'error',
         });

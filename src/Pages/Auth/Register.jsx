@@ -57,8 +57,8 @@ function Register() {
 
       if (!agree) {
         Swal.fire({
-          title: 'خطأ',
-          text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+          title: t("errorM"),
+          text: t("agree"),
           icon: 'error',
         });
         return;
@@ -78,8 +78,8 @@ function Register() {
         localStorage.setItem("token", token);
         setToken(token);
         Swal.fire({
-          title: 'نجاح',
-          text: 'تم التسجيل بنجاح',
+          title: t("successM"),
+          text: t("successSignIn"),
           icon: 'success',
         }).then(() => {
           localStorage.setItem("token", token);
@@ -101,7 +101,7 @@ function Register() {
         }
 
         Swal.fire({
-          title: 'خطأ',
+          title: t("errorM"),
           text: message,
           icon: 'error',
         });

@@ -13,6 +13,8 @@ function Header({ isScrolled }) {
   const { token, user } = useContext(AppContext);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
+  const [openUserDrop, setOpenUserDrop] = useState(false);
+
 
 
 
@@ -40,24 +42,23 @@ function Header({ isScrolled }) {
             <ul className={`lg:flex flex-wrap items-center list-none ml-auto hidden ${isNavOpen ? "showMenuNav" : "hideMenuNav"}`}>
               {links?.map((link) => {
                 return (
-                  <li key={link.id} className="nav-item relative text-white">
+                  <li key={link.id} className={`nav-item relative ${isScrolled === false ? "lg:text-white" : "lg:text-black"} text-white`}>
                     {link.menu ? (
                       <div
                         onMouseEnter={() => setMenuOpen(true)}
                         onMouseLeave={() => setMenuOpen(false)}
                         className="relative"
                       >
-                        <button className={`px-3 py-2 text-lg font-medium leading-5 ${isScrolled === false ? "text-white" : "text-black"} hover:text-gray-300 ${link.current ? 'text-gray-300' : ''}`}>
+                        <button className={`px-3 py-2 text-lg font-medium leading-5 hover:text-gray-300 ${link.current ? 'text-gray-300' : ''}`}>
                           {link.title}
                         </button>
-
                         {isMenuOpen && (
                           <div className="lg:absolute top-full left-0 mt-2 lg:bg-white shadow-lg rounded-lg w-72 text-lg">
                             <ul className="flex flex-col pt-2">
                               {link.menu.map((submenu) => (
                                 <li
                                   key={submenu.id}
-                                  className="relative"
+                                  className="relative lg:text-black text-white"
                                   onMouseEnter={() => setOpenSubMenu(submenu.id)}
                                   onMouseLeave={() => setOpenSubMenu(null)}
                                 >
@@ -106,43 +107,67 @@ function Header({ isScrolled }) {
                         )}
                       </div>
                     ) : (
-                      <Link to={link.to} className={`px-3 py-2 text-lg font-medium leading-5 ${isScrolled === false ? "text-white" : "text-black"} hover:text-gray-300 ${link.current ? 'text-gray-300' : ''}`}>
+                      <Link to={link.to} className={`px-3 py-2 text-lg font-medium leading-5 ${link.current ? 'text-gray-300' : ''}`}>
                         {link.title}
                       </Link>
                     )}
                   </li>
                 )
               })}
-
-              {user ?
-                <li className="nav-item relative">
-                  <Link to={"/Profile"} className="w-14 h-14 rounded-full">
-                    {/* <img src={user.img} alt="user" /> */}
-                  </Link>
-                </li>
-                : <>
-                  <div className={`flex flex-row gap-4 ${isNavOpen ? "block" : "hidden"}`}>
-                    <Link to={'/Login'} className="text-[#2F00AC] bg-[#E6F6F2] font-bold border border-[#E6F6F2] hover:bg-transparent hover:text-[#E6F6F2] py-3 rounded-xl px-6">
-                      {t("login")}
-                    </Link>
-                    <Link to={'/Register'} className="text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] hover:bg-transparent py-3 rounded-xl px-6">
-                      {t("SignUp")}
-                    </Link>
-                  </div>
-                </>}
             </ul>
             {isNavOpen ?
               <span className='absolute top-[80px] right-20 font-bold text-4xl cursor-pointer text-white z-10' onClick={() => setIsNavOpen(false)}><MdClose /></span> : ""}
           </div>
           <div className={`flex flex-row gap-8`}>
-            <div className={`hidden flex-row gap-4 lg:flex`}>
-              <Link to={'/Login'} className={`${isScrolled ? "hover:bg-[#2F00AC] hover:text-[#E6F6F2]" : "hover:bg-transparent hover:text-[#2F00AC]"} text-[#2F00AC] bg-[#E6F6F2] font-bold border border-[#E6F6F2]  py-3 rounded-xl px-6`}>
-                {t("login")}
-              </Link>
-              <Link to={'/Register'} className={`${isScrolled ? "hover:text-[#2F00AC]" : ""} hover:bg-transparent text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] py-3 rounded-xl px-6`}>
-                {t("SignUp")}
-              </Link>
-            </div>
+
+            {token ?
+              <li className="nav-item relative p-2 w-10 h-10 border bg-white border-black flex items-center justify-center rounded-full"
+                onClick={
+                  () => {
+                    setOpenUserDrop(!openUserDrop)
+                  }
+                }>
+                <img src={logo} className='' alt="user" />
+                {openUserDrop ?
+                  <div id="dropdown" class="z-10 absolute top-10 flex flex-col bg-white divide-y divide-gray-100 rounded-lg shadow-sm px-4">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                      <li>
+                        <h2 className='font-bold mb-4 text-2xl'>
+                          {t("Hello")} {user?.username}
+                        </h2>
+                      </li>
+                      <li>
+                        <button
+                          onClick={
+                            () => {
+                              localStorage.removeItem('token');
+                              window.location.href = "/";
+                            }
+                          }
+                          class="text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] py-2 rounded-xl px-6">{t("Signout")}</button>
+                      </li>
+                    </ul>
+                  </div>
+                  :
+                  ""}
+
+              </li>
+              : <>
+                <div className={`flex flex-row gap-4 ${isNavOpen ? "block" : "hidden"}`}>
+                  <Link to={'/Login'} className="text-[#2F00AC] bg-[#E6F6F2] font-bold border border-[#E6F6F2] hover:bg-transparent hover:text-[#E6F6F2] py-3 rounded-xl px-6">
+                    {t("login")}
+                  </Link>
+                  <Link to={'/Register'} className="text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] hover:bg-transparent py-3 rounded-xl px-6">
+                    {t("SignUp")}
+                  </Link>
+                </div>
+              </>}
+            <button
+              onClick={toggleLanguage}
+              className="text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] py-2 rounded-xl px-6"
+            >
+              {i18n.language === "en" ? "Ar" : "EN"}
+            </button>
             <button className="lg:hidden text-[#2F00AC] text-3xl font-bold border border-[#2F00AC] hover:bg-transparent hover:text-[#E6F6F2] py-2 px-4 rounded-xl"
               onClick={
                 () => setIsNavOpen(!isNavOpen)
@@ -153,12 +178,6 @@ function Header({ isScrolled }) {
               }
             </button>
           </div>
-          <button
-            onClick={toggleLanguage}
-            className="text-[#E6F6F2] bg-[#2F00AC] font-bold border border-[#2F00AC] py-2 rounded-xl px-6"
-          >
-            {i18n.language === "en" ? "Ar" : "EN"}
-          </button>
         </div>
       </nav>
     </header>

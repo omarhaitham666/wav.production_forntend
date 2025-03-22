@@ -69,8 +69,8 @@ const ResetPassword = () => {
         localStorage.setItem("token", token);
         setToken(token);
         Swal.fire({
-          title: 'نجاح',
-          text: 'تم التسجيل بنجاح',
+          title: t("successM"),
+          text: t("successSignIn"),
           icon: 'success',
         }).then(() => {
           localStorage.setItem("token", token);
@@ -92,7 +92,7 @@ const ResetPassword = () => {
         }
 
         Swal.fire({
-          title: 'خطأ',
+          title: t("errorM"),
           text: message,
           icon: 'error',
         });

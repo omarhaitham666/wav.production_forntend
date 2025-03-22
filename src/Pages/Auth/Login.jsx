@@ -21,7 +21,6 @@ const Login = () => {
 
 
   const initValues = {
-
     email: "",
     password: "",
   };
@@ -29,7 +28,6 @@ const Login = () => {
 
   const inputValidation = Yup.object({
     email: Yup.string()
-      .min(15, "يجب أن لا يقل عن 15 حرف")
       .email("enter the correct email")
       .required("this is invalid"),
     password: Yup.string()
@@ -54,9 +52,9 @@ const Login = () => {
         // localStorage.setItem("token", token);
         if (token) {
           Swal.fire({
-            title: 'نجاح',
-            text: 'تم التسجيل بنجاح',
-            icon: 'success',
+                        title: t("successSignIn"),
+                        text: t("you have been signed in"),
+                        icon: "success",
           }).then(() => {
             localStorage.setItem("token", token);
             navigate("/");
@@ -65,8 +63,8 @@ const Login = () => {
           });
         } else {
           Swal.fire({
-            title: 'خطأ',
-            text: "حدث خطا في التسجيل",
+            title: t("errorM"),
+            text: t("errorSignIn"),
             icon: 'error',
           });
         }
@@ -85,7 +83,7 @@ const Login = () => {
         }
 
         Swal.fire({
-          title: 'خطأ',
+          title: t("errorM"),
           text: message,
           icon: 'error',
         });

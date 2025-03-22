@@ -376,10 +376,10 @@ const Services = () => {
 
             if (!token) {
                 Swal.fire({
-                    title: "يجب تسجيل الدخول",
-                    text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
-                    icon: "warning",
-                    confirmButtonText: "تسجيل الدخول",
+                    title: t("plaseSignIn"),
+                    text: t("you must sign in first"),
+                    icon: 'error',
+                    confirmButtonText: t("SignIn"),
                 }).then(() => {
                     window.location.href = "/Register";
                 });

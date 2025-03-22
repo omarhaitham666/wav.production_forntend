@@ -28,21 +28,13 @@ const MusicDistribution = () => {
         onSubmit: async (values) => {
             const token = localStorage.getItem("token");
 
-            if (!agree) {
-                Swal.fire({
-                    title: 'خطأ',
-                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
-                    icon: 'error',
-                });
-                return;
-            }
-
             if (!token) {
                 Swal.fire({
-                    title: "يجب تسجيل الدخول",
-                    text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
+
+                    title: t("MustSignIn"),
+                    text: t("MustSignInBefor"),
                     icon: "warning",
-                    confirmButtonText: "تسجيل الدخول",
+                    confirmButtonText: t("SignIn")
                 }).then(() => {
                     window.location.href = "/Register";
                 });
@@ -61,6 +53,7 @@ const MusicDistribution = () => {
 
                 if (response.status === 200 || response.status === 201) {
                     Swal.fire({
+                        
                         title: "تم التسجيل بنجاح",
                         text: "تم إرسال البيانات بنجاح",
                         icon: "success",
@@ -109,25 +102,25 @@ const MusicDistribution = () => {
 
             if (!agree) {
                 Swal.fire({
-                    title: 'خطأ',
-                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                    title: t("plaseAcceptTerms"),
+                    text: t("you must accept terms and conditions"),
                     icon: 'error',
                 });
                 return;
             }
 
-            // if (!token) {
-            //     Swal.fire({
-            //         title: "يجب تسجيل الدخول",
-            //         text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
-            //         icon: "warning",
-            //         confirmButtonText: "تسجيل الدخول",
-            //     }).then(() => {
-            //         window.location.href = "/Register";
-            //     });
+            if (!token) {
+                Swal.fire({
+                    title: t("plaseSignIn"),
+                    text: t("you must sign in first"),
+                    icon: 'error',
+                    confirmButtonText: t("SignIn"),
+                }).then(() => {
+                    window.location.href = "/Register";
+                });
 
-            //     return;
-            // }
+                return;
+            }
 
             try {
 
@@ -140,6 +133,7 @@ const MusicDistribution = () => {
 
                 if (response.status === 200 || response.status === 201) {
                     Swal.fire({
+                        
                         title: "تم التسجيل بنجاح",
                         text: "تم إرسال البيانات بنجاح",
                         icon: "success",

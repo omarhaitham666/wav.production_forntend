@@ -84,18 +84,18 @@
 //                 return;
 //             }
 
-//             if (!token) {
-//                 Swal.fire({
-//                     title: "يجب تسجيل الدخول",
-//                     text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
-//                     icon: "warning",
-//                     confirmButtonText: "تسجيل الدخول",
-//                 }).then(() => {
-//                     window.location.href = "/Register";
-//                 });
+// if (!token) {
+//     Swal.fire({
+//         title: t("plaseSignIn"),
+//         text: t("you must sign in first"),
+//         icon: 'error',
+//         confirmButtonText: t("SignIn"),
+//     }).then(() => {
+//         window.location.href = "/Register";
+//     });
 
-//                 return;
-//             }
+//     return;
+// }
 
 //             try {
 //                 const formData = new FormData();
@@ -449,10 +449,10 @@ const JoinUsVideoModal = ({ handleClose }) => {
 
             if (!token) {
                 Swal.fire({
-                    title: "يجب تسجيل الدخول",
-                    text: "يجب عليك تسجيل الدخول أولًا لمتابعة العملية.",
-                    icon: "warning",
-                    confirmButtonText: "تسجيل الدخول",
+                    title: t("plaseSignIn"),
+                    text: t("you must sign in first"),
+                    icon: 'error',
+                    confirmButtonText: t("SignIn"),
                 }).then(() => {
                     window.location.href = "/Register";
                 });
@@ -462,8 +462,8 @@ const JoinUsVideoModal = ({ handleClose }) => {
 
             if (!agree) {
                 Swal.fire({
-                    title: 'خطأ',
-                    text: 'يجب الموافقة على الشروط والأحكام قبل التسجيل',
+                    title: t("plaseAcceptTerms"),
+                    text: t("you must accept terms and conditions"),
                     icon: 'error',
                 });
                 return;
@@ -499,8 +499,8 @@ const JoinUsVideoModal = ({ handleClose }) => {
 
                 if (response.status === 200 || response.status === 201) {
                     Swal.fire({
-                        title: "تم التسجيل بنجاح",
-                        text: "تم إرسال البيانات بنجاح",
+                        title: t("successSignIn"),
+                        text: t("you have been signed in"),
                         icon: "success",
                     });
                     formik.resetForm();
@@ -517,15 +517,15 @@ const JoinUsVideoModal = ({ handleClose }) => {
                         });
                     } else {
                         Swal.fire({
-                            title: "خطأ",
+
+                            title: t("errorM"),
                             text: error.response.data.message || "حدث خطأ أثناء التسجيل",
                             icon: "error",
                         });
                     }
                 } else {
                     Swal.fire({
-                        title: "خطأ",
-                        text: "حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى لاحقًا.",
+                        title: t("errorM"),
                         icon: "error",
                     });
                 }

@@ -110,7 +110,7 @@ const RisingForm = () => {
                 }
 
                 Swal.fire({
-                    title: 'خطأ',
+                    icon: t("errorM"),
                     text: message,
                     icon: 'error',
                 });
