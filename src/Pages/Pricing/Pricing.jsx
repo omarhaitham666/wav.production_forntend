@@ -43,25 +43,36 @@ const Pricing = () => {
             },
         ],
         yearly: [
-            // {
-            //     name: 'basic_plan',
-            //     price: 99.99,
-            //     priceMonthly: 100,
-            //     features: ['feature_1', 'feature_2', 'feature_3'],
-            // },
-            // {
-            //     name: 'premium_plan',
-            //     price: 199.99,
-            //     priceMonthly: 200,
-            //     features: ['feature_4', 'feature_5', 'feature_6', 'feature_10'],
-            // },
-            // {
-            //     name: 'pro_plan',
-            //     price: 299.99,
-            //     priceMonthly: 300,
-            //     features: ['feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11'],
-            // }
-        ]
+            {
+                name: 'plans.starter',
+                price: 200,
+                priceMonthly: 20,
+                features: [
+                    'plans.features.content_protection',
+                    'plans.features.revenue_security',
+                    'plans.features.artist_platform_protection',
+                    'plans.features.artist_profile',
+                    'plans.features.real_job_opportunities',
+                    'plans.features.no_ads',
+                    'plans.features.easy_browsing',
+                ],
+            },
+            {
+                name: 'plans.pro_tune',
+                price: 425,
+                priceMonthly: 40,
+                features: [
+                    'plans.features.content_protection',
+                    'plans.features.revenue_security',
+                    'plans.features.artist_platform_protection',
+                    'plans.features.artist_profile',
+                    'plans.features.real_job_opportunities',
+                    'plans.features.exclusive_marketing',
+                    'plans.features.no_ads',
+                    'plans.features.easy_browsing',
+                ],
+            },
+        ],
     };
 
     return (
